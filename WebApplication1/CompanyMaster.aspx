@@ -29,10 +29,10 @@
                 </div>
                 <div class="body">
                     <form>
-                        <label for="email_address">Company Name</label>
+                        <label for="company_name">Company Name</label>
                         <div class="form-group">
                             <div class="form-line">
-                                <input type="text" id="email_address" class="form-control" placeholder="Enter your Company name">
+                                <input type="text" id="company_name" class="form-control" placeholder="Enter your Company name">
                             </div>
                         </div>
                         
@@ -40,7 +40,7 @@
                         <%--<input type="checkbox" id="remember_me" class="filled-in">
                         <label for="remember_me">Remember Me</label>--%>
                         <br>
-                        <button type="button" class="btn btn-primary m-t-15 waves-effect">ADD COMPANY</button>
+                        <button type="button" class="btn btn-primary m-t-15 waves-effect">ADD</button>
                     </form>
                 </div>
             </div>

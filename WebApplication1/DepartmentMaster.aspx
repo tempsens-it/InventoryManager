@@ -29,10 +29,10 @@
                 
                 <div class="body">
                     <form>
-                        <label for="email_address">Department Name</label>
+                        <label for="dept_name">Department Name</label>
                         <div class="form-group">
                             <div class="form-line">
-                                <input type="text" id="email_address" class="form-control" placeholder="Enter Department name">
+                                <input type="text" id="dept_name" class="form-control" placeholder="Enter Department name">
                             </div>
                         </div>
                         
@@ -53,7 +53,9 @@
                         <%--<input type="checkbox" id="remember_me" class="filled-in">
                         <label for="remember_me">Remember Me</label>--%>
                         <br>
-                        <button type="button" class="btn btn-primary m-t-15 waves-effect">ADD DEPARTMENT</button>
+                        <button type="button" class="btn btn-primary m-t-15 waves-effect">ADD</button>
+                        &ensp;
+                        <button type="button" class="btn btn-primary m-t-15 waves-effect">DELETE</button>
                     </form>
                 </div>
             </div>
