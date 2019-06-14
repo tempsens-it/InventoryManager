@@ -526,12 +526,21 @@
         <!-- #END# Right Sidebar -->
     </section>
 
+        <section class="content">
+        <div class="container-fluid">
+            
 
-
-        <div>
+            <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
+            
+               
+        </div>
+    </section>
+
+
+        
     </form>
 
 
