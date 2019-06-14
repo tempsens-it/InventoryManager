@@ -121,24 +121,180 @@
             <div class="card">
                 <div class="header">
                     <h2>
-                        Add Company
+                        Add Supplier Contact Person
                     </h2>
                     
                 </div>
                 <div class="body">
                     <form>
-                        <label for="email_address">Company Name</label>
+
+                        <div class="row clearfix">
+                            <div class="col-md-12">
+                                <p>
+                                    <b>Supplier Name</b>
+                                </p>
+                                <select class="form-control show-tick">
+                                    <option>Mustard</option>
+                                    <option>Ketchup</option>
+                                    <option>Relish</option>
+                                </select>
+
+                            </div> 
+                        </div>
+
+                       
+                        <label for="sup_emp_name">Name</label>
                         <div class="form-group">
                             <div class="form-line">
-                                <input type="text" id="email_address" class="form-control" placeholder="Enter your Company name">
+                                <input type="text" id="sup_emp_name" class="form-control" placeholder="Enter name">
+                            </div>
+                        </div>
+
+                        <label for="sup_emp_designation">Designation</label>
+                        <div class="form-group">
+                            <div class="form-line">
+                                <input type="text" id="sup_emp_designation" class="form-control" placeholder="Enter his/her desgination">
+                            </div>
+                        </div>
+
+                        <label for="sup_emp_mnumber">Mobile Number</label>
+                        <div class="form-group">
+                            <div class="form-line">
+                                <input type="text" id="sup_emp_mnumber" class="form-control" placeholder="Enter his/her mobile number">
                             </div>
                         </div>
                         
 
-                        <%--<input type="checkbox" id="remember_me" class="filled-in">
-                        <label for="remember_me">Remember Me</label>--%>
                         <br>
-                        <button type="button" class="btn btn-primary m-t-15 waves-effect">ADD COMPANY</button>
+                        <button type="button" class="btn btn-primary m-t-15 waves-effect">ADD</button>
+                        &ensp;
+                        <button type="button" class="btn btn-primary m-t-15 waves-effect">UPDATE</button>
+                        &ensp;
+                        <button type="button" class="btn btn-primary m-t-15 waves-effect">DELETE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        Add Payment Terms
+                    </h2>
+                    
+                </div>
+                <div class="body">
+                    <form>
+                        <label for="sup_payment_term">Payment Terms</label>
+                        <div class="form-group">
+                            <div class="form-line">
+                                <input type="text" id="sup_payment_term" class="form-control" placeholder="Enter Payment Terms">
+                            </div>
+                        </div>
+                        
+
+                        <br>
+                        <button type="button" class="btn btn-primary m-t-15 waves-effect">ADD</button>
+                        &ensp;
+                        <button type="button" class="btn btn-primary m-t-15 waves-effect">UPDATE</button>
+                        &ensp;
+                        <button type="button" class="btn btn-primary m-t-15 waves-effect">DELETE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        Add Document Type
+                    </h2>
+                    
+                </div>
+                <div class="body">
+                    <form>
+                        <label for="sup_document_type">Document Typer</label>
+                        <div class="form-group">
+                            <div class="form-line">
+                                <input type="text" id="sup_document_type" class="form-control" placeholder="Enter Document Type">
+                            </div>
+                        </div>
+                        
+
+                        <br>
+                        <button type="button" class="btn btn-primary m-t-15 waves-effect">ADD</button>
+                        &ensp;
+                        <button type="button" class="btn btn-primary m-t-15 waves-effect">UPDATE</button>
+                        &ensp;
+                        <button type="button" class="btn btn-primary m-t-15 waves-effect">DELETE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        Add Category
+                    </h2>
+                    
+                </div>
+                <div class="body">
+                    <form>
+                        <label for="sup_category">Category</label>
+                        <div class="form-group">
+                            <div class="form-line">
+                                <input type="text" id="sup_category" class="form-control" placeholder="Enter Category">
+                            </div>
+                        </div>
+                        
+
+                        <br>
+                        <button type="button" class="btn btn-primary m-t-15 waves-effect">ADD</button>
+                        &ensp;
+                        <button type="button" class="btn btn-primary m-t-15 waves-effect">UPDATE</button>
+                        &ensp;
+                        <button type="button" class="btn btn-primary m-t-15 waves-effect">DELETE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        Add Brand
+                    </h2>
+                    
+                </div>
+                <div class="body">
+                    <form>
+                        <label for="sup_brand">Brand</label>
+                        <div class="form-group">
+                            <div class="form-line">
+                                <input type="text" id="sup_brand" class="form-control" placeholder="Enter Brand">
+                            </div>
+                        </div>
+                        
+
+                        <br>
+                        <button type="button" class="btn btn-primary m-t-15 waves-effect">ADD</button>
+                        &ensp;
+                        <button type="button" class="btn btn-primary m-t-15 waves-effect">UPDATE</button>
+                        &ensp;
+                        <button type="button" class="btn btn-primary m-t-15 waves-effect">DELETE</button>
                     </form>
                 </div>
             </div>

@@ -604,7 +604,8 @@
     <!-- Custom Js -->
     <script src="js/admin.js"></script>
     <script src="js/pages/index.js"></script>
-    <script src="../../js/pages/forms/advanced-form-elements.js"></script>
+    <script src="js/pages/forms/advanced-form-elements.js"></script>
+    <script src="js/pages/examples/sign-in.js"></script>
 
 
     <!-- Demo Js -->
