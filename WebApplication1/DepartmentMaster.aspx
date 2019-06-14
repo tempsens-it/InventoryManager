@@ -29,15 +29,17 @@
                 
                 <div class="body">
                     <form>
+                        <div class="row clearfix">
+                            <div class="col-md-6">
                         <label for="dept_name">Department Name</label>
                         <div class="form-group">
                             <div class="form-line">
                                 <input type="text" id="dept_name" class="form-control" placeholder="Enter Department name">
                             </div>
                         </div>
+                        </div>
                         
-                        <div class="row clearfix">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <p>
                                     <b>Company</b>
                                 </p>
