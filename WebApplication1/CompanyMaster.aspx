@@ -4,7 +4,7 @@
 
 
     <div class="block-header">
-                <h2>Company Master</h2>
+                <h2>Company Master </h2>
      </div>
 
     <div class="row clearfix">
