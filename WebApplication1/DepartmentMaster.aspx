@@ -37,27 +37,29 @@
                         </div>
                         
                         <div class="row clearfix">
-                            <div class="col-sm-12">
+                            <div class="col-md-12">
+                                <p>
+                                    <b>Company</b>
+                                </p>
                                 <select class="form-control show-tick">
-                                    <option value="">-- Please select --</option>
-                                    <option value="10">10</option>
-                                    <option value="20">20</option>
-                                    <option value="30">30</option>
-                                    <option value="40">40</option>
-                                    <option value="50">50</option>
+                                    <option>Mustard</option>
+                                    <option>Ketchup</option>
+                                    <option>Relish</option>
                                 </select>
-                            </div>
+
+                            </div> 
                         </div>
 
                         <%--<input type="checkbox" id="remember_me" class="filled-in">
                         <label for="remember_me">Remember Me</label>--%>
                         <br>
-                        <button type="button" class="btn btn-primary m-t-15 waves-effect">ADD COMPANY</button>
+                        <button type="button" class="btn btn-primary m-t-15 waves-effect">ADD DEPARTMENT</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
+    
 </asp:Content>
 
