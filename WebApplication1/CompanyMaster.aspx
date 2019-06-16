@@ -28,20 +28,19 @@
                     </ul>--%>
                 </div>
                 <div class="body">
-                    <form>
-                        <label for="company_name">Company Name</label>
-                        <div class="form-group">
-                            <div class="form-line">
-                                <input type="text" id="company_name" class="form-control" placeholder="Enter your Company name">
+                    <div class="row clearfix">
+                        <div class="col-md-12">
+                            <label for="company_name">Company Name</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" id="company_name" class="form-control" placeholder="Enter your Company name">
+                                </div>
                             </div>
                         </div>
-                        
+                    </div>    
 
-                        <%--<input type="checkbox" id="remember_me" class="filled-in">
-                        <label for="remember_me">Remember Me</label>--%>
-                        <br>
-                        <button type="button" class="btn btn-primary m-t-15 waves-effect">ADD</button>
-                    </form>
+                    <button type="button" class="btn btn-primary m-t-15 waves-effect">ADD</button>
+                    
                 </div>
             </div>
         </div>
