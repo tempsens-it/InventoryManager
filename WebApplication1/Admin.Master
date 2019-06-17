@@ -632,6 +632,8 @@
     <!-- Waves Effect Plugin Js -->
     <script src="plugins/node-waves/waves.js"></script>
 
+    <!-- Formated date picker -->
+    <script src="js/pages/forms/advance-form-elements.js"></script>
 
 </body>
 </html>
