@@ -31,7 +31,36 @@
                             </div>
                         </div>
 
-                        <label for="sup_state">State</label>
+
+                        <div class="row clearfix">
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                        <%--<span class="input-group-addon">
+                                            <i class="material-icons">person</i>
+                                        </span>--%>
+                                        <div class="form-line">
+                                            <input type="text" class="form-control date" placeholder="State">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                        <div class="form-line">
+                                            <input type="text" class="form-control date" placeholder="City">
+                                        </div>                                          
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="input-group">                                        
+                                        <div class="form-line">
+                                            <input type="text" class="form-control date" placeholder="Pincode">
+                                        </div>                                        
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        <%--<label for="sup_state">State</label>
                         <div class="form-group">
                             <div class="form-line">
                                 <input type="text" id="sup_state" class="form-control" placeholder="Enter Supplier State">
@@ -43,7 +72,7 @@
                             <div class="form-line">
                                 <input type="text" id="sup_city" class="form-control" placeholder="Enter Supplier City">
                             </div>
-                        </div>
+                        </div>--%>
                         
                         <%--If dropdown is Required
                             <div class="row clearfix">
@@ -74,14 +103,14 @@
                             </div> 
                         </div>--%>
 
-                        <label for="sup_pincode">Pincode</label>
+                        <%--<label for="sup_pincode">Pincode</label>
                         <div class="form-group">
                             <div class="form-line">
                                 <input type="text" id="sup_pincode" class="form-control" placeholder="Enter Supplier Pincode">
                             </div>
-                        </div>
+                        </div>--%>
 
-                        <label for="sup_mnumber">Mobile Number</label>
+                        <%--<label for="sup_mnumber">Supplier Contact Details</label>
                         <div class="form-group">
                             <div class="form-line">
                                 <input type="text" id="sup_mnumber" class="form-control" placeholder="Enter Supplier Mobile number">
@@ -100,9 +129,41 @@
                             <div class="form-line">
                                 <input type="text" id="sup_email" class="form-control" placeholder="Enter Supplier Email address">
                             </div>
-                        </div>
+                        </div>--%>
 
-                        
+                        <label for="sup_address">Supplier Contact Details</label>
+                            <div class="row clearfix">
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">contact_phone</i>
+                                        </span>
+                                        <div class="form-line">
+                                            <input type="text" class="form-control date" placeholder="Contact No.">
+                                        </div>
+                                       </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">contact_mail</i>
+                                        </span>
+                                        <div class="form-line">
+                                            <input type="text" class="form-control date" placeholder="Supplier Email">
+                                        </div>                                        
+                                    </div>
+                                </div>
+                                <%--<div class="col-md-4">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">email</i>
+                                        </span>
+                                        <div class="form-line">
+                                            <input type="text" class="form-control date" placeholder="External email">
+                                        </div>                                        
+                                    </div>
+                                </div> --%>                              
+                            </div> 
                          
                         <br>
                         <button type="button" class="btn btn-primary m-t-15 waves-effect">ADD</button>
