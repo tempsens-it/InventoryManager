@@ -16,75 +16,64 @@
                     
                 </div>
                 <div class="body">
-                    <form>
-                        <div class="row clearfix">
-                            <div class="col-md-12">
-                                <p>
-                                    <b>Part Number</b>
-                                </p>
-                                <select class="form-control show-tick">
-                                    <option>Mustard</option>
-                                    <option>Ketchup</option>
-                                    <option>Relish</option>
-                                </select>
+                    <div class="row clearfix">
+                        <div class="col-md-6">
+                            <label for="transOut_partno">Part Number</label>
+                            <select class="form-control show-tick">
+                                <option>Mustard</option>
+                                <option>Ketchup</option>
+                                <option>Relish</option>
+                            </select>
 
-                            </div> 
+                        </div> 
                                 
-                            <div class="col-md-12">
-                                <p>
-                                    <b>Company</b>
-                                </p>
-                                <select class="form-control show-tick">
-                                    <option>Mustard</option>
-                                    <option>Ketchup</option>
-                                    <option>Relish</option>
-                                </select>
-
-                            </div>
-
-                            <div class="col-md-12">
-                                <p>
-                                    <b>Department</b>
-                                </p>
-                                <select class="form-control show-tick">
-                                    <option>Mustard</option>
-                                    <option>Ketchup</option>
-                                    <option>Relish</option>
-                                </select>
-
-                            </div>
-
-                            <div class="col-md-12">
-                                <p>
-                                    <b>Employee</b>
-                                </p>
-                                <select class="form-control show-tick">
-                                    <option>Mustard</option>
-                                    <option>Ketchup</option>
-                                    <option>Relish</option>
-                                </select>
-
-                            </div> 
+                        <div class="col-md-6">
+                            <label for="transOut_company">Company</label>
+                            <select class="form-control show-tick">
+                                <option>Mustard</option>
+                                <option>Ketchup</option>
+                                <option>Relish</option>
+                            </select>
                         </div>
+
+                        <div class="col-md-6">
+                            <label for="transOut_dept">Department</label>
+                            <select class="form-control show-tick">
+                                <option>Mustard</option>
+                                <option>Ketchup</option>
+                                <option>Relish</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="transOut_emp">Employee</label>
+                            <select class="form-control show-tick">
+                                <option>Mustard</option>
+                                <option>Ketchup</option>
+                                <option>Relish</option>
+                            </select>
+                        </div> 
                         
-                        <label for="transOut_quant">Quantity</label>
-                        <div class="form-group">
-                            <div class="form-line">
-                                <input type="text" id="transOut_quant" class="form-control" placeholder="Enter Quantity">
+                        <div class="col-md-6">
+                            <label for="transOut_quant">Quantity</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" id="transOut_quant" class="form-control" placeholder="Enter Quantity">
+                                </div>
                             </div>
                         </div>
 
-                        <label for="transOut_serialNum">Serial Number</label>
-                        <div class="form-group">
-                            <div class="form-line">
-                                <input type="text" id="transOut_serialNum" class="form-control" placeholder="Enter Serial number">
+                        <div class="col-md-6">
+                            <label for="transOut_serialNum">Serial Number</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" id="transOut_serialNum" class="form-control" placeholder="Enter Serial number">
+                                </div>
                             </div>
                         </div>
-                
-                        <br>
-                        <button type="button" class="btn btn-primary m-t-15 waves-effect">ADD</button>
-                        
-                    </form>
+                    </div>
+                    <br>
+                    <button type="button" class="btn btn-primary m-t-15 waves-effect">ADD</button>
                 </div>
             </div>
         </div>
