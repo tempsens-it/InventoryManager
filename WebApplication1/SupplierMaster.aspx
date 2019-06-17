@@ -162,24 +162,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
-                                    <label for="sup_state">State</label>
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <input type="text" id="sup_state" class="form-control" placeholder="Enter Supplier State">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label for="sup_city">City</label>
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <input type="text" id="sup_city" class="form-control" placeholder="Enter Supplier City">
-                                        </div>
-                                    </div>
-                                </div>
-
+                               
                                 <%--If dropdown is Required --%>
                             
                                 <div class="col-md-6">
