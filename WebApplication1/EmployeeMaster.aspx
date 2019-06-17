@@ -125,12 +125,12 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">business</i>
+                                        </span>
                                         <div class="form-line">
                                             <input type="text" class="form-control date" placeholder="Department">
                                         </div>
-                                       <span class="input-group-addon">
-                                            <i class="material-icons">send</i>
-                                        </span>
                                   </div>
                                 </div>
                                 <div class="col-md-4">
@@ -141,9 +141,6 @@
                                         <div class="form-line">
                                             <input type="text" class="form-control date" placeholder="Designation">
                                         </div>
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">send</i>
-                                        </span>
                                     </div>
                                 </div>
                             </div>
