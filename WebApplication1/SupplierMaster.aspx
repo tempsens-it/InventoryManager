@@ -108,6 +108,24 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-md-6">
+                            <label for="sup_payment_term">Payment Terms</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" id="sup_payment_term" class="form-control" placeholder="Enter Payment Terms">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="sup_payment_desc">Payment Terms Description</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" id="sup_payment_desc" class="form-control" placeholder="Enter Payment terms description">
+                                </div>
+                            </div>
+                        </div>
                     </div>  
                     
                     <button type="button" class="btn btn-primary m-t-15 waves-effect">ADD</button>
@@ -182,7 +200,7 @@
         </div>
     </div>
 
-    <div class="row clearfix">
+    <%--<div class="row clearfix">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header">
@@ -221,9 +239,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>--%>
 
-    <div class="row clearfix">
+   <%-- <div class="row clearfix">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header">
@@ -318,7 +336,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>--%>
 
 
 </asp:Content>

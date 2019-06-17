@@ -46,12 +46,9 @@
                                         <table id="table_1" class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                         <thead>
                                                 <tr>
-                                                <th>Ticket No</th>
-                                                <th>Category</th>
-                                                <th>Subcategory</th>
-                                                <th>Complain Date</th>
-                                                <th>Remarks</th>
-                                                <th>Status</th>
+                                                <th>Department ID</th>
+                                                <th>Name</th>
+                                                <th>Company</th>
                                                 <th>Action</th>
                                                 </tr>
                                         </thead>
@@ -66,13 +63,10 @@
                                         <table id="table1" class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                         <thead>
                                                 <tr>
-                                                <th>Ticket No</th>
-                                                <th>Category</th>
-                                                <th>Subcategory</th>
-                                                <th>Complain Date</th>
-                                                    <th>Remarks</th>
-                                                    <th>Status</th>
-                                                    <th>Action</th>
+                                                <th>Department ID</th>
+                                                <th>Name</th>
+                                                <th>Company</th>
+                                                <th>Action</th>
                                                     </tr>
                                         </thead>
                                         <tbody>
@@ -86,13 +80,10 @@
                                     <table id="table2" class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                         <thead>
                                                 <tr>
-                                                <th>Ticket No</th>
-                                                <th>Category</th>
-                                                <th>Subcategory</th>
-                                                <th>Complain Date</th>
-                                                    <th>Remarks</th>
-                                                    <th>Status</th>
-                                                    <th>Tracking</th>
+                                                <th>Department ID</th>
+                                                <th>Name</th>
+                                                <th>Company</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
