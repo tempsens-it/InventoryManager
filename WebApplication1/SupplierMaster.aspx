@@ -184,14 +184,14 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
+                                <%--<div class="col-md-6">
                                     <label for="sup_mnumber">Mobile Number</label>
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="text" id="sup_mnumber" class="form-control" placeholder="Enter Supplier Mobile number">
                                         </div>
                                     </div>
-                                </div>
+                                </div>--%>
 
                                 <div class="col-md-6">
                                     <label for="sup_lnumber">Landline Number</label>
@@ -211,7 +211,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
+                                <%--<div class="col-md-6">
                                     <label for="sup_payment_term">Payment Terms</label>
                                     <div class="form-group">
                                         <div class="form-line">
@@ -227,7 +227,7 @@
                                             <input type="text" id="sup_payment_desc" class="form-control" placeholder="Enter Payment terms description">
                                         </div>
                                     </div>
-                                </div>
+                                </div>--%>
                             </div>
                             <button type="button" class="btn btn-primary m-t-15 waves-effect">ADD</button>
 
@@ -270,6 +270,15 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="text" id="sup_emp_mnumber" class="form-control" placeholder="Enter mobile number">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="sup_emp_email">Email address</label>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="text" id="sup_emp_email" class="form-control" placeholder="Enter Email address">
                                         </div>
                                     </div>
                                 </div>

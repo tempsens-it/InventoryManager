@@ -42,6 +42,7 @@
                     <button type="button" class="btn btn-primary m-t-15 waves-effect">ADD</button>
                     
                 </div>
+                
             </div>
         </div>
     </div>

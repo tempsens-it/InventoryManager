@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="Employee Master" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeFile="EmployeeMaster.aspx.cs" Inherits="EmployeeMaster" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
     <div class="block-header">
         <h2>Employee Master </h2>
@@ -8,40 +8,39 @@
 
 
     <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>
-                                Employee
-                            </h2>
-                        </div>
-                        <div class="body">
-                            <!-- Nav tabs -->
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active">
-                                    <a href="#home_with_icon_title" data-toggle="tab">
-                                        <i class="material-icons">view_comfy</i> VIEW
-                                    </a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="#profile_with_icon_title" data-toggle="tab">
-                                        <i class="material-icons">add_box</i> ADD
-                                    </a>
-                                </li>     
-                            </ul>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>Employee
+                    </h2>
+                </div>
+                <div class="body">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#home_with_icon_title" data-toggle="tab">
+                                <i class="material-icons">view_comfy</i> VIEW
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#profile_with_icon_title" data-toggle="tab">
+                                <i class="material-icons">add_box</i> ADD
+                            </a>
+                        </li>
+                    </ul>
 
-                            <!-- Tab panes -->
-                            <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane fade in active" id="home_with_icon_title">
-                                    <br />
-                                   
-                                    <div class="row clearfix">
-                                        <div class="tab-content">
-                                            <div role="tabpanel" class="tab-pane fade in active" id="home">
-                                                    <div class="table-responsive"> 
-                                                <table id="table_1" class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="home_with_icon_title">
+                            <br />
+
+                            <div class="row clearfix">
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane fade in active" id="home">
+                                        <div class="table-responsive">
+                                            <table id="table_1" class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                                 <thead>
-                                                        <tr>
+                                                    <tr>
                                                         <th>Employee No.</th>
                                                         <th>Name</th>
                                                         <th>Designation</th>
@@ -52,19 +51,19 @@
                                                         <th>External Email id</th>
                                                         <th>Active</th>
                                                         <th>Action</th>
-                                                        </tr>
+                                                    </tr>
                                                 </thead>
                                                 <tbody>
-                                            <%--<%=getSourceData() %>--%>
-                                            </tbody>
+                                                    <%--<%=getSourceData() %>--%>
+                                                </tbody>
                                             </table>
-                                            </div>
-                                            </div>
-                                            <div role="tabpanel" class="tab-pane fade" id="profile">
-                                                    <div class="table-responsive">
-                                                <table id="table1" class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="profile">
+                                        <div class="table-responsive">
+                                            <table id="table1" class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                                 <thead>
-                                                        <tr>
+                                                    <tr>
                                                         <th>Employee No.</th>
                                                         <th>Name</th>
                                                         <th>Designation</th>
@@ -75,19 +74,19 @@
                                                         <th>External Email id</th>
                                                         <th>Active</th>
                                                         <th>Action</th>
-                                                        </tr>
+                                                    </tr>
                                                 </thead>
                                                 <tbody>
-                                        <%--  <%=getSourceData_1() %>--%>
-                                        </tbody>
+                                                    <%--  <%=getSourceData_1() %>--%>
+                                                </tbody>
                                             </table>
-                                            </div>
-                                            </div>
-                                            <div role="tabpanel" class="tab-pane fade" id="messages">
-                                                    <div class="table-responsive"> 
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="messages">
+                                        <div class="table-responsive">
                                             <table id="table2" class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                                 <thead>
-                                                        <tr>
+                                                    <tr>
                                                         <th>Employee No.</th>
                                                         <th>Name</th>
                                                         <th>Designation</th>
@@ -98,20 +97,20 @@
                                                         <th>External Email id</th>
                                                         <th>Active</th>
                                                         <th>Action</th>
-                                                        </tr>
+                                                    </tr>
                                                 </thead>
                                                 <tbody>
-                                        <%--<%=getSourceData_2() %>--%>
-                                        </tbody>
+                                                    <%--<%=getSourceData_2() %>--%>
+                                                </tbody>
                                             </table>
-                                                    </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div role="tabpanel" class="tab-pane fade" id="profile_with_icon_title">
-                                    <br />
-                                     <h2 class="card-inside-title">Employee Details</h2>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="profile_with_icon_title">
+                            <br />
+                            <h2 class="card-inside-title">Employee Details</h2>
                             <div class="row clearfix">
                                 <div class="col-md-4">
                                     <div class="input-group">
@@ -131,7 +130,7 @@
                                         <div class="form-line">
                                             <input type="text" class="form-control date" placeholder="Department">
                                         </div>
-                                  </div>
+                                    </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="input-group">
@@ -155,7 +154,7 @@
                                         <div class="form-line">
                                             <input type="text" class="form-control date" placeholder="Contact No.">
                                         </div>
-                                       </div>
+                                    </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="input-group">
@@ -164,7 +163,7 @@
                                         </span>
                                         <div class="form-line">
                                             <input type="text" class="form-control date" placeholder="Internal email">
-                                        </div>                                        
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -174,33 +173,33 @@
                                         </span>
                                         <div class="form-line">
                                             <input type="text" class="form-control date" placeholder="External email">
-                                        </div>                                        
+                                        </div>
                                     </div>
-                                </div>                               
-                            </div>                            
+                                </div>
+                            </div>
 
                             <h2 class="card-inside-title">Radio &amp; Checkbox</h2>
                             <div class="row clearfix">
                                 <div class="col-md-6">
-                                    <div class="input-group input-group-lg">                                        
+                                    <div class="input-group input-group-lg">
                                         <input type="checkbox" id="remember_me_2" class="filled-in">
-                                        <label for="remember_me_2">Is Active</label>                                      
+                                        <label for="remember_me_2">Is Active</label>
                                     </div>
-                                    <button type="button" class="btn btn-primary m-t-15 waves-effect">SAVE</button>                                    
-                                    
-                                </div>                                
-                            </div>       
-                                    
+                                    <button type="button" class="btn btn-primary m-t-15 waves-effect">SAVE</button>
 
                                 </div>
-                                </div>
-                                
-                            
+                            </div>
+
+
                         </div>
                     </div>
+
+
                 </div>
             </div>
-    
+        </div>
+    </div>
+
     <%--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
@@ -241,7 +240,7 @@
                                         <%--<span class="input-group-addon">
                                             <i class="material-icons">send</i>
                                         </span>--%>
-                                   <%--<%-- </div>
+    <%--<%-- </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="input-group">
@@ -307,7 +306,5 @@
                         </div>
                     </div>
                 </div>--%>
-
-
 </asp:Content>
 
