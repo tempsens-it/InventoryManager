@@ -37,7 +37,7 @@
                             <div class="row clearfix">
                                 <div class="tab-content">
                                     <div role="tabpanel" class="tab-pane fade in active" id="home">
-                                        <div class="table-responsive">
+                                        <div class="body table-responsive">
                                             <table id="table_1" class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                                 <thead>
                                                     <tr>
@@ -60,7 +60,7 @@
                                         </div>
                                     </div>
                                     <div role="tabpanel" class="tab-pane fade" id="profile">
-                                        <div class="table-responsive">
+                                        <div class="body table-responsive">
                                             <table id="table1" class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                                 <thead>
                                                     <tr>
@@ -83,7 +83,7 @@
                                         </div>
                                     </div>
                                     <div role="tabpanel" class="tab-pane fade" id="messages">
-                                        <div class="table-responsive">
+                                        <div class="body table-responsive">
                                             <table id="table2" class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                                 <thead>
                                                     <tr>
