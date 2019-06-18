@@ -134,7 +134,7 @@
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="addBox_with_icon_title">
                             <br />
-                            
+
                             <div class="row clearfix">
                                 <div class="col-md-12">
                                     <label for="sup_name">Supplier Name</label>

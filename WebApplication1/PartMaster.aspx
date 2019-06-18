@@ -1,8 +1,8 @@
 ﻿<%@ Page Title="Part Master" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeFile="PartMaster.aspx.cs" Inherits="PartMaster" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
-     <div class="block-header">
+    <div class="block-header">
         <h2>Part Master </h2>
     </div>
 
@@ -11,10 +11,9 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header">
-                    <h2>
-                        Part Description
+                    <h2>Part Description
                     </h2>
-                    
+
                 </div>
                 <div class="body">
                     <!-- Nav tabs -->
@@ -29,7 +28,7 @@
                                 <i class="material-icons">add_box</i> ADD
                             </a>
                         </li>
-                                
+
                     </ul>
 
                     <!-- Tab panes -->
@@ -39,7 +38,7 @@
                             <div class="row clearfix">
                                 <div class="tab-content">
                                     <div role="tabpanel" class="tab-pane fade in active" id="home">
-                                        <div class="table-responsive"> 
+                                        <div class="table-responsive">
                                             <table id="table_1" class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                                 <thead>
                                                     <tr>
@@ -52,7 +51,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                <%--<%=getSourceData() %>--%>
+                                                    <%--<%=getSourceData() %>--%>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -71,15 +70,15 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                <%--  <%=getSourceData_1() %>--%>
+                                                    <%--  <%=getSourceData_1() %>--%>
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                     <div role="tabpanel" class="tab-pane fade" id="messages">
-                                        <div class="table-responsive"> 
+                                        <div class="table-responsive">
                                             <table id="table2" class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                                 <thead>
+                                                <thead>
                                                     <tr>
                                                         <th>Part No.</th>
                                                         <th>Name</th>
@@ -90,7 +89,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                <%--<%=getSourceData_2() %>--%>
+                                                    <%--<%=getSourceData_2() %>--%>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -98,10 +97,10 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div role="tabpanel" class="tab-pane fade" id="addBox_with_icon_title">
                             <br />
-                    
+
                             <div class="row clearfix">
                                 <div class="col-md-12">
                                     <label for="sup_name">Part Name</label>
@@ -119,7 +118,7 @@
                                         <option>Ketchup</option>
                                         <option>Relish</option>
                                     </select>
-                                </div> 
+                                </div>
 
                                 <div class="col-md-6">
                                     <label for="sup_state">Category</label>
@@ -128,7 +127,7 @@
                                         <option>Ketchup</option>
                                         <option>Relish</option>
                                     </select>
-                                </div> 
+                                </div>
 
                                 <div class="col-md-6">
                                     <label for="sup_city">Brand</label>
@@ -149,11 +148,11 @@
                                 </div>
                             </div>
 
-                        
+
                             <button type="button" class="btn btn-primary m-t-15 waves-effect">ADD</button>
 
 
-                        </div>      
+                        </div>
                     </div>
                 </div>
             </div>

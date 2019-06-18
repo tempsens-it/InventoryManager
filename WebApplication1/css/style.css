@@ -4570,7 +4570,8 @@ section.content {
   border-bottom: 1px solid #eee; }
 
 .table-bordered {
-  border-top: 1px solid #eee; }
+  border-top: 1px solid #eee;
+}
   .table-bordered tbody tr td, .table-bordered tbody tr th {
     padding: 10px;
     border: 1px solid #eee; }

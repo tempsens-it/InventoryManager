@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="Transaction Outward" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeFile="TransactionOutward.aspx.cs" Inherits="TranscationOutward" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
     <div class="block-header">
         <h2>Transaction Outward</h2>
@@ -10,10 +10,9 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header">
-                    <h2>
-                        Add Transaction Details
+                    <h2>Add Transaction Details
                     </h2>
-                    
+
                 </div>
                 <div class="body">
                     <div class="row clearfix">
@@ -25,8 +24,8 @@
                                 <option>Relish</option>
                             </select>
 
-                        </div> 
-                                
+                        </div>
+
                         <div class="col-md-6">
                             <label for="transOut_company">Company</label>
                             <select class="form-control show-tick">
@@ -52,8 +51,8 @@
                                 <option>Ketchup</option>
                                 <option>Relish</option>
                             </select>
-                        </div> 
-                        
+                        </div>
+
                         <div class="col-md-6">
                             <label for="transOut_quant">Quantity</label>
                             <div class="form-group">

@@ -108,7 +108,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div role="tabpanel" class="tab-pane fade" id="profile_with_icon_title">
+                        <%--<div role="tabpanel" class="tab-pane fade" id="profile_with_icon_title">
                             <br />
                             <h2 class="card-inside-title">Employee Details</h2>
                             <div class="row clearfix">
@@ -189,6 +189,87 @@
 
                                 </div>
                             </div>
+
+
+                        </div>--%>
+                        <div role="tabpanel" class="tab-pane fade" id="profile_with_icon_title">
+                            <br />
+                            <div class="row clearfix">
+                                <div class="col-md-12">
+                                    <label for="emp_name">Employee Name</label>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="text" id="emp_name" class="form-control" placeholder="Enter Employee name">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="emp_company">Department</label>
+                                    <select class="form-control show-tick">
+                                        <option>Mustard</option>
+                                        <option>Ketchup</option>
+                                        <option>Relish</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="emp_company">Company</label>
+                                    <select class="form-control show-tick">
+                                        <option>Mustard</option>
+                                        <option>Ketchup</option>
+                                        <option>Relish</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="emp_des">Designation</label>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="text" id="emp_des" class="form-control" placeholder="Enter Designation">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="emp_contact">Contact Number</label>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="text" id="emp_contact" class="form-control" placeholder="Enter Contact number">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="emp_email_int">Internal Email Address</label>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="text" id="emp_email_int" class="form-control" placeholder="Enter Internal Mail Address">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="emp_email_ext">External Email Address</label>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="text" id="emp_email_ext" class="form-control" placeholder="Enter External Mail Address">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="input-group input-group-lg">
+                                        <input type="checkbox" id="remember_me_2" class="filled-in">
+                                        <label for="remember_me_2">Is Active</label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <button type="button" class="btn btn-primary m-t-15 waves-effect">SAVE</button>
+
 
 
                         </div>
