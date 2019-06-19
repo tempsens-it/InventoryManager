@@ -52,11 +52,11 @@
                                                         <th>State</th>
                                                         <th>Pincode</th>
                                                         <th>Mobile No.</th>
-                                                        <th>Landline No.</th>
+                                                        
                                                         <th>Email id</th>
                                                         <th>Payment Terms</th>
                                                         <th>Contact Person</th>
-                                                        <th>Mobile No.</th>
+                                                       
                                                         <th>Designation</th>
                                                         <th>Action</th>
                                                     </tr>
