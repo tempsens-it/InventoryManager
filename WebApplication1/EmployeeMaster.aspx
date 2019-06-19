@@ -11,7 +11,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>EDIT COMPANY</h2>
+                            <h2>UPDATE EMPLOYEE</h2>
 
                         </div>
                         <div class="body">
@@ -87,15 +87,18 @@
                                     </div>
                                 </div>
 
+                                <div class="col-md-6">
+
+                                </div>
+
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <div class="form-line">
-                                            <b>Is Active</b>
-                                            <asp:CheckBox ID="CheckBoxIsActive" runat="server" class="filled-in"/>
+                                        
+                                                <%--<b>Is Active</b>--%>
+                                            <asp:CheckBox ID="CheckBoxIsActive" runat="server" class="form-control filled-in" Text="Is Active" />
                                             <%-- Check Box inActive --%>
-                                        </div>
-                                    </div>
-                                    
+                                        
+                                    </div>  
                                 </div>
 
                             </div>

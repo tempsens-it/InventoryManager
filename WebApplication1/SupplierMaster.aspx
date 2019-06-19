@@ -2,6 +2,47 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
+    <div class="modal fade" id="defaultModal_1" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document" style="width: 1300px;">
+            <div class="block-header">
+            </div>
+            <!-- Basic Validation -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>UPDATE SUPPLIER</h2>
+
+                        </div>
+                        <div class="body">
+                            <div class="row clearfix">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>Brand Name:</b>
+                                            <asp:TextBox ID="TxtBrand" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Brand Name"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <asp:Button ID="btnSubmit" runat="server" Text="UPDATE" class="btn btn-primary m-t-15 waves-effect" OnClick="btnSubmit_Click" />
+                                        &ensp;
+                                        <button type="button" class="btn btn-primary m-t-15 waves-effect" data-dismiss="modal">CLOSE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="block-header">
         <h2>Supplier Master </h2>
     </div>
@@ -52,32 +93,15 @@
                                                         <th>State</th>
                                                         <th>Pincode</th>
                                                         <th>Landline No.</th>
-                                                        
                                                         <th>Email id</th>
                                                         <th>Payment Terms</th>
                                                         <th>Contact Person</th>
-                                                       
                                                         <th>Designation</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <%--<th>1</th>
-                                                        <th>national computer</th>
-                                                        <th>Udaipur</th>
-                                                        <th>Rajasthan</th>
-                                                        <th>313001</th>
-                                                        <th>+919999999999</th>
-                                                        
-                                                        <th>abc@example.com</th>
-                                                        <th>afasdfas</th>
-                                                        <th>Ram kumar</th>
-                                                        
-                                                        <th>Sales</th>
-                                                        <th>Action</th>--%>
-                                                    </tr>
-                                                    <%--<%=getSourceData() %>--%>
+                                                    <%=getSourceData() %>
                                                 </tbody>
                                             </table>
                                         </div>
