@@ -15,24 +15,176 @@
 
                         </div>
                         <div class="body">
-                            <div class="row clearfix">
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <b>Brand Name:</b>
-                                            <asp:TextBox ID="TxtBrand" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Brand Name"></asp:TextBox>
+
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active">
+                                    <a href="#edit_with_icon_title_supplier" data-toggle="tab">
+                                        <i class="material-icons">edit</i> UPDATE SUPPLIER
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="#edit_with_icon_title_supplier_person" data-toggle="tab">
+                                        <i class="material-icons">edit</i> UPDATE SUPPLIER PERSON
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane fade in active" id="edit_with_icon_title_supplier">
+                                    <br />
+                                    <div class="row clearfix">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <b>Supplier Name</b>
+                                                    <asp:TextBox ID="TextBoxSupplierName" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Name"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <b>Supplier Address</b>
+                                                    <asp:TextBox ID="TextBoxSupAdd" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Address"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <b>State</b>
+                                                    <asp:DropDownList ID="DropDownListState" runat="server" class="form-control show-tick">
+                                                        <asp:ListItem>Mustard</asp:ListItem>
+                                                        <asp:ListItem>Ketchup</asp:ListItem>
+                                                        <asp:ListItem>Relish</asp:ListItem>
+
+                                                    </asp:DropDownList>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <b>City</b>
+                                                    <asp:DropDownList ID="DropDownListSupCity" runat="server" class="form-control show-tick">
+                                                        <asp:ListItem>Mustard</asp:ListItem>
+                                                        <asp:ListItem>Ketchup</asp:ListItem>
+                                                        <asp:ListItem>Relish</asp:ListItem>
+
+                                                    </asp:DropDownList>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <b>PinCode</b>
+                                                    <asp:TextBox ID="TextBoxSupPincode" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Pincode"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <b>Supplier Landline Number</b>
+                                                    <asp:TextBox ID="TextBoxSupLandline" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Landline Number"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <b>Supplier Email Address</b>
+                                                    <asp:TextBox ID="TextBoxSupEmail" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Email Address"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6"></div>
+
+                                        <div class="row clearfix">
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <asp:Button ID="Button1" runat="server" Text="UPDATE" class="btn btn-primary m-t-15 waves-effect" OnClick="btnSubmit_Click" />
+                                                    &ensp;
+                                                    <button type="button" class="btn btn-primary m-t-15 waves-effect" data-dismiss="modal">CLOSE</button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                               
 
-                            </div>
-                            <div class="row clearfix">
-                                <div class="col-sm-3">
-                                    <div class="form-group">
-                                        <asp:Button ID="btnSubmit" runat="server" Text="UPDATE" class="btn btn-primary m-t-15 waves-effect" OnClick="btnSubmit_Click" />
-                                        &ensp;
-                                        <button type="button" class="btn btn-primary m-t-15 waves-effect" data-dismiss="modal">CLOSE</button>
+                                <div role="tabpanel" class="tab-pane fade" id="edit_with_icon_title_supplier_person">
+                                    <br />
+
+                                    <div class="row clearfix">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <b>Supplier Name</b>
+                                                    <asp:DropDownList ID="DropDownListSupplier" runat="server" class="form-control show-tick">
+                                                        <asp:ListItem>Mustard</asp:ListItem>
+                                                        <asp:ListItem>Ketchup</asp:ListItem>
+                                                        <asp:ListItem>Relish</asp:ListItem>
+
+                                                    </asp:DropDownList>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <b>Name:</b>
+                                                    <asp:TextBox ID="TextBoxName" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Person's Name"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <b>Designation</b>
+                                                    <asp:TextBox ID="TextBoxDesignation" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Designation"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <b>Mobile Number</b>
+                                                    <asp:TextBox ID="TextBoxMobNum" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Mobile Number"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <b>Email Address</b>
+                                                    <asp:TextBox ID="TextBoxEmail" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Email Address"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6"></div>
+
+                                        <div class="row clearfix">
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <asp:Button ID="Button2" runat="server" Text="UPDATE" class="btn btn-primary m-t-15 waves-effect" OnClick="btnSubmit_Click" />
+                                                    &ensp;
+                                                    <button type="button" class="btn btn-primary m-t-15 waves-effect" data-dismiss="modal">CLOSE</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
