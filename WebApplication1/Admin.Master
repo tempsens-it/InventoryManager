@@ -355,10 +355,27 @@
                         </li>
 
                         <li>
-                            <a href="PartMaster.aspx">
+                            <a href="javascript:void(0);" class="menu-toggle">
                                 <i class="material-icons">settings</i>
                                 <span>Part Master </span>
                             </a>
+                            <ul class="ml-menu">
+                                <li>
+                                    <a href="PartMaster.aspx">
+                                        <span>Part Master</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="BrandMaster.aspx">
+                                        <span>Brand Master</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span>Configurational Master</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
 
                         <li>
