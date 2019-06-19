@@ -17,7 +17,7 @@
                         </div>
                         <div class="body">
                             <div class="row clearfix">
-                                <div class="col-sm-6">
+                                <div class="col-sm-12">
                                     <div class="form-group">
                                         <div class="form-line">
                                             <b>Company Name:</b>
@@ -30,8 +30,9 @@
                             <div class="row clearfix">
                                 <div class="col-sm-3">
                                     <div class="form-group">
-                                        <asp:Button ID="btnSubmit" runat="server" Text="Update" class="btn bg-deep-orange waves-effect" OnClick="btnSubmit_Click" />
-                                        <button type="button" class="btn bg-yellow waves-effect" data-dismiss="modal">CLOSE</button>
+                                        <asp:Button ID="btnSubmit" runat="server" Text="UPDATE" class="btn btn-primary m-t-15 waves-effect" OnClick="btnSubmit_Click" />
+                                        &ensp;
+                                        <button type="button" class="btn btn-primary m-t-15 waves-effect" data-dismiss="modal">CLOSE</button>
                                     </div>
                                 </div>
                             </div>

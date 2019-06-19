@@ -54,40 +54,6 @@
                                             </table>
                                         </div>
                                     </div>
-                                    <div role="tabpanel" class="tab-pane fade" id="profile">
-                                        <div class="body table-responsive">
-                                            <table id="table1" class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Department ID</th>
-                                                        <th>Name</th>
-                                                        <th>Company</th>
-                                                        <th>Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <%--  <%=getSourceData_1() %>--%>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div role="tabpanel" class="tab-pane fade" id="messages">
-                                        <div class="body table-responsive">
-                                            <table id="table2" class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Department ID</th>
-                                                        <th>Name</th>
-                                                        <th>Company</th>
-                                                        <th>Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <%--<%=getSourceData_2() %>--%>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
 
