@@ -1,59 +1,19 @@
-﻿<%@ Page Title="Comapany Master" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeFile="CompanyMaster.aspx.cs" Inherits="CompanyMaster" %>
+﻿<%@ Page Title="Configurational Master" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeFile="ConfigurationalMaster.aspx.cs" Inherits="ConfigurationalMaster" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
 
-    <div class="modal fade" id="defaultModal_1" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document" style="width: 1300px;">
-            <div class="block-header">
-            </div>
-            <!-- Basic Validation -->
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>EDIT COMPANY</h2>
-
-                        </div>
-                        <div class="body">
-                            <div class="row clearfix">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <b>Company Name:</b>
-                                            <asp:TextBox ID="TxtCompany" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Company Name"></asp:TextBox>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="row clearfix">
-                                <div class="col-sm-3">
-                                    <div class="form-group">
-                                        <asp:Button ID="btnSubmit" runat="server" Text="Update" class="btn bg-deep-orange waves-effect" OnClick="btnSubmit_Click" />
-                                        <button type="button" class="btn bg-yellow waves-effect" data-dismiss="modal">CLOSE</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
     <div class="block-header">
-        <h2>Company Master </h2>
+        <h2>Configurational Master </h2>
     </div>
 
     <div class="row clearfix">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header">
-                    <h2>Add Company
+                    <h2>Configurational
                     </h2>
-
+                    
                 </div>
                 <div class="body">
                     <!-- Nav tabs -->
@@ -83,18 +43,49 @@
                                             <table id="table_1" class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                                 <thead>
                                                     <tr>
-                                                        <th>Company ID</th>
+                                                        <th>Brand ID</th>
                                                         <th>Name</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <%=getSourceData() %>
+                                                    <%--<%=getSourceData() %>--%>
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
-
+                                    <div role="tabpanel" class="tab-pane fade" id="profile">
+                                        <div class=" body table-responsive">
+                                            <table id="table1" class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Brand ID</th>
+                                                        <th>Name</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <%--  <%=getSourceData_1() %>--%>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="messages">
+                                        <div class="body table-responsive">
+                                            <table id="table2" class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Brand ID</th>
+                                                        <th>Name</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <%--<%=getSourceData_2() %>--%>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -102,7 +93,7 @@
                             <br />
                             <div class="row clearfix">
                                 <div class="col-md-12">
-                                    <label for="company_name">Company Name</label>
+                                    <label for="company_name">Details</label>
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="text" id="company_name" class="form-control" placeholder="Enter your Company name">
@@ -116,18 +107,7 @@
 
                     </div>
 
-                    <%--<div class="row clearfix">
-                        <div class="col-md-12">
-                            <label for="company_name">Company Name</label>
-                            <div class="form-group">
-                                <div class="form-line">
-                                    <input type="text" id="company_name" class="form-control" placeholder="Enter your Company name">
-                                </div>
-                            </div>
-                        </div>
-                    </div>    
                     
-                    <button type="button" class="btn btn-primary m-t-15 waves-effect">ADD</button>--%>
                 </div>
 
             </div>
