@@ -2,6 +2,59 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
+    <div class="modal fade" id="defaultModal_1" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document" style="width: 1300px;">
+            <div class="block-header">
+            </div>
+            <!-- Basic Validation -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>EDIT COMPANY</h2>
+
+                        </div>
+                        <div class="body">
+                            <div class="row clearfix">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>Department Name:</b>
+                                            <asp:TextBox ID="TxtDepartment" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Department Name"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>Company</b>
+                                            <asp:DropDownList ID="DropCompany" runat="server" class="form-control show-tick">
+                                                <asp:ListItem>Mustard</asp:ListItem>
+                                                <asp:ListItem>Ketchup</asp:ListItem>
+                                                <asp:ListItem>Relish</asp:ListItem>
+                                                
+                                            </asp:DropDownList>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <asp:Button ID="btnSubmit" runat="server" Text="UPDATE" class="btn btn-primary m-t-15 waves-effect" OnClick="btnSubmit_Click" />
+                                        &ensp;
+                                        <button type="button" class="btn btn-primary m-t-15 waves-effect" data-dismiss="modal">CLOSE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="block-header">
         <h2>Department Master </h2>
     </div>
@@ -49,7 +102,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <%--<%=getSourceData() %>--%>
+                                                    <%=getSourceData() %>
                                                 </tbody>
                                             </table>
                                         </div>

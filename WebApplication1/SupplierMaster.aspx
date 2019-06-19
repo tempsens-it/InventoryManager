@@ -51,7 +51,7 @@
                                                         <th>City</th>
                                                         <th>State</th>
                                                         <th>Pincode</th>
-                                                        <th>Mobile No.</th>
+                                                        <th>Landline No.</th>
                                                         
                                                         <th>Email id</th>
                                                         <th>Payment Terms</th>
@@ -62,68 +62,22 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <%--<tr>
-                                                        <th>1</th>
+                                                    <tr>
+                                                        <%--<th>1</th>
                                                         <th>national computer</th>
                                                         <th>Udaipur</th>
                                                         <th>Rajasthan</th>
                                                         <th>313001</th>
                                                         <th>+919999999999</th>
-                                                        <th>+9124924242</th>
+                                                        
                                                         <th>abc@example.com</th>
                                                         <th>afasdfas</th>
                                                         <th>Ram kumar</th>
-                                                        <th>+9198989898</th>
+                                                        
                                                         <th>Sales</th>
-                                                        <th>Action</th>
-                                                    </tr>--%>
+                                                        <th>Action</th>--%>
+                                                    </tr>
                                                     <%--<%=getSourceData() %>--%>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div role="tabpanel" class="tab-pane fade" id="profile">
-                                        <div class="body table-responsive">
-                                            <table id="table1" class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Employee No.</th>
-                                                        <th>Name</th>
-                                                        <th>Designation</th>
-                                                        <th>Department</th>
-                                                        <th>Company</th>
-                                                        <th>Contact No.</th>
-                                                        <th>Internal Email id</th>
-                                                        <th>External Email id</th>
-                                                        <th>Active</th>
-                                                        <th>Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <%--  <%=getSourceData_1() %>--%>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div role="tabpanel" class="tab-pane fade" id="messages">
-                                        <div class="body table-responsive">
-                                            <table id="table2" class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Employee No.</th>
-                                                        <th>Name</th>
-                                                        <th>Designation</th>
-                                                        <th>Department</th>
-                                                        <th>Company</th>
-                                                        <th>Contact No.</th>
-                                                        <th>Internal Email id</th>
-                                                        <th>External Email id</th>
-                                                        <th>Active</th>
-                                                        <th>Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <%--<%=getSourceData_2() %>--%>
                                                 </tbody>
                                             </table>
                                         </div>
