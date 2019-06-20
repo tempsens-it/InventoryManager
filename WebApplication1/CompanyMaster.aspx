@@ -5,8 +5,7 @@
 
     <div class="modal fade" id="defaultModal_1" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document" style="width: 1300px;">
-            <div class="block-header">
-            </div>
+            
             <!-- Basic Validation -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

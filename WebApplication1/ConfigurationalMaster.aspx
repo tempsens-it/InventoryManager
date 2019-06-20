@@ -2,6 +2,58 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
+    <div class="modal fade" id="defaultModal_1" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document" style="width: 1300px;">
+            <div class="block-header">
+            </div>
+            <!-- Basic Validation -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>UPDATE CONFIGURATION DETAILS</h2>
+
+                        </div>
+                        <div class="body">
+                            <div class="row clearfix">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>Part Name:</b>
+                                            <asp:TextBox ID="TxtName" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Part Name"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>Document Type</b>
+                                            <asp:DropDownList ID="DropDownListDocType" runat="server" class="form-control show-tick">
+                                                <asp:ListItem>Mustard</asp:ListItem>
+                                                <asp:ListItem>Ketchup</asp:ListItem>
+                                                <asp:ListItem>Relish</asp:ListItem>
+                                                
+                                            </asp:DropDownList>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <asp:Button ID="btnSubmit" runat="server" Text="UPDATE" class="btn btn-primary m-t-15 waves-effect" OnClick="btnSubmit_Click" />
+                                        &ensp;
+                                        <button type="button" class="btn btn-primary m-t-15 waves-effect" data-dismiss="modal">CLOSE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="block-header">
         <h2>Configurational Master </h2>
@@ -49,7 +101,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <%--<%=getSourceData() %>--%>
+                                                    <%=getSourceData() %>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -60,13 +112,23 @@
                         <div role="tabpanel" class="tab-pane fade" id="profile_with_icon_title">
                             <br />
                             <div class="row clearfix">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <label for="company_name">Details</label>
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="text" id="company_name" class="form-control" placeholder="Enter your Company name">
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="dept_company">Company</label>
+                                    <select class="form-control show-tick">
+                                        <option>Mustard</option>
+                                        <option>Ketchup</option>
+                                        <option>Relish</option>
+                                    </select>
+
                                 </div>
                             </div>
 

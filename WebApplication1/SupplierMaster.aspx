@@ -37,7 +37,7 @@
                                             <div class="form-group">
                                                 <div class="form-line">
                                                     <b>Supplier Name</b>
-                                                    <asp:TextBox ID="TextBoxSupplierName" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Name"></asp:TextBox>
+                                                    <asp:TextBox ID="TextBoxSupplierName" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Name"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -83,7 +83,9 @@
                                             <div class="form-group">
                                                 <div class="form-line">
                                                     <b>PinCode</b>
-                                                    <asp:TextBox ID="TextBoxSupPincode" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Pincode"></asp:TextBox>
+                                                    <asp:TextBox ID="TextBoxSupPincode" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Pincode">
+                                                    </asp:TextBox>
+
                                                 </div>
                                             </div>
                                         </div>
