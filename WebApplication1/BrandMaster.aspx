@@ -33,6 +33,7 @@
                                         <asp:Button ID="btnSubmit" runat="server" Text="UPDATE" class="btn btn-primary m-t-15 waves-effect" OnClick="btnSubmit_Click" />
                                         &ensp;
                                         <button type="button" class="btn btn-primary m-t-15 waves-effect" data-dismiss="modal">CLOSE</button>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -111,6 +112,7 @@
                             </div>
 
                             <button type="button" class="btn btn-primary m-t-15 waves-effect">SAVE</button>
+                            
                         </div>
 
                     </div>

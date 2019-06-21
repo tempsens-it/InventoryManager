@@ -143,16 +143,16 @@
 
                             <div class="row clearfix">
                                 <div class="col-md-12">
-                                    <label for="sup_name">Part Name</label>
+                                    <label for="part_name">Part Name</label>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" id="sup_name" class="form-control" placeholder="Enter Part name">
+                                            <input type="text" id="part_name" class="form-control" placeholder="Enter Part name">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="sup_state">Document Type</label>
+                                    <label for="part_docType">Document Type</label>
                                     <select class="form-control show-tick">
                                         <option>Mustard</option>
                                         <option>Ketchup</option>
@@ -161,12 +161,69 @@
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="sup_state">Category</label>
+                                    <label for="part_cat">Category</label>
                                     <select class="form-control show-tick">
                                         <option>Mustard</option>
                                         <option>Ketchup</option>
                                         <option>Relish</option>
                                     </select>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="part_specs1">Specification</label>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="text" id="part_specs1" class="form-control" placeholder="Enter Specification 1">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <label for="part_specs1Unit">Unit</label>
+                                    <div class="form-group">
+                                       <div class="input-group input-group-lg">
+                                            <input type="checkbox" id="part_specs1Unit" class="filled-in">
+                                            <label for="part_specs1Unit"></label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="part_specs2">Specification 2</label>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="text" id="part_specs2" class="form-control" placeholder="Enter Specification 2">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <label for="part_specs2Unit">Unit</label>
+                                    <div class="form-group">
+                                       <div class="input-group input-group-lg">
+                                            <input type="checkbox" id="part_specs2Unit" class="filled-in">
+                                            <label for="part_specs2Unit"></label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="part_specs3">Specification 3</label>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="text" id="part_specs3" class="form-control" placeholder="Enter Specification 3">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-1">
+                                    <label for="part_specs3Unit">Unit</label>
+                                    <div class="form-group">
+                                       <div class="input-group input-group-lg">
+                                            <input type="checkbox" id="part_specs3Unit" class="filled-in">
+                                            <label for="part_specs3Unit"></label>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="col-md-12">
