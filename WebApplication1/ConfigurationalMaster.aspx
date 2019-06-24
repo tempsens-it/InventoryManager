@@ -19,8 +19,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <b>Item Code</b>
-                                            <asp:DropDownList ID="DropDownListItemCode" runat="server" class="form-control show-tick">
+                                            <b>Part Name</b>
+                                            <asp:DropDownList ID="DropDownListPartName" runat="server" class="form-control show-tick">
                                                 <asp:ListItem>Mustard</asp:ListItem>
                                                 <asp:ListItem>Ketchup</asp:ListItem>
                                                 <asp:ListItem>Relish</asp:ListItem>
@@ -185,7 +185,7 @@
                                 
 
                                 <div class="col-md-6">
-                                    <label for="config_itemCode">Item Code</label>
+                                    <label for="config_partName">Part Name</label>
                                     <select class="form-control show-tick">
                                         <option>Mustard</option>
                                         <option>Ketchup</option>
