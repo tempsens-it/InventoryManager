@@ -79,11 +79,9 @@
         </div>
     </div>
 
-
     <div class="block-header">
         <h2>Part Master </h2>
     </div>
-
 
     <div class="row clearfix">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -169,7 +167,7 @@
                                     </select>
                                 </div>
 
-                                <div class="col-md-4">
+<%--                                <div class="col-md-4">
                                     <label for="part_specs1">Specification</label>
                                     <div class="form-group">
                                         <div class="form-line">
@@ -224,7 +222,7 @@
                                             <label for="part_specs3Unit"></label>
                                         </div>
                                     </div>
-                                </div>
+                                </div>--%>
 
                                 <div class="col-md-12">
                                     <label for="sup_pincode">Desciption</label>

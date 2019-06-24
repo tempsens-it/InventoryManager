@@ -57,11 +57,6 @@
     <link href="css/themes/all-themes.css" rel="stylesheet" />
 </head>
 
-<%--<head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
-</head>--%>
 <body class="theme-red">
     <form id="form1" runat="server">
         <%--<div class="page-loader-wrapper">
@@ -76,8 +71,8 @@
                     </div>
                 </div>
             </div>
-           <%-- <p>Please wait...</p>--%>
-        <%--</div>
+           
+        </div>
     </div>--%>
 
         <nav class="navbar">
@@ -85,7 +80,7 @@
                 <div class="navbar-header">
                     <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                     <a href="javascript:void(0);" class="bars"></a>
-                    <a class="navbar-brand" href="index.html">ADMINBSB - MATERIAL DESIGN</a>
+                    <a class="navbar-brand" href="Home.aspx">INVENT0RT MANAGER</a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">

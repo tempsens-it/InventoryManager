@@ -16,25 +16,95 @@
                         </div>
                         <div class="body">
                             <div class="row clearfix">
-                                <div class="col-sm-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <b>Part Name:</b>
-                                            <asp:TextBox ID="TxtName" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Part Name"></asp:TextBox>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <b>Document Type</b>
-                                            <asp:DropDownList ID="DropDownListDocType" runat="server" class="form-control show-tick">
+                                            <b>Item Code</b>
+                                            <asp:DropDownList ID="DropDownListItemCode" runat="server" class="form-control show-tick">
                                                 <asp:ListItem>Mustard</asp:ListItem>
                                                 <asp:ListItem>Ketchup</asp:ListItem>
                                                 <asp:ListItem>Relish</asp:ListItem>
                                                 
                                             </asp:DropDownList>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>Brand</b>
+                                            <asp:DropDownList ID="DropDownListBrand" runat="server" class="form-control show-tick">
+                                                <asp:ListItem>Mustard</asp:ListItem>
+                                                <asp:ListItem>Ketchup</asp:ListItem>
+                                                <asp:ListItem>Relish</asp:ListItem>
+                                                
+                                            </asp:DropDownList>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>Specification 1</b>
+                                            <asp:DropDownList ID="DropDownListSpecs1" runat="server" class="form-control show-tick">
+                                                <asp:ListItem>Intel i3</asp:ListItem>
+                                                <asp:ListItem>AMD Ryzen</asp:ListItem>
+                                                <asp:ListItem>Intel i5</asp:ListItem>
+                                                
+                                            </asp:DropDownList>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>Specification 2</b>
+                                            <asp:DropDownList ID="DropDownListSpecs2" runat="server" class="form-control show-tick">
+                                                <asp:ListItem>DDR4 4GB</asp:ListItem>
+                                                <asp:ListItem>DDR3 4GB</asp:ListItem>
+                                                <asp:ListItem>DDR4 8GB</asp:ListItem>
+                                                
+                                            </asp:DropDownList>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>Specification 3</b>
+                                            <asp:DropDownList ID="DropDownListSpecs3" runat="server" class="form-control show-tick">
+                                                <asp:ListItem>1</asp:ListItem>
+                                                <asp:ListItem>500</asp:ListItem>
+                                                <asp:ListItem>300</asp:ListItem>
+                                                
+                                            </asp:DropDownList>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>Unit</b>
+                                            <asp:DropDownList ID="DropDownListSpecs3Unit" runat="server" class="form-control show-tick">
+                                                <asp:ListItem>TB</asp:ListItem>
+                                                <asp:ListItem>GB</asp:ListItem>
+                                                <asp:ListItem>Mt.</asp:ListItem>
+                                                
+                                            </asp:DropDownList>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>Description</b>
+                                            <asp:TextBox ID="TxtDesc" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Description"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -168,19 +238,7 @@
                                     </select>
                                 </div>
 
-                                <%--<div class="col-md-3">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <b>Document Type</b>
-                                            <asp:DropDownList ID="config_specs3Unit" runat="server" class="form-control show-tick">
-                                                <asp:ListItem>Mustard</asp:ListItem>
-                                                <asp:ListItem>Ketchup</asp:ListItem>
-                                                <asp:ListItem>Relish</asp:ListItem>
-                                                
-                                            </asp:DropDownList>
-                                        </div>
-                                    </div>
-                                </div>--%>
+                                
 
                                 <div class="col-md-6">
                                     <label for="config_descript">Description</label>
@@ -191,14 +249,7 @@
                                     </div>
                                 </div>
 
-                               <%-- <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <b>Part Name:</b>
-                                            <asp:TextBox ID="config_descript" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Description"></asp:TextBox>
-                                        </div>
-                                    </div>
-                                </div>--%>
+                               
                             </div>
 
                             <button type="button" class="btn btn-primary m-t-15 waves-effect">SAVE</button>
