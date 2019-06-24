@@ -170,6 +170,67 @@
         </div>
     </div>
 
+    
+
+    <div class="modal fade" id="defaultModal_2" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document" style="width: 1300px;">
+            <div class="block-header">
+            </div>
+            <!-- Basic Validation -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>UPDATE DEPARTMENT</h2>
+
+                        </div>
+                        <div class="body">
+                            <div class="row clearfix">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>CGST rate</b>
+                                            <asp:TextBox ID="TxtCGSTRate" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="CGST rate"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>SGST rate</b>
+                                            <asp:TextBox ID="TextBoxSGSTRate" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="SGST rate"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>IGST rate</b>
+                                            <asp:TextBox ID="TextBoxIGSTRatrw" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="IGST rate"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <asp:Button ID="Button1" runat="server" Text="UPDATE" class="btn btn-primary m-t-15 waves-effect" OnClick="btnSubmit_Click" />
+                                        &ensp;
+                                        <button type="button" class="btn btn-primary m-t-15 waves-effect" data-dismiss="modal">CLOSE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="block-header">
         <h2>Transaction Outward</h2>
     </div>

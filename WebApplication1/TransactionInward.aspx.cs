@@ -76,7 +76,7 @@ public partial class TranscationInward : System.Web.UI.Page
         data += "</td><td>";
         data += " 123 <br> 123";
         data += "</td><td>";
-        data += " ";
+        data += "<a href='#' data-toggle='modal' data-target='#defaultModal_2'><i class='material-icons'>mode_edit</i></a>";
         data += "</td></tr>";
 
         return data;
