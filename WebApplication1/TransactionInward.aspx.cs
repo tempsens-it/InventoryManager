@@ -56,7 +56,7 @@ public partial class TranscationInward : System.Web.UI.Page
         data += "<tr><td>";
         data += " ";
         data += "</td><td>";
-        data += " CGST 9% <br> SGST 9%";
+        data += " CGST<br>SGST<br>IGST";
         data += "</td><td>";
         data += " ";
         data += "</td><td>";
@@ -68,13 +68,13 @@ public partial class TranscationInward : System.Web.UI.Page
         data += "</td><td>";
         data += " ";
         data += "</td><td>";
-        data += "9 <br> 9";
+        data += "9 <br> 9 <br> 0";
         data += "</td><td>";
-        data += "% <br> %";
+        data += "% <br> % <br> %";
         data += "</td><td>";
         data += " ";
         data += "</td><td>";
-        data += " 123 <br> 123";
+        data += " 123 <br> 123 <br> 0";
         data += "</td><td>";
         data += "<a href='#' data-toggle='modal' data-target='#defaultModal_2'><i class='material-icons'>mode_edit</i></a>";
         data += "</td></tr>";

@@ -90,33 +90,6 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <b>Specification 1</b>
-                                            <asp:TextBox ID="TextBoxSpec1" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Specification 1"></asp:TextBox>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <b>Specification 2</b>
-                                            <asp:TextBox ID="TextBoxSpec2" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Specification 2"></asp:TextBox>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <b>Specification 3</b>
-                                            <asp:TextBox ID="TextBoxSpec3" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Specification 3"></asp:TextBox>
-                                        </div>
-                                    </div>
-                                </div>
-
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <div class="form-line">
@@ -138,8 +111,8 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <b>per</b>
-                                            <asp:TextBox ID="TextBoxPer" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="per"></asp:TextBox>
+                                            <b>Unit</b>
+                                            <asp:TextBox ID="TextBoxUnit" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Unit"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -321,7 +294,7 @@
                                                 <th>Specification 3</th>
                                                 <th>Quantity</th>
                                                 <th>Rate</th>
-                                                <th>per</th>
+                                                <th>Unit</th>
                                                 <th>Disc%</th>
                                                 <th>Amount</th>
                                                 <th>Action</th>

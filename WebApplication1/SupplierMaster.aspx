@@ -108,7 +108,16 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-6"></div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <b>GST Number</b>
+                                                    <asp:TextBox ID="TextBoxGST" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="GST Number">
+                                                    </asp:TextBox>
+
+                                                </div>
+                                            </div>
+                                        </div>
 
                                         <div class="row clearfix">
                                             <div class="col-sm-3">
@@ -339,6 +348,15 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="text" id="sup_email" class="form-control" placeholder="Enter Supplier Email address">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="sup_GST">GST Number</label>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="text" id="sup_GST" class="form-control" placeholder="Enter GST number">
                                         </div>
                                     </div>
                                 </div>

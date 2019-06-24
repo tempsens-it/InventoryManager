@@ -10,14 +10,14 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header">
-                    <h2>Add Transaction Details
+                    <h2>Transaction Details
                     </h2>
 
                 </div>
                 <div class="body">
                     <div class="row clearfix">
                         <div class="col-md-6">
-                            <label for="transOut_partno">Part Number</label>
+                            <label for="transOut_partName">Part Name</label>
                             <select class="form-control show-tick">
                                 <option>Mustard</option>
                                 <option>Ketchup</option>
