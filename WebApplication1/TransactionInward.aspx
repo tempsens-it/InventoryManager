@@ -143,8 +143,6 @@
         </div>
     </div>
 
-    
-
     <div class="modal fade" id="defaultModal_2" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document" style="width: 1300px;">
             <div class="block-header">
@@ -220,15 +218,6 @@
                     <div class="row clearfix">
 
                         <div class="col-md-6">
-                            <label for="transIn_invoiceno">Invoice Number</label>
-                            <div class="form-group">
-                                <div class="form-line">
-                                    <input type="text" id="transIn_invoiceno" class="form-control" placeholder="Enter Invoice number">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
                             <label for="transIn_invoiceDate">Invoice Date</label>
                             <div class="form-group">
                                 <div class="form-line">
@@ -237,6 +226,15 @@
                             </div>
                         </div>
 
+                        <div class="col-md-6">
+                            <label for="transIn_inwardDate">Inward Date</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" id="transIn_inwardDate" class="form-control" placeholder="Enter Inward date">
+                                </div>
+                            </div>
+                        </div>
+                        
                         <div class="col-md-6">
                             <label for="transIn_supp">Supplier</label>
                             <select class="form-control show-tick">
@@ -247,10 +245,10 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label for="transIn_inwardDate">Inward Date</label>
+                            <label for="transIn_invoiceno">Invoice Number</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" id="transIn_inwardDate" class="form-control" placeholder="Enter Inward date">
+                                    <input type="text" id="transIn_invoiceno" class="form-control" placeholder="Enter Invoice number">
                                 </div>
                             </div>
                         </div>

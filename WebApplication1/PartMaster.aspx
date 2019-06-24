@@ -39,21 +39,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <b>Category</b>
-                                            <asp:DropDownList ID="DropDownListCat" runat="server" class="form-control show-tick">
-                                                <asp:ListItem>Mustard</asp:ListItem>
-                                                <asp:ListItem>Ketchup</asp:ListItem>
-                                                <asp:ListItem>Relish</asp:ListItem>
-                                                
-                                            </asp:DropDownList>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-12">
+                                <div class="col-sm-6">
                                     <div class="form-group">
                                         <div class="form-line">
                                             <b>Description</b>
@@ -121,8 +107,7 @@
                                                         <th>Part No.</th>
                                                         <th>Name</th>
                                                         <th>Document Type</th>
-                                                        <th>Category</th>
-                                                        <th>Brand</th>
+                                                        <th>Description</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -158,14 +143,7 @@
                                     </select>
                                 </div>
 
-                                <div class="col-md-6">
-                                    <label for="part_cat">Category</label>
-                                    <select class="form-control show-tick">
-                                        <option>Mustard</option>
-                                        <option>Ketchup</option>
-                                        <option>Relish</option>
-                                    </select>
-                                </div>
+                                
 
 <%--                                <div class="col-md-4">
                                     <label for="part_specs1">Specification</label>
@@ -224,7 +202,7 @@
                                     </div>
                                 </div>--%>
 
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <label for="sup_pincode">Desciption</label>
                                     <div class="form-group">
                                         <div class="form-line">

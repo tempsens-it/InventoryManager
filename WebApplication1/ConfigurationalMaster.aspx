@@ -33,20 +33,6 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <b>Brand</b>
-                                            <asp:DropDownList ID="DropDownListBrand" runat="server" class="form-control show-tick">
-                                                <asp:ListItem>Mustard</asp:ListItem>
-                                                <asp:ListItem>Ketchup</asp:ListItem>
-                                                <asp:ListItem>Relish</asp:ListItem>
-                                                
-                                            </asp:DropDownList>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <div class="form-line">
                                             <b>Specification 1</b>
                                             <asp:DropDownList ID="DropDownListSpecs1" runat="server" class="form-control show-tick">
                                                 <asp:ListItem>Intel i3</asp:ListItem>
@@ -72,7 +58,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <div class="form-line">
                                             <b>Specification 3</b>
@@ -86,25 +72,11 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-2">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <b>Unit</b>
-                                            <asp:DropDownList ID="DropDownListSpecs3Unit" runat="server" class="form-control show-tick">
-                                                <asp:ListItem>TB</asp:ListItem>
-                                                <asp:ListItem>GB</asp:ListItem>
-                                                <asp:ListItem>Mt.</asp:ListItem>
-                                                
-                                            </asp:DropDownList>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6">
+                                <div class="col-md-12">
                                     <div class="form-group">
                                         <div class="form-line">
                                             <b>Description</b>
-                                            <asp:TextBox ID="TxtDesc" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Description"></asp:TextBox>
+                                            <asp:TextBox ID="TxtDesc" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Description"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -166,7 +138,11 @@
                                                 <thead>
                                                     <tr>
                                                         <th>Brand ID</th>
-                                                        <th>Name</th>
+                                                        <th>Part Name</th>
+                                                        <th>Specification 1</th>
+                                                        <th>Specification 2</th>
+                                                        <th>Specification 3</th>
+                                                        <th>Description</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -194,15 +170,6 @@
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="config_brand">Brand</label>
-                                    <select class="form-control show-tick">
-                                        <option>Mustard</option>
-                                        <option>Ketchup</option>
-                                        <option>Relish</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-md-6">
                                     <label for="config_specs1">Specification 1</label>
                                     <select class="form-control show-tick">
                                         <option>Intel i3</option>
@@ -220,7 +187,7 @@
                                     </select>
                                 </div>
 
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <label for="config_specs3">Specification 3</label>
                                     <select class="form-control show-tick">
                                         <option>1</option>
@@ -229,18 +196,7 @@
                                     </select>
                                 </div>
 
-                                <div class="col-md-2">
-                                    <label for="config_specs3Unit">Unit</label>
-                                    <select class="form-control show-tick">
-                                        <option>GB</option>
-                                        <option>TB</option>
-                                        <option>Mt.</option>
-                                    </select>
-                                </div>
-
-                                
-
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <label for="config_descript">Description</label>
                                     <div class="form-group">
                                         <div class="form-line">
@@ -248,8 +204,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                               
                             </div>
 
                             <button type="button" class="btn btn-primary m-t-15 waves-effect">SAVE</button>

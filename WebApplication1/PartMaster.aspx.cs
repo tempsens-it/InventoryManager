@@ -27,8 +27,6 @@ public partial class PartMaster : System.Web.UI.Page
         data += "</td><td>";
         data += "1";
         data += "</td><td>";
-        data += "1";
-        data += "</td><td>";
         data += "<a href='#' data-toggle='modal' data-target='#defaultModal_1'><i class='material-icons'>mode_edit</i></a>";
         data += "&nbsp; <a href='#' data-toggle='modal' data-target='#defaultModal_1'><i class='material-icons'>delete</i></a>";
         data += "</td></tr>";
