@@ -216,21 +216,21 @@
                 </div>
                 <div class="body">
                     <div class="row clearfix">
-
+                        
                         <div class="col-md-6">
                             <label for="transIn_invoiceDate">Invoice Date</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" id="transIn_invoiceDate" class="form-control" placeholder="Enter Invoice date">
+                                    <input type="text" id="transIn_invoiceDate" class="form-control" placeholder="Ex: 30/06/2018">
                                 </div>
                             </div>
                         </div>
-
+                            
                         <div class="col-md-6">
                             <label for="transIn_inwardDate">Inward Date</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" id="transIn_inwardDate" class="form-control" placeholder="Enter Inward date">
+                                    <input type="text" id="transIn_inwardDate" class="form-control" placeholder="Ex: 20/06/2018">
                                 </div>
                             </div>
                         </div>
@@ -249,6 +249,15 @@
                             <div class="form-group">
                                 <div class="form-line">
                                     <input type="text" id="transIn_invoiceno" class="form-control" placeholder="Enter Invoice number">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="transIn_supGST">GST Number</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" id="transIn_supGST" class="form-control" placeholder="Enter GST number" disabled>
                                 </div>
                             </div>
                         </div>
@@ -275,7 +284,7 @@
                         </div>
                     </div>
 
-                    <%--<hr style="border-width: 1px; display: block; border-color: #cfcece; width: 100%;" />--%>
+                    <hr style="border-width: 1px; display: block; border-color: #a7a7a7;" />
 
                     <div class="row clearfix">
                         <div class="tab-content">
@@ -312,7 +321,11 @@
 
                     </div>
 
+                    <%--<hr style="color:#a7a7a7; display:block; border-width:1px; border-style:inset;"/>--%>
 
+                    <div class="row clearfix">
+
+                    </div>
 
                     <br>
                     <button type="button" class="btn btn-primary m-t-15 waves-effect">SUBMIT</button>
@@ -320,6 +333,7 @@
             </div>
         </div>
     </div>
+
 
 </asp:Content>
 
