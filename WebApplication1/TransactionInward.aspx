@@ -20,7 +20,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <b>Line No.</b>
-                                            <asp:TextBox ID="TxtLineNo" runat="server" Style="text-transform: capitalize" class="form-control"  ReadOnly="True"></asp:TextBox>
+                                            <asp:TextBox ID="TxtLineNo" runat="server" Style="text-transform: capitalize" class="form-control" ReadOnly="True"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -183,7 +183,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
 
                             </div>
                             <div class="row clearfix">
@@ -216,25 +216,25 @@
                 </div>
                 <div class="body">
                     <div class="row clearfix">
-                        
+
                         <div class="col-md-6">
                             <label for="transIn_invoiceDate">Invoice Date</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" id="transIn_invoiceDate" class="form-control" placeholder="Ex: 30/06/2018">
+                                    <input type="text" id="transIn_invoiceDate" class="datepicker form-control" placeholder="Invoice Date">
                                 </div>
                             </div>
                         </div>
-                            
+
                         <div class="col-md-6">
                             <label for="transIn_inwardDate">Inward Date</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" id="transIn_inwardDate" class="form-control" placeholder="Ex: 20/06/2018">
+                                    <input type="text" id="transIn_inwardDate" class="datepicker form-control" placeholder="Inward Date">
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-md-6">
                             <label for="transIn_supp">Supplier</label>
                             <select class="form-control show-tick">
@@ -324,7 +324,6 @@
                     <%--<hr style="color:#a7a7a7; display:block; border-width:1px; border-style:inset;"/>--%>
 
                     <div class="row clearfix">
-
                     </div>
 
                     <br>
@@ -334,6 +333,36 @@
         </div>
     </div>
 
+     <!-- Jquery Core Js -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core Js -->
+    <script src="../../plugins/bootstrap/js/bootstrap.js"></script>
+
+    <!-- Select Plugin Js -->
+    <script src="../../plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="../../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="../../plugins/node-waves/waves.js"></script>
+
+    <!-- Autosize Plugin Js -->
+    <script src="../../plugins/autosize/autosize.js"></script>
+
+    <!-- Moment Plugin Js -->
+    <script src="../../plugins/momentjs/moment.js"></script>
+
+    <!-- Bootstrap Material Datetime Picker Plugin Js -->
+    <script src="../../plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+
+    <!-- Custom Js -->
+    <script src="../../js/admin.js"></script>
+    <script src="../../js/pages/forms/basic-form-elements.js"></script>
+
+    <!-- Demo Js -->
+    <script src="../../js/demo.js"></script>
 
 </asp:Content>
 

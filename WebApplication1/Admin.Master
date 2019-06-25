@@ -49,6 +49,8 @@
     <!-- noUISlider Css -->
     <link href="plugins/nouislider/nouislider.min.css" rel="stylesheet" />
 
+    <!-- Bootstrap Material Datetime Picker Css -->
+    <link href="plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
 
     <!-- Custom Css -->
     <link href="css/style.css" rel="stylesheet">
@@ -647,6 +649,7 @@
 
     <!-- Formated date picker -->
     <script src="js/pages/forms/advance-form-elements.js"></script>
+
 
 </body>
 </html>
