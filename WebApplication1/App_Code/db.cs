@@ -13,195 +13,372 @@ public class db
 
     public SqlConnection Cn = new SqlConnection();
     public SqlCommand cmd = new SqlCommand();
-    public void MSSQl_conn(string servername, string dbname, string uname, string pwd)
+    public void MSSQl_conn()
     {
 
-        Cn = new SqlConnection("server=ASTUSER1/SQLEXPRESS;user id= sa;password=admin@123;database=AutoCal");
+        Cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
+
+    }
+
+    public void insert(string tableName, string columnName, string value)
+    {
         try
         {
             Cn.Open();
+            cmd.CommandText = "INSERT INTO " + tableName + "(" + columnName + " , createDate,UserID) Values ('" + value + "', ' " + DateTime.Now + "', 1)";
+            cmd.Connection = Cn;
+            cmd.ExecuteNonQuery();
         }
         catch (Exception ex)
         {
-
+            Console.Write(ex.Message);
         }
+        Cn.Close();
 
-        var st = Cn.State;
-        if (st == ConnectionState.Open)
+    }
+
+    public void insert( string tableName,  string columnName,  int columnName2,  string value,  string value2)
+    {
+        try
         {
-
+            Cn.Open();
+            cmd.CommandText = "INSERT INTO " + tableName + "(" + columnName + " ," + columnName2 + " , createDate,UserID) Values ('" + value + "'," + value + " ' " + DateTime.Now + "', 1)";
+            cmd.ExecuteNonQuery();
         }
-
+        catch (Exception ex)
+        {
+            Console.Write(ex.Message);
+        }
+        Cn.Close();
     }
 
-    public void insert(ref string tableName, ref string columnName, ref string value)
+    public void Update( string tableName,  string columnName,  string value)
     {
-        cmd.CommandText = "INSERT INTO " + tableName + "(" + columnName + " , createDate,UserID) Values ('" + value + "', ' " + DateTime.Now + "', 1)";
-        cmd.ExecuteNonQuery();
-
+        try
+        {
+            Cn.Open();
+            cmd.CommandText = "Update " + tableName + "SET" + columnName + " = '" + value + "'";
+            cmd.ExecuteNonQuery();
+        }
+        catch (Exception ex)
+        {
+            Console.Write(ex.Message);
+        }
+        Cn.Close();
     }
 
-    public void insert(ref string tableName, ref string columnName, ref int columnName2, ref string value, ref string value2)
+    public void Delete( string tableName,  string columnName,  string value)
     {
-        cmd.CommandText = "INSERT INTO " + tableName + "(" + columnName + " ," + columnName2 + " , createDate,UserID) Values ('" + value + "'," + value + " ' " + DateTime.Now + "', 1)";
-        cmd.ExecuteNonQuery();
-
-    }
-
-    public void Update(ref string tableName, ref string columnName, ref string value)
-    {
-        cmd.CommandText = "Update " + tableName + "SET" + columnName + " = '" + value + "'";
-        cmd.ExecuteNonQuery();
-
-    }
-
-    public void Delete(ref string tableName, ref string columnName, ref string value)
-    {
-        cmd.CommandText = "Delete From " + tableName + "Where" + columnName + " = '" + value + "'";
-        cmd.ExecuteNonQuery();
-    }
-
-
-    public void Select(ref string tableName, ref string columnName, ref string columnName1, ref string value)
-    {
-        DataTable dt = new DataTable();
-
-        cmd.CommandText = "Select" + columnName + " From " + tableName + "Where" + columnName1 + " = '" + value + "'";
-        SqlDataReader reader = cmd.ExecuteReader();
-        dt.Load(reader);
+        try
+        {
+            Cn.Open();
+            cmd.CommandText = "Delete From " + tableName + "Where" + columnName + " = '" + value + "'";
+            cmd.ExecuteNonQuery();
+        }
+        catch (Exception ex)
+        {
+            Console.Write(ex.Message);
+        }
+        Cn.Close();
     }
 
 
-    public void insertEmp(ref string empNAme, ref string contact, ref int deptId, ref int CompId, ref int isActive, ref string desgn, ref string emailInt, ref string emailExt)
+    public void Select( string tableName,  string columnName,  string columnName1,  string value)
     {
-        cmd.CommandText = "INSERT INTO [dbo].[Emp] ([EmpName] , [Contact] , [DeptId] , [CompId] , [IsActive] , [Degn] , [Email_Int] , [Email_Ex] , [CreateDate] , [UserId] ) VALUES('" + empNAme + "', '" + contact + "'," + deptId + "," + CompId + "," + isActive + ",'" + desgn + "',' " + emailInt + "','" + emailExt + "', '" + DateTime.Now + "', 1)";
-        cmd.ExecuteNonQuery();
+        try
+        {
+            Cn.Open();
+            DataTable dt = new DataTable();
 
-    }
-    public void UpdateEmp(ref string empNAme, ref string contact, ref int deptId, ref int CompId, ref int isActive, ref string desgn, ref string emailInt, ref string emailExt, ref int empid)
-    {
-
-        cmd.CommandText = "UPDATE [dbo].[Emp] SET [EmpName] = '" + empNAme + "', [Contact] = '" + contact + "', [DeptId] = " + deptId + ", [CompId] = " + CompId + ", [IsActive] = " + isActive + ", [Degn] = '" + desgn + "', [Email_Int] = '" + emailInt + "', [Email_Ex] =' " + emailExt + "' WHERE empID = " + empid + " ";
-        cmd.ExecuteNonQuery();
-
-    }
-
-    public void SelectAllColumnsById(ref string tableName, ref string columnName, ref int value)
-    {
-        DataTable dt = new DataTable();
-        cmd.CommandText = "Select * From " + tableName + "Where" + columnName + " = " + value + "";
-        SqlDataReader reader = cmd.ExecuteReader();
-        dt.Load(reader);
+            cmd.CommandText = "Select" + columnName + " From " + tableName + "Where" + columnName1 + " = '" + value + "'";
+            SqlDataReader reader = cmd.ExecuteReader();
+            dt.Load(reader);
+        }
+        catch (Exception ex)
+        {
+            Console.Write(ex.Message);
+        }
+        Cn.Close();
     }
 
 
-    public int getIdByName(ref string idColumnName, ref string nameColumn, ref string tableName, ref string value)
+    public void insertEmp( string empNAme,  string contact,  int deptId,  int CompId,  int isActive,  string desgn,  string emailInt,  string emailExt)
     {
-        cmd.CommandText = cmd.CommandText = "Select" + idColumnName + " From " + tableName + "Where" + nameColumn + " = '" + value + "'";
-        var id = cmd.ExecuteScalar();
-        return Convert.ToInt16(id);
-    }
-
-    public void insertSupplier(ref string supplierName, ref string Add, ref string City, ref string State, ref string MobileNo, ref string phoneNo, ref string email, ref int PaymentId, ref int Pincode)
-    {
-        cmd.CommandText = "INSERT INTO [dbo].[Supplier] ( [SupplierName] , [Address] , [City] , [State] , [MobileNo] , [PhoneNo] , [Email] , [PayTermId] , [Pincode] , [CreateDate] Values('" + supplierName + "', '" + Add + "', '" + City + "',  '" + State + "', '" + MobileNo + "', '" + phoneNo + "',  '" + email + "',  " + PaymentId + ",  " + Pincode + ",'" + DateTime.Now + "', 1)";
-        cmd.ExecuteNonQuery();
-
-    }
-
-    public void UpdateSupplier(ref string supplierName, ref string Add, ref string City, ref string State, ref string MobileNo, ref string phoneNo, ref string email, ref int PaymentId, ref int Pincode, ref int supplierId)
-    {
-        cmd.CommandText = " UPDATE [dbo].[Supplier] SET[SupplierName] = '" + supplierName + "' ,[Address] ='" + Add + "' ,[City] ='" + City + "'  ,[State] = '" + State + "' ,[MobileNo] =  ,[PhoneNo] ='" + MobileNo + "'  ,[Email] =  ,[PayTermId] = " + PaymentId + " ,[Pincode] = " + Pincode + " ,[CreateDate] = '" + DateTime.Now + "' ,[UserId] = 1  WHERE SupplierId = " + supplierId + " ";
-        cmd.ExecuteNonQuery();
+        try
+        {
+            Cn.Open();
+            cmd.CommandText = "INSERT INTO [dbo].[Emp] ([EmpName] , [Contact] , [DeptId] , [CompId] , [IsActive] , [Degn] , [Email_Int] , [Email_Ex] , [CreateDate] , [UserId] ) VALUES('" + empNAme + "', '" + contact + "'," + deptId + "," + CompId + "," + isActive + ",'" + desgn + "',' " + emailInt + "','" + emailExt + "', '" + DateTime.Now + "', 1)";
+            cmd.ExecuteNonQuery();
+        }
+        catch (Exception ex)
+        {
+            Console.Write(ex.Message);
+        }
+        Cn.Close();
 
     }
-
-
-
-    public void UpdatePayMentTerms(ref string paymentTems, ref int NoofDays, int paymentTermId)
+    public void UpdateEmp( string empNAme,  string contact,  int deptId,  int CompId,  int isActive,  string desgn,  string emailInt,  string emailExt,  int empid)
     {
-        cmd.CommandText = "UPDATE [dbo].[PaymentTerms] SET [TermDesc] = '" + paymentTems + "',[NoOfDays] = " + NoofDays + ",[CreateDate] =' " + DateTime.Now + "' , [UserId] = 1 WHERE paymentTermId = " + paymentTermId + "";
-        cmd.ExecuteNonQuery();
-
-    }
-
-
-    public void insertSupplierContact(ref string supplierId, ref string SuprCntName, ref string Degn, ref string State, ref string MobileNo, ref string phoneNo, ref string email, ref int PaymentId, ref int Pincode)
-    {
-        cmd.CommandText = "INSERT INTO [dbo].[SupplierCnt] ([SupplierId] ,[SuprCntName] ,[Degn] ,[MobileNo] ,[Email] ,[UserId] ,[CreateDate] ) VALUES(" + supplierId + ", '" + SuprCntName + "', '" + Degn + "',   '" + MobileNo + "',   '" + email + "',   1 ,'" + DateTime.Now + "',)";
-        cmd.ExecuteNonQuery();
+        try
+        {
+            Cn.Open();
+            cmd.CommandText = "UPDATE [dbo].[Emp] SET [EmpName] = '" + empNAme + "', [Contact] = '" + contact + "', [DeptId] = " + deptId + ", [CompId] = " + CompId + ", [IsActive] = " + isActive + ", [Degn] = '" + desgn + "', [Email_Int] = '" + emailInt + "', [Email_Ex] =' " + emailExt + "' WHERE empID = " + empid + " ";
+            cmd.ExecuteNonQuery();
+        }
+        catch (Exception ex)
+        {
+            Console.Write(ex.Message);
+        }
+        Cn.Close();
 
     }
 
-    public void UpdateSupplierContact(ref string supplierCntName, ref string Degn, ref string MobileNo, ref string email, ref int SupplierCntId)
+    public void SelectAllColumnsById( string tableName,  string columnName,  int value)
     {
-        cmd.CommandText = "  UPDATE [dbo].[SupplierCnt] SET [SuprCntName]  = '" + supplierCntName + "' ,[Degn] ='" + Degn + "' ,[MobileNo] = '" + MobileNo + "' ,[Email] = '" + email + "' ,[CreateDate] = '" + DateTime.Now + "' ,[UserId] = 1  WHERE SupplierCntId = " + SupplierCntId + " ";
-        cmd.ExecuteNonQuery();
+        try
+        {
+            Cn.Open();
+            DataTable dt = new DataTable();
+            cmd.CommandText = "Select * From " + tableName + "Where" + columnName + " = " + value + "";
+            SqlDataReader reader = cmd.ExecuteReader();
+            dt.Load(reader);
+        }
+        catch (Exception ex)
+        {
+            Console.Write(ex.Message);
+        }
+        Cn.Close();
     }
 
 
-    public void insertPartMaster(ref string partname, ref string Desc, ref int CatId)
+    public int getIdByName( string idColumnName,  string nameColumn,  string tableName,  string value)
     {
-        cmd.CommandText = "INSERT INTO [dbo].[PartMaster] ([PartName] ,[CatId] ,[Description] ,[CreateDate] ) VALUES ('" + partname + "'," + CatId + ",'" + Desc + "', ' " + DateTime.Now + "', 1)"; 
-        cmd.ExecuteNonQuery();
-
-    }
-
-    public void UpdatePartMaster(ref string partname, ref string Desc, ref int CatId, ref int partId)
-    {
-        cmd.CommandText = "UPDATE [dbo].[PartMaster] SET[PartName] = '" + partname + "' ,[CatId]  =" + CatId + " ,[Description] = '" + Desc + "' ,[CreateDate] = '" + DateTime.Now + "' ,[UserId] = 1  WHERE partID = " + partId + " ";
-         cmd.ExecuteNonQuery();
-    }
-
-    public void insertPartConfig(ref int partId,ref string Spec1, ref string Spec2, ref string Spec3, ref string Desc)
-    {
-        cmd.CommandText = " INSERT INTO[dbo].[PartConfig] ([PartId] ,[Spec1] ,[Spec2] ,[Spec3] ,[Description] ,[CreateDate] ,[UserId]) VALUES (" + partId + ",'" + Spec1 + "','" + Spec2 + "','" + Spec3 + "','" + Desc + "', ' " + DateTime.Now + "', 1)";
-        cmd.ExecuteNonQuery();
-    }
-
-    public void UpdatePartConfig(ref string partid, ref string Desc, ref string Spec1, ref string Spec2, ref string Spec3,  ref int PartConfigId)
-    {
-        cmd.CommandText = "UPDATE [dbo].[PartConfig] SET[PartId] = " + partid+ " ,[Spec1]  ='" + Spec1 + "' ,[Spec2]  ='" + Spec2 + "' ,[Spec3]  ='" + Spec3 + "' ,[Description] = '" + Desc + "' ,[CreateDate] = '" + DateTime.Now + "' ,[UserId] = 1  WHERE PartConfigId = " + PartConfigId + " ";
-        cmd.ExecuteNonQuery();
-    }
-
-
-    public void insertTransHead(ref int compId, ref string InvcNum, ref int suppilerId, ref int paymentId,, ref DateTime InvcDate)
-    {
-        cmd.CommandText = "INSERT INTO[dbo].[TransHead] ([CompId] ,[InvcNo] ,[InvcDate] ,[SupplierId] ,[paymentTermId] ,[TransDate] ,[CreateDate] ,[UserId] ) VALUES (" + compId + ",'" + InvcNum + "','" + InvcDate + "'," + suppilerId + "," + paymentId + ", ' " + DateTime.Now + "',' " + DateTime.Now + "', 1)";
+        int id=0;
+        try
+        {
+            Cn.Open();
+            cmd.CommandText = cmd.CommandText = "Select" + idColumnName + " From " + tableName + "Where" + nameColumn + " = '" + value + "'";
+            id = Convert.ToInt16(cmd.ExecuteScalar());
+           
+        } 
+        catch (Exception ex)
+        {
+            Console.Write(ex.Message);
+        }
         
-        cmd.ExecuteNonQuery();
+        Cn.Close();
+        return id;
     }
 
-    public void UpdateTransHead(ref int compId, ref string InvcNum, ref int suppilerId, ref int paymentId, ref DateTime InvcDate, ref int tranHeadId,)
+    public void insertSupplier( string supplierName,  string Add,  string City,  string State,  string MobileNo,  string phoneNo,  string email,  int PaymentId,  int Pincode)
     {
-        cmd.CommandText = " UPDATE[dbo].[TransHead] SET[CompId] = " + compId + " ,[InvcNo]   ='" + InvcNum + "' ,[InvcDate]   ='" + InvcDate + "' ,[SupplierId] =" + suppilerId + " ,[paymentTermId]  =" + paymentId + " ,[TranDate] = '" + DateTime.Now + "' ,[CreateDate] = '" + DateTime.Now + "' ,[UserId] = 1  WHERE PartConfigId = " + tranHeadId + " ";
-                cmd.ExecuteNonQuery();
+        try
+        {
+            Cn.Open();
+            cmd.CommandText = "INSERT INTO [dbo].[Supplier] ( [SupplierName] , [Address] , [City] , [State] , [MobileNo] , [PhoneNo] , [Email] , [PayTermId] , [Pincode] , [CreateDate] Values('" + supplierName + "', '" + Add + "', '" + City + "',  '" + State + "', '" + MobileNo + "', '" + phoneNo + "',  '" + email + "',  " + PaymentId + ",  " + Pincode + ",'" + DateTime.Now + "', 1)";
+            cmd.ExecuteNonQuery();
+        }
+        catch (Exception ex)
+        {
+            Console.Write(ex.Message);
+        }
+        Cn.Close();
+
     }
 
-
-    public void insertTransDetail(ref int TransHeadId, ref int LineNo, ref int partConfigId, ref int BrandId, ref int EmpId, ref Double qty, ref Double price, ref Double tax, ref Double discount, ref string Srno, ref string Desc)
+    public void UpdateSupplier( string supplierName,  string Add,  string City,  string State,  string MobileNo,  string phoneNo,  string email,  int PaymentId,  int Pincode,  int supplierId)
     {
-        cmd.CommandText = "INSERT INTO[dbo].[TransDetail] ([TransHeadId] ,[LineNo] ,[PartConfigId] ,[Desc] ,[BrandId] ,[EmpId] ,[SrNo] ,[Quantity] ,[Price] ,[Tax] ,[Discount] ,[CreateDate] ,[UserId] ) VALUES (" + TransHeadId + "," + LineNo + "," + partConfigId + ",'" + Desc + "'," + BrandId + "," + EmpId + " ,'" + Srno + "'," + qty + "," + price + "," + tax + "," + discount + ",' " + DateTime.Now + "', 1)";
-                                                                                                                                                     // <TransHeadId ,<LineNo ,<PartConfigId ,<Desc ,<BrandId ,<EmpId ,<SrNo ,<Quantity ,<Price ,<Tax ,<Discount ,<CreateDate ,<UserId )
-        cmd.ExecuteNonQuery();
+        try
+        {
+            Cn.Open();
+            cmd.CommandText = " UPDATE [dbo].[Supplier] SET[SupplierName] = '" + supplierName + "' ,[Address] ='" + Add + "' ,[City] ='" + City + "'  ,[State] = '" + State + "' ,[MobileNo] =  ,[PhoneNo] ='" + MobileNo + "'  ,[Email] =  ,[PayTermId] = " + PaymentId + " ,[Pincode] = " + Pincode + " ,[CreateDate] = '" + DateTime.Now + "' ,[UserId] = 1  WHERE SupplierId = " + supplierId + " ";
+            cmd.ExecuteNonQuery();
+        }
+        catch (Exception ex)
+        {
+            Console.Write(ex.Message);
+        }
+        Cn.Close();
+
     }
 
-    //public void UpdateTransDetail(ref string partid, ref string Desc, ref string Spec1, ref string Spec2, ref string Spec3, ref int PartConfigId)
+
+
+    public void UpdatePayMentTerms( string paymentTems,  int NoofDays, int paymentTermId)
+
+    {
+        try
+        {
+            Cn.Open();
+            cmd.CommandText = "UPDATE [dbo].[PaymentTerms] SET [TermDesc] = '" + paymentTems + "',[NoOfDays] = " + NoofDays + ",[CreateDate] =' " + DateTime.Now + "' , [UserId] = 1 WHERE paymentTermId = " + paymentTermId + "";
+            cmd.ExecuteNonQuery();
+        }
+        catch (Exception ex)
+        {
+            Console.Write(ex.Message);
+        }
+        Cn.Close();
+
+    }
+
+
+    public void insertSupplierContact( string supplierId,  string SuprCntName,  string Degn,  string State,  string MobileNo,  string phoneNo,  string email,  int PaymentId,  int Pincode)
+    {
+        try
+        {
+            Cn.Open();
+            cmd.CommandText = "INSERT INTO [dbo].[SupplierCnt] ([SupplierId] ,[SuprCntName] ,[Degn] ,[MobileNo] ,[Email] ,[UserId] ,[CreateDate] ) VALUES(" + supplierId + ", '" + SuprCntName + "', '" + Degn + "',   '" + MobileNo + "',   '" + email + "',   1 ,'" + DateTime.Now + "',)";
+            cmd.ExecuteNonQuery();
+        }
+        catch (Exception ex)
+        {
+            Console.Write(ex.Message);
+        }
+        Cn.Close();
+
+    }
+
+    public void UpdateSupplierContact( string supplierCntName,  string Degn,  string MobileNo,  string email,  int SupplierCntId)
+    {
+        try
+        {
+            Cn.Open();
+            cmd.CommandText = "  UPDATE [dbo].[SupplierCnt] SET [SuprCntName]  = '" + supplierCntName + "' ,[Degn] ='" + Degn + "' ,[MobileNo] = '" + MobileNo + "' ,[Email] = '" + email + "' ,[CreateDate] = '" + DateTime.Now + "' ,[UserId] = 1  WHERE SupplierCntId = " + SupplierCntId + " ";
+            cmd.ExecuteNonQuery();
+        }
+        catch (Exception ex)
+        {
+            Console.Write(ex.Message);
+        }
+        Cn.Close();
+    }
+
+
+    public void insertPartMaster( string partname,  string Desc,  int CatId)
+    {
+        try
+        {
+            Cn.Open();
+            cmd.CommandText = "INSERT INTO [dbo].[PartMaster] ([PartName] ,[CatId] ,[Description] ,[CreateDate] ) VALUES ('" + partname + "'," + CatId + ",'" + Desc + "', ' " + DateTime.Now + "', 1)";
+            cmd.ExecuteNonQuery();
+        }
+        catch (Exception ex)
+        {
+            Console.Write(ex.Message);
+        }
+        Cn.Close();
+
+    }
+
+    public void UpdatePartMaster( string partname,  string Desc,  int CatId,  int partId)
+    {
+        try
+        {
+            Cn.Open();
+            cmd.CommandText = "UPDATE [dbo].[PartMaster] SET[PartName] = '" + partname + "' ,[CatId]  =" + CatId + " ,[Description] = '" + Desc + "' ,[CreateDate] = '" + DateTime.Now + "' ,[UserId] = 1  WHERE partID = " + partId + " ";
+            cmd.ExecuteNonQuery();
+        }
+        catch (Exception ex)
+        {
+            Console.Write(ex.Message);
+        }
+        Cn.Close();
+    }
+
+    public void insertPartConfig( int partId,  string Spec1,  string Spec2,  string Spec3,  string Desc)
+    {
+        try
+        {
+            Cn.Open();
+            cmd.CommandText = " INSERT INTO[dbo].[PartConfig] ([PartId] ,[Spec1] ,[Spec2] ,[Spec3] ,[Description] ,[CreateDate] ,[UserId]) VALUES (" + partId + ",'" + Spec1 + "','" + Spec2 + "','" + Spec3 + "','" + Desc + "', ' " + DateTime.Now + "', 1)";
+            cmd.ExecuteNonQuery();
+        }
+        catch (Exception ex)
+        {
+            Console.Write(ex.Message);
+        }
+        Cn.Close();
+    }
+
+    public void UpdatePartConfig( string partid,  string Desc,  string Spec1,  string Spec2,  string Spec3,  int PartConfigId)
+    {
+        try
+        {
+            Cn.Open();
+            cmd.CommandText = "UPDATE [dbo].[PartConfig] SET[PartId] = " + partid + " ,[Spec1]  ='" + Spec1 + "' ,[Spec2]  ='" + Spec2 + "' ,[Spec3]  ='" + Spec3 + "' ,[Description] = '" + Desc + "' ,[CreateDate] = '" + DateTime.Now + "' ,[UserId] = 1  WHERE PartConfigId = " + PartConfigId + " ";
+            cmd.ExecuteNonQuery();
+        }
+        catch (Exception ex)
+        {
+            Console.Write(ex.Message);
+        }
+        Cn.Close();
+    }
+
+
+    public void insertTransHead( int compId,  string InvcNum,  int suppilerId,  int paymentId,  DateTime InvcDate)
+    {
+        try
+        {
+            Cn.Open();
+            cmd.CommandText = "INSERT INTO[dbo].[TransHead] ([CompId] ,[InvcNo] ,[InvcDate] ,[SupplierId] ,[paymentTermId] ,[TransDate] ,[CreateDate] ,[UserId] ) VALUES (" + compId + ",'" + InvcNum + "','" + InvcDate + "'," + suppilerId + "," + paymentId + ", ' " + DateTime.Now + "',' " + DateTime.Now + "', 1)";
+
+            cmd.ExecuteNonQuery();
+        }
+        catch (Exception ex)
+        {
+            Console.Write(ex.Message);
+        }
+        Cn.Close();
+    }
+
+    public void UpdateTransHead( int compId,  string InvcNum,  int suppilerId,  int paymentId,  DateTime InvcDate,  int tranHeadId)
+    {
+        try
+        {
+            Cn.Open();
+            cmd.CommandText = " UPDATE[dbo].[TransHead] SET[CompId] = " + compId + " ,[InvcNo]   ='" + InvcNum + "' ,[InvcDate]   ='" + InvcDate + "' ,[SupplierId] =" + suppilerId + " ,[paymentTermId]  =" + paymentId + " ,[TranDate] = '" + DateTime.Now + "' ,[CreateDate] = '" + DateTime.Now + "' ,[UserId] = 1  WHERE PartConfigId = " + tranHeadId + " ";
+            cmd.ExecuteNonQuery();
+        }
+        catch (Exception ex)
+        {
+            Console.Write(ex.Message);
+        }
+        Cn.Close();
+    }
+
+
+    public void insertTransDetail( int TransHeadId,  int LineNo,  int partConfigId,  int BrandId,  int EmpId,  Double qty,  Double price,  Double tax,  Double discount,  string Srno,  string Desc)
+    {
+        try
+        {
+            Cn.Open();
+            cmd.CommandText = "INSERT INTO[dbo].[TransDetail] ([TransHeadId] ,[LineNo] ,[PartConfigId] ,[Desc] ,[BrandId] ,[EmpId] ,[SrNo] ,[Quantity] ,[Price] ,[Tax] ,[Discount] ,[CreateDate] ,[UserId] ) VALUES (" + TransHeadId + "," + LineNo + "," + partConfigId + ",'" + Desc + "'," + BrandId + "," + EmpId + " ,'" + Srno + "'," + qty + "," + price + "," + tax + "," + discount + ",' " + DateTime.Now + "', 1)";
+            // <TransHeadId ,<LineNo ,<PartConfigId ,<Desc ,<BrandId ,<EmpId ,<SrNo ,<Quantity ,<Price ,<Tax ,<Discount ,<CreateDate ,<UserId )
+            cmd.ExecuteNonQuery();
+        }
+        catch (Exception ex)
+        {
+            Console.Write(ex.Message);
+        }
+        Cn.Close();
+    }
+
+    //public void UpdateTransDetail( string partid,  string Desc,  string Spec1,  string Spec2,  string Spec3,  int PartConfigId)
     //{
     //    cmd.CommandText = "UPDATE [dbo].[PartConfig] SET[PartId] = " + partid + " ,[Spec1]  ='" + Spec1 + "' ,[Spec2]  ='" + Spec2 + "' ,[Spec3]  ='" + Spec3 + "' ,[Description] = '" + Desc + "' ,[CreateDate] = '" + DateTime.Now + "' ,[UserId] = 1  WHERE PartConfigId = " + PartConfigId + " ";
     //    cmd.ExecuteNonQuery();
     //}
 
 
-    //public void insertIssueDetails(ref int partId, ref string Spec1, ref string Spec2, ref string Spec3, ref string Desc)
+    //public void insertIssueDetails( int partId,  string Spec1,  string Spec2,  string Spec3,  string Desc)
     //{
     //    cmd.CommandText = " INSERT INTO [dbo].[PartConfig] ([PartId] ,[Spec1] ,[Spec2] ,[Spec3] ,[Description] ,[CreateDate] ,[UserId]) VALUES (" + partId + ",'" + Spec1 + "','" + Spec2 + "','" + Spec3 + "','" + Desc + "', ' " + DateTime.Now + "', 1)";
 
     //    cmd.ExecuteNonQuery();
     //}
 
-    //public void UpdateIssueDetails(ref string partid, ref string Desc, ref string Spec1, ref string Spec2, ref string Spec3, ref int PartConfigId)
+    //public void UpdateIssueDetails( string partid,  string Desc,  string Spec1,  string Spec2,  string Spec3,  int PartConfigId)
     //{
     //    cmd.CommandText = "UPDATE [dbo].[PartConfig] SET[PartId] = " + partid + " ,[Spec1]  ='" + Spec1 + "' ,[Spec2]  ='" + Spec2 + "' ,[Spec3]  ='" + Spec3 + "' ,[Description] = '" + Desc + "' ,[CreateDate] = '" + DateTime.Now + "' ,[UserId] = 1  WHERE PartConfigId = " + PartConfigId + " ";
     //    cmd.ExecuteNonQuery();
@@ -252,7 +429,7 @@ public class db
 
 
 
-//public void insertPayMentTerms(ref string paymentTems, ref int NoofDays)
+//public void insertPayMentTerms( string paymentTems,  int NoofDays)
 //{
 //    cmd.CommandText = "INSERT INTO[dbo].[PaymentTerms] ([TermDesc] ,[NoOfDays] ,[CreateDate] ,[UserId] VALUES ('" + paymentTems + "'," + NoofDays + ", ' " + DateTime.Now + "', 1)";
 //    cmd.ExecuteNonQuery();

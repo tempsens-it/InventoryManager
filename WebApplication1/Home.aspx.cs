@@ -10,9 +10,11 @@ public partial class Home : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        db db1 = new db();
+        db1.MSSQl_conn();
+        db1.insert("Company", "CompName", "AST");
     }
-
+    
     public string getSourceData()
     {
         string data = "";
