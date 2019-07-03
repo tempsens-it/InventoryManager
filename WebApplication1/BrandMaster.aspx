@@ -2,6 +2,15 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
+
+    <script type='text/javascript'>
+         function delete_id(id) {
+             if (confirm('Sure To Remove This Record ?')) {
+                 window.location.href = 'BrandMaster.aspx?delete_id=' + id
+
+             }
+         }
+          </script>
     <div class="modal fade" id="defaultModal_1" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document" style="width: 1300px;">
             <div class="block-header">
@@ -111,7 +120,7 @@
                                 </div>
                             </div>
 
-                            <button type="button" class="btn btn-primary m-t-15 waves-effect">SAVE</button>
+                            <button type="button" class="btn btn-primary m-t-15 waves-effect" OnClick="save" >SAVE</button>
                             
                         </div>
 

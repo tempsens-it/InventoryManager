@@ -10,6 +10,7 @@ using System.Web;
 /// </summary>
 public class db
 {
+    
 
     public SqlConnection Cn = new SqlConnection();
     public SqlCommand cmd = new SqlCommand();
@@ -52,12 +53,12 @@ public class db
         Cn.Close();
     }
 
-    public void Update( string tableName,  string columnName,  string value)
+    public void Update( string tableName,  string columnName, string columnName2, string value, int value2)
     {
         try
         {
             Cn.Open();
-            cmd.CommandText = "Update " + tableName + "SET" + columnName + " = '" + value + "'";
+            cmd.CommandText = "Update " + tableName + "SET" + columnName + " = '" + value + "' where " + columnName + " = " + value2 + "'";
             cmd.ExecuteNonQuery();
         }
         catch (Exception ex)
@@ -151,6 +152,24 @@ public class db
     }
 
 
+    public SqlDataReader SelectAll(string tableName)
+    {
+        SqlDataReader reader =null;
+        try
+        {
+            Cn.Open();
+
+            cmd.CommandText = "Select  * From " + tableName;
+            reader = cmd.ExecuteReader();
+        }
+        catch (Exception ex)
+        {
+            Console.Write(ex.Message);
+        }
+        Cn.Close();
+        return reader;
+      
+    }
     public int getIdByName( string idColumnName,  string nameColumn,  string tableName,  string value)
     {
         int id=0;
