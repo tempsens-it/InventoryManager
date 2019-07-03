@@ -82,7 +82,7 @@ public partial class TranscationInward : System.Web.UI.Page
         return data;
     }
 
-    
+
     protected string getTotalAmount()
     {
         String data = "";

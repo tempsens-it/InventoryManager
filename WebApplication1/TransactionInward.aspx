@@ -284,9 +284,51 @@
                         </div>
                     </div>
 
-                    <hr style="border-width: 1px; display: block; border-color: #a7a7a7;" />
 
                     <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                  Line DETAILS
+                            </h2>
+                            
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                    <thead>
+                                         <tr>
+                                            <th>Line No.</th>
+                                                <th>Part Name</th>
+                                                <th>Brand</th>
+                                                <th>Speci </th>
+                                                <th>Speci </th>
+                                                <th>Speci </th>
+                                                <th>Quantity</th>
+                                                <th>Rate</th>
+                                                <th>Unit</th>
+                                                <th>Disc%</th>
+                                                <th>Amount</th>
+                                                <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tbody>
+                                         
+                          <%=getSourceData() %>
+                        </tbody>
+                                    
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                   <%-- <hr style="border-width: 1px; display: block; border-color: #a7a7a7;" />--%>
+
+                    <%--<div class="row clearfix">
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane fade in active" id="home">
                                 <div class="body table-responsive">
@@ -309,22 +351,22 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <%=getSourceData() %>
+                                           <%-- <%=getSourceData() %>
                                             <%=addTaxes() %>
-                                            <%=getTotalAmount() %>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                            <%=getTotalAmount() %>--%>
+                                       <%-- </tbody>
+                                    </table>--%>
+                              <%--  </div>
                             </div>
                         </div>
 
 
-                    </div>
+                    </div>--%>
 
                     <%--<hr style="color:#a7a7a7; display:block; border-width:1px; border-style:inset;"/>--%>
 
-                    <div class="row clearfix">
-                    </div>
+                   <%-- <div class="row clearfix">
+                    </div>--%>
 
                     <br>
                     <button type="button" class="btn btn-primary m-t-15 waves-effect">SUBMIT</button>
@@ -333,36 +375,10 @@
         </div>
     </div>
 
-     <!-- Jquery Core Js -->
-    <script src="../../plugins/jquery/jquery.min.js"></script>
-
-    <!-- Bootstrap Core Js -->
-    <script src="../../plugins/bootstrap/js/bootstrap.js"></script>
-
-    <!-- Select Plugin Js -->
-    <script src="../../plugins/bootstrap-select/js/bootstrap-select.js"></script>
-
-    <!-- Slimscroll Plugin Js -->
-    <script src="../../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
-
-    <!-- Waves Effect Plugin Js -->
-    <script src="../../plugins/node-waves/waves.js"></script>
-
-    <!-- Autosize Plugin Js -->
-    <script src="../../plugins/autosize/autosize.js"></script>
-
-    <!-- Moment Plugin Js -->
-    <script src="../../plugins/momentjs/moment.js"></script>
-
-    <!-- Bootstrap Material Datetime Picker Plugin Js -->
-    <script src="../../plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
-
-    <!-- Custom Js -->
+     <!-- Custom Js -->
     <script src="../../js/admin.js"></script>
-    <script src="../../js/pages/forms/basic-form-elements.js"></script>
+    <script src="../../js/pages/tables/jquery-datatable.js"></script>
 
-    <!-- Demo Js -->
-    <script src="../../js/demo.js"></script>
 
 </asp:Content>
 
