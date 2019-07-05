@@ -157,16 +157,18 @@ public class db
         SqlDataReader reader =null;
         try
         {
+            Cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
             Cn.Open();
 
             cmd.CommandText = "Select  * From " + tableName;
+            cmd.Connection = Cn;
             reader = cmd.ExecuteReader();
         }
         catch (Exception ex)
         {
             Console.Write(ex.Message);
         }
-        Cn.Close();
+       // Cn.Close();
         return reader;
       
     }

@@ -11,7 +11,7 @@ public partial class BrandMaster : System.Web.UI.Page
     db dbclass = new db();
     protected void Page_Load(object sender, EventArgs e)
     {
-
+       
     }
 
     public string getSourceData()
@@ -27,9 +27,9 @@ public partial class BrandMaster : System.Web.UI.Page
                 string brandName = sd["BrandName"].ToString();
                 
                 data += "<tr>";
-                data += "</td>" + brandId + "<td>";
-                data += "</td>" + brandName + "<td>";
-                data += "</td><td>";
+                data += "<td>" + brandId + "</td>";
+                data += "<td>" + brandName + "</td>";
+                data += "<td>";
                 data += "<a href='#' data-toggle='modal' data-target='#defaultModal_1'><i class='material-icons'>mode_edit</i></a>";
                 data += "&nbsp; <a href='javaScript:delete_id("+brandId+")'> <i class='material-icons'>delete</i></a>";
                 data += "</td></tr>";

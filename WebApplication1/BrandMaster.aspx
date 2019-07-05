@@ -76,8 +76,6 @@
                         <li role="presentation">
                             <a href="#profile_with_icon_title" data-toggle="tab">
                                 <i class="material-icons">add_box</i> ADD
-                            </a>
-                        </li>
 
                     </ul>
 
@@ -119,8 +117,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <asp:Button ID="Button1" runat="server" class="btn btn-primary m-t-15 waves-effect"  OnClick="save" Text="SAVE" />
 
-                            <button type="button" class="btn btn-primary m-t-15 waves-effect" OnClick="save" >SAVE</button>
+                            <%--<button type="button" class="btn btn-primary m-t-15 waves-effect" >SAVE</button>--%>
                             
                         </div>
 
