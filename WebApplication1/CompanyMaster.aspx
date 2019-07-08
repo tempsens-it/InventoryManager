@@ -20,7 +20,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <b>Company Name:</b>
-                                            <asp:TextBox ID="TxtCompany" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Company Name"></asp:TextBox>
+                                            <asp:TextBox ID="TxtCompany" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Company Name" OnClick="Edit"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -97,6 +97,7 @@
 
                                 </div>
                             </div>
+                            <asp:Label ID="Message" runat="server"></asp:Label>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="profile_with_icon_title">
                             <br />
@@ -105,13 +106,15 @@
                                     <label for="company_name">Company Name</label>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" id="company_name" class="form-control" placeholder="Enter your Company name">
+                                            <%--<input type="text" id="company_name" class="form-control" placeholder="Enter your Company name">--%>
+                                            <asp:TextBox ID="TextBoxCompanyName" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Company Name"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <button type="button" class="btn btn-primary m-t-15 waves-effect">SAVE</button>
+                            <%--<button type="button" class="btn btn-primary m-t-15 waves-effect">SAVE</button>--%>
+                            <asp:Button ID="Button1" runat="server" Text="SAVE" class="btn btn-primary m-t-15 waves-effect" OnClick="btnSave_Click" />
                         </div>
 
                     </div>

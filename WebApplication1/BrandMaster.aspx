@@ -39,10 +39,10 @@
                             <div class="row clearfix">
                                 <div class="col-sm-3">
                                     <div class="form-group">
-                                        <asp:Button ID="btnSubmit" runat="server" Text="UPDATE" class="btn btn-primary m-t-15 waves-effect" OnClick="btnSubmit_Click" />
+                                        <asp:Button ID="buttonUpdate" runat="server" Text="UPDATE" class="btn btn-primary m-t-15 waves-effect" OnClick="btnUpdate" />
                                         &ensp;
                                         <button type="button" class="btn btn-primary m-t-15 waves-effect" data-dismiss="modal">CLOSE</button>
-                                        
+                                        <button type="button" class="btn btn-primary m-t-15 waves-effect" onclick="Button1_Click">Extra buttons</button>
                                     </div>
                                 </div>
                             </div>
@@ -104,24 +104,28 @@
                                     </div>
                                 </div>
                             </div>
+                            <asp:Label ID="Message" runat="server" Text="Hi"/>
+                            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="profile_with_icon_title">
                             <br />
                             <div class="row clearfix">
                                 <div class="col-md-12">
-                                    <label for="company_name">Brand Name</label>
+                                    <label for="brand_name">Brand Name</label>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" id="company_name" class="form-control" placeholder="Enter your Company name">
+                                            <input type="text" id="brand_name" class="form-control" placeholder="Enter Brand name">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <asp:Button ID="Button1" runat="server" class="btn btn-primary m-t-15 waves-effect"  OnClick="save" Text="SAVE" />
-
-                            <%--<button type="button" class="btn btn-primary m-t-15 waves-effect" >SAVE</button>--%>
+                            <asp:Button ID="buttonSave" runat="server" OnClick="save" class="btn btn-primary m-t-15 waves-effect" Text="SAVE" />
+                            
+                            
                             
                         </div>
+
+                        
 
                     </div>
 
@@ -131,6 +135,9 @@
             </div>
         </div>
     </div>
+
+
+    </a>
 
 
 </asp:Content>

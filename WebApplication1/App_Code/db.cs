@@ -21,29 +21,37 @@ public class db
 
     }
 
-    public void insert(string tableName, string columnName, string value)
+    public void insert(string tableName, string columnName, string columnName2, string value)
     {
+        int maxid = 0;
         try
         {
             Cn.Open();
-            cmd.CommandText = "INSERT INTO " + tableName + "(" + columnName + " , createDate,UserID) Values ('" + value + "', ' " + DateTime.Now + "', 1)";
+            maxid =  SelectMaxId(tableName, columnName);
+
+            cmd.CommandText = "INSERT INTO " + tableName + "(" + columnName + " ," + columnName2 + " , createDate,UserID) Values ("+ maxid+",'" + value + "', ' " + DateTime.Now + "', 1)";
             cmd.Connection = Cn;
             cmd.ExecuteNonQuery();
         }
         catch (Exception ex)
         {
             Console.Write(ex.Message);
+            
         }
         Cn.Close();
 
     }
 
+
+
     public void insert( string tableName,  string columnName,  int columnName2,  string value,  string value2)
     {
         try
         {
+          //  Cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
             Cn.Open();
             cmd.CommandText = "INSERT INTO " + tableName + "(" + columnName + " ," + columnName2 + " , createDate,UserID) Values ('" + value + "'," + value + " ' " + DateTime.Now + "', 1)";
+            cmd.Connection = Cn;
             cmd.ExecuteNonQuery();
         }
         catch (Exception ex)
@@ -57,8 +65,10 @@ public class db
     {
         try
         {
-            Cn.Open();
-            cmd.CommandText = "Update " + tableName + "SET" + columnName + " = '" + value + "' where " + columnName + " = " + value2 + "'";
+            Cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
+            Cn.Open(); 
+            cmd.CommandText = "Update " + tableName + " SET  " + columnName + " = '" + value + "'  where  " + columnName2 + " = " + value2 + "";
+            cmd.Connection = Cn;
             cmd.ExecuteNonQuery();
         }
         catch (Exception ex)
@@ -73,7 +83,8 @@ public class db
         try
         {
             Cn.Open();
-            cmd.CommandText = "Delete From " + tableName + "Where" + columnName + " = '" + value + "'";
+            cmd.CommandText = "Delete From " + tableName + " Where  " + columnName + " = '" + value + "'";
+            cmd.Connection = Cn;
             cmd.ExecuteNonQuery();
         }
         catch (Exception ex)
@@ -90,7 +101,7 @@ public class db
         {
             Cn.Open();
             DataTable dt = new DataTable();
-
+            cmd.Connection = Cn;
             cmd.CommandText = "Select" + columnName + " From " + tableName + "Where" + columnName1 + " = '" + value + "'";
             SqlDataReader reader = cmd.ExecuteReader();
             dt.Load(reader);
@@ -102,6 +113,27 @@ public class db
         Cn.Close();
     }
 
+    public int SelectMaxId(string tableName, string columnName)
+       
+    {
+        int maxid = 0;
+        try
+        {
+//Cn.Open();
+            DataTable dt = new DataTable();
+            cmd.Connection = Cn;
+            cmd.CommandText = "Select Max(" + columnName + ") From " + tableName ;
+            maxid = Convert.ToInt16(cmd.ExecuteScalar().ToString()) +  1;
+            
+        }
+        catch (Exception ex)
+        {
+            Console.Write(ex.Message);
+        }
+        return maxid;
+       // Cn.Close();
+    }
+
 
     public void insertEmp( string empNAme,  string contact,  int deptId,  int CompId,  int isActive,  string desgn,  string emailInt,  string emailExt)
     {
@@ -109,6 +141,7 @@ public class db
         {
             Cn.Open();
             cmd.CommandText = "INSERT INTO [dbo].[Emp] ([EmpName] , [Contact] , [DeptId] , [CompId] , [IsActive] , [Degn] , [Email_Int] , [Email_Ex] , [CreateDate] , [UserId] ) VALUES('" + empNAme + "', '" + contact + "'," + deptId + "," + CompId + "," + isActive + ",'" + desgn + "',' " + emailInt + "','" + emailExt + "', '" + DateTime.Now + "', 1)";
+            cmd.Connection = Cn;
             cmd.ExecuteNonQuery();
         }
         catch (Exception ex)
@@ -122,8 +155,10 @@ public class db
     {
         try
         {
+            Cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
             Cn.Open();
-            cmd.CommandText = "UPDATE [dbo].[Emp] SET [EmpName] = '" + empNAme + "', [Contact] = '" + contact + "', [DeptId] = " + deptId + ", [CompId] = " + CompId + ", [IsActive] = " + isActive + ", [Degn] = '" + desgn + "', [Email_Int] = '" + emailInt + "', [Email_Ex] =' " + emailExt + "' WHERE empID = " + empid + " ";
+            cmd.CommandText = "UPDATE [dbo].[Emp]  SET [EmpName] = '" + empNAme + "', [Contact] = '" + contact + "', [DeptId] = " + deptId + ", [CompId] = " + CompId + ", [IsActive] = " + isActive + ", [Degn] = '" + desgn + "', [Email_Int] = '" + emailInt + "', [Email_Ex] =' " + emailExt + "' WHERE empID = " + empid + " ";
+            cmd.Connection = Cn;
             cmd.ExecuteNonQuery();
         }
         catch (Exception ex)
@@ -141,6 +176,7 @@ public class db
             Cn.Open();
             DataTable dt = new DataTable();
             cmd.CommandText = "Select * From " + tableName + "Where" + columnName + " = " + value + "";
+            cmd.Connection = Cn;
             SqlDataReader reader = cmd.ExecuteReader();
             dt.Load(reader);
         }
@@ -179,6 +215,7 @@ public class db
         {
             Cn.Open();
             cmd.CommandText = cmd.CommandText = "Select" + idColumnName + " From " + tableName + "Where" + nameColumn + " = '" + value + "'";
+            cmd.Connection = Cn;
             id = Convert.ToInt16(cmd.ExecuteScalar());
            
         } 
@@ -187,7 +224,7 @@ public class db
             Console.Write(ex.Message);
         }
         
-        Cn.Close();
+      //  Cn.Close();
         return id;
     }
 
@@ -197,6 +234,7 @@ public class db
         {
             Cn.Open();
             cmd.CommandText = "INSERT INTO [dbo].[Supplier] ( [SupplierName] , [Address] , [City] , [State] , [MobileNo] , [PhoneNo] , [Email] , [PayTermId] , [Pincode] , [CreateDate] Values('" + supplierName + "', '" + Add + "', '" + City + "',  '" + State + "', '" + MobileNo + "', '" + phoneNo + "',  '" + email + "',  " + PaymentId + ",  " + Pincode + ",'" + DateTime.Now + "', 1)";
+            cmd.Connection = Cn;
             cmd.ExecuteNonQuery();
         }
         catch (Exception ex)
@@ -213,6 +251,7 @@ public class db
         {
             Cn.Open();
             cmd.CommandText = " UPDATE [dbo].[Supplier] SET[SupplierName] = '" + supplierName + "' ,[Address] ='" + Add + "' ,[City] ='" + City + "'  ,[State] = '" + State + "' ,[MobileNo] =  ,[PhoneNo] ='" + MobileNo + "'  ,[Email] =  ,[PayTermId] = " + PaymentId + " ,[Pincode] = " + Pincode + " ,[CreateDate] = '" + DateTime.Now + "' ,[UserId] = 1  WHERE SupplierId = " + supplierId + " ";
+            cmd.Connection = Cn;
             cmd.ExecuteNonQuery();
         }
         catch (Exception ex)
@@ -232,6 +271,7 @@ public class db
         {
             Cn.Open();
             cmd.CommandText = "UPDATE [dbo].[PaymentTerms] SET [TermDesc] = '" + paymentTems + "',[NoOfDays] = " + NoofDays + ",[CreateDate] =' " + DateTime.Now + "' , [UserId] = 1 WHERE paymentTermId = " + paymentTermId + "";
+            cmd.Connection = Cn;
             cmd.ExecuteNonQuery();
         }
         catch (Exception ex)
@@ -249,6 +289,7 @@ public class db
         {
             Cn.Open();
             cmd.CommandText = "INSERT INTO [dbo].[SupplierCnt] ([SupplierId] ,[SuprCntName] ,[Degn] ,[MobileNo] ,[Email] ,[UserId] ,[CreateDate] ) VALUES(" + supplierId + ", '" + SuprCntName + "', '" + Degn + "',   '" + MobileNo + "',   '" + email + "',   1 ,'" + DateTime.Now + "',)";
+            cmd.Connection = Cn;
             cmd.ExecuteNonQuery();
         }
         catch (Exception ex)
@@ -265,6 +306,7 @@ public class db
         {
             Cn.Open();
             cmd.CommandText = "  UPDATE [dbo].[SupplierCnt] SET [SuprCntName]  = '" + supplierCntName + "' ,[Degn] ='" + Degn + "' ,[MobileNo] = '" + MobileNo + "' ,[Email] = '" + email + "' ,[CreateDate] = '" + DateTime.Now + "' ,[UserId] = 1  WHERE SupplierCntId = " + SupplierCntId + " ";
+            cmd.Connection = Cn;
             cmd.ExecuteNonQuery();
         }
         catch (Exception ex)
@@ -281,6 +323,7 @@ public class db
         {
             Cn.Open();
             cmd.CommandText = "INSERT INTO [dbo].[PartMaster] ([PartName] ,[CatId] ,[Description] ,[CreateDate] ) VALUES ('" + partname + "'," + CatId + ",'" + Desc + "', ' " + DateTime.Now + "', 1)";
+            cmd.Connection = Cn;
             cmd.ExecuteNonQuery();
         }
         catch (Exception ex)
@@ -297,6 +340,7 @@ public class db
         {
             Cn.Open();
             cmd.CommandText = "UPDATE [dbo].[PartMaster] SET[PartName] = '" + partname + "' ,[CatId]  =" + CatId + " ,[Description] = '" + Desc + "' ,[CreateDate] = '" + DateTime.Now + "' ,[UserId] = 1  WHERE partID = " + partId + " ";
+            cmd.Connection = Cn;
             cmd.ExecuteNonQuery();
         }
         catch (Exception ex)
@@ -312,6 +356,7 @@ public class db
         {
             Cn.Open();
             cmd.CommandText = " INSERT INTO[dbo].[PartConfig] ([PartId] ,[Spec1] ,[Spec2] ,[Spec3] ,[Description] ,[CreateDate] ,[UserId]) VALUES (" + partId + ",'" + Spec1 + "','" + Spec2 + "','" + Spec3 + "','" + Desc + "', ' " + DateTime.Now + "', 1)";
+            cmd.Connection = Cn;
             cmd.ExecuteNonQuery();
         }
         catch (Exception ex)
@@ -327,6 +372,8 @@ public class db
         {
             Cn.Open();
             cmd.CommandText = "UPDATE [dbo].[PartConfig] SET[PartId] = " + partid + " ,[Spec1]  ='" + Spec1 + "' ,[Spec2]  ='" + Spec2 + "' ,[Spec3]  ='" + Spec3 + "' ,[Description] = '" + Desc + "' ,[CreateDate] = '" + DateTime.Now + "' ,[UserId] = 1  WHERE PartConfigId = " + PartConfigId + " ";
+
+            cmd.Connection = Cn;
             cmd.ExecuteNonQuery();
         }
         catch (Exception ex)
@@ -343,8 +390,9 @@ public class db
         {
             Cn.Open();
             cmd.CommandText = "INSERT INTO[dbo].[TransHead] ([CompId] ,[InvcNo] ,[InvcDate] ,[SupplierId] ,[paymentTermId] ,[TransDate] ,[CreateDate] ,[UserId] ) VALUES (" + compId + ",'" + InvcNum + "','" + InvcDate + "'," + suppilerId + "," + paymentId + ", ' " + DateTime.Now + "',' " + DateTime.Now + "', 1)";
-
-            cmd.ExecuteNonQuery();
+        
+        cmd.Connection = Cn;
+        cmd.ExecuteNonQuery();
         }
         catch (Exception ex)
         {
@@ -359,6 +407,7 @@ public class db
         {
             Cn.Open();
             cmd.CommandText = " UPDATE[dbo].[TransHead] SET[CompId] = " + compId + " ,[InvcNo]   ='" + InvcNum + "' ,[InvcDate]   ='" + InvcDate + "' ,[SupplierId] =" + suppilerId + " ,[paymentTermId]  =" + paymentId + " ,[TranDate] = '" + DateTime.Now + "' ,[CreateDate] = '" + DateTime.Now + "' ,[UserId] = 1  WHERE PartConfigId = " + tranHeadId + " ";
+            cmd.Connection = Cn;
             cmd.ExecuteNonQuery();
         }
         catch (Exception ex)
@@ -376,6 +425,7 @@ public class db
             Cn.Open();
             cmd.CommandText = "INSERT INTO[dbo].[TransDetail] ([TransHeadId] ,[LineNo] ,[PartConfigId] ,[Desc] ,[BrandId] ,[EmpId] ,[SrNo] ,[Quantity] ,[Price] ,[Tax] ,[Discount] ,[CreateDate] ,[UserId] ) VALUES (" + TransHeadId + "," + LineNo + "," + partConfigId + ",'" + Desc + "'," + BrandId + "," + EmpId + " ,'" + Srno + "'," + qty + "," + price + "," + tax + "," + discount + ",' " + DateTime.Now + "', 1)";
             // <TransHeadId ,<LineNo ,<PartConfigId ,<Desc ,<BrandId ,<EmpId ,<SrNo ,<Quantity ,<Price ,<Tax ,<Discount ,<CreateDate ,<UserId )
+            cmd.Connection = Cn;
             cmd.ExecuteNonQuery();
         }
         catch (Exception ex)

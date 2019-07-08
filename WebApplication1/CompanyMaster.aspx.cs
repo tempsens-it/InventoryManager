@@ -4,29 +4,46 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
 
 public partial class CompanyMaster : System.Web.UI.Page
 {
+    db dbcalss = new db();
+
+   
+   
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        dbcalss.MSSQl_conn();
     }
 
     public string getSourceData()
     {
         string data = "";
+        SqlDataReader sd = dbcalss.SelectAll("Company");
 
         //data += "<tr><td>" + Company ID +  "</td><td>" + Name + "</td><td>" + Action + "</td></tr>";
-        
-        data += "<tr><td>";
-        data += "1";
-        data += "</td><td>";
-        data += "1";
-        data += "</td><td>";
-        data += "<a href='#' data-toggle='modal' data-target='#defaultModal_1'><i class='material-icons'>mode_edit</i></a>";
-        data += "&nbsp; <a href='#' data-toggle='modal' data-target='#defaultModal_1'><i class='material-icons'>delete</i></a>";
-        data += "</td></tr>";
 
+        if(sd.HasRows)
+        {
+            while(sd.Read())
+            {
+                string compId = sd["CompId"].ToString();
+                string compName = sd["CompName"].ToString();
+
+                data += "<tr><td>";
+                data += compId;
+                data += "</td><td>";
+                data += compName;
+                data += "</td><td>";
+                data += "<a href='#' data-toggle='modal' data-target='#defaultModal_1'><i class='material-icons'>mode_edit</i></a>";
+                data += "&nbsp; <a href='#' data-toggle='modal' data-target='#defaultModal_1'><i class='material-icons'>delete</i></a>";
+                data += "</td></tr>";
+
+            }
+        }
+
+        
         return data;
     }
 
@@ -34,6 +51,18 @@ public partial class CompanyMaster : System.Web.UI.Page
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
+        Message.Text = "Update";
+        dbcalss.Update("Company", "CompName", "CompId", "Ar4e", 1);
 
     }
+
+    protected void btnSave_Click(object sender, EventArgs e)
+    {
+        Message.Text = "Save";
+      
+        dbcalss.insert("Company", "CompId", "CompName", TextBoxCompanyName.Text);
+
+        TextBoxCompanyName.Text = "";
+    }
+
 }
