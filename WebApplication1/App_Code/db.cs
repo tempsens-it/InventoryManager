@@ -157,12 +157,15 @@ public class db
     }
 
 
-    public void insertEmp( string empNAme,  string contact,  int deptId,  int CompId,  int isActive,  string desgn,  string emailInt,  string emailExt)
+    public void insertEmp( string empName,  string contact,  string deptId,  string CompId,  int isActive,  string desgn,  string emailInt,  string emailExt)
     {
+        int maxid = 0;
         try
         {
             Cn.Open();
-            cmd.CommandText = "INSERT INTO [dbo].[Emp] ([EmpName] , [Contact] , [DeptId] , [CompId] , [IsActive] , [Degn] , [Email_Int] , [Email_Ex] , [CreateDate] , [UserId] ) VALUES('" + empNAme + "', '" + contact + "'," + deptId + "," + CompId + "," + isActive + ",'" + desgn + "',' " + emailInt + "','" + emailExt + "', '" + DateTime.Now + "', 1)";
+            maxid = SelectMaxId("Employee", "EmpId");
+
+            cmd.CommandText = "INSERT INTO Employee ([EmpId] , [EmpName] ,  [DeptId] , [CompId] , [IsActive] , [Desig] , [MobileNum] , [Email_Int] , [Email_Ext] , [CreateDate] , [UserId] ) VALUES(" +  maxid + ",'" + empName + "'," + deptId + "," + CompId + "," + isActive + ",'" + desgn + "',  '" + contact + "',' " + emailInt + "','" + emailExt + "', '" + DateTime.Now + "', 1)";
             cmd.Connection = Cn;
             cmd.ExecuteNonQuery();
         }

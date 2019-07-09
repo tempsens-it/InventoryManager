@@ -29,10 +29,6 @@
                                         <div class="form-line">
                                             <b>Company</b>
                                             <asp:DropDownList ID="DropCompany" runat="server" class="form-control show-tick">
-                                                <asp:ListItem>Mustard</asp:ListItem>
-                                                <asp:ListItem>Ketchup</asp:ListItem>
-                                                <asp:ListItem>Relish</asp:ListItem>
-
                                             </asp:DropDownList>
                                         </div>
                                     </div>
@@ -129,10 +125,6 @@
                                 <div class="col-md-6">
                                     <b>Company</b>
                                     <asp:DropDownList ID="DropCompany1" runat="server" class="form-control show-tick">
-                                        <asp:ListItem>Mustard</asp:ListItem>
-                                        <asp:ListItem>Ketchup</asp:ListItem>
-                                        <asp:ListItem>Relish</asp:ListItem>
-
                                     </asp:DropDownList>
                                 </div>
                             </div>

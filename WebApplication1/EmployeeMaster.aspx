@@ -29,10 +29,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <b>Department</b>
-                                            <asp:DropDownList ID="DropDownListDepartment" runat="server" class="form-control show-tick">
-                                                <asp:ListItem>Mustard</asp:ListItem>
-                                                <asp:ListItem>Ketchup</asp:ListItem>
-                                                <asp:ListItem>Relish</asp:ListItem>
+                                            <asp:DropDownList ID="DropDepartment" runat="server" class="form-control show-tick">
                                             </asp:DropDownList>
                                         </div>
                                     </div>
@@ -42,10 +39,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <b>Company</b>
-                                            <asp:DropDownList ID="DropDownListCompany" runat="server" class="form-control show-tick">
-                                                <asp:ListItem>Mustard</asp:ListItem>
-                                                <asp:ListItem>Ketchup</asp:ListItem>
-                                                <asp:ListItem>Relish</asp:ListItem>   
+                                            <asp:DropDownList ID="DropCompany" runat="server" class="form-control show-tick">
                                             </asp:DropDownList>
                                         </div>
                                     </div>
@@ -88,17 +82,15 @@
                                 </div>
 
                                 <div class="col-md-6">
-
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        
-                                                <%--<b>Is Active</b>--%>
-                                            <asp:CheckBox ID="CheckBoxIsActive" runat="server" class="form-control filled-in" Text="Is Active" />
-                                            <%-- Check Box inActive --%>
-                                        
-                                    </div>  
+
+                                        <%--<b>Is Active</b>--%>
+                                        <asp:CheckBox ID="CheckBoxIsActive" runat="server" class="form-control filled-in" Text="Is Active" />
+                                        <%-- Check Box inActive --%>
+                                    </div>
                                 </div>
 
                             </div>
@@ -179,87 +171,77 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div role="tabpanel" class="tab-pane fade" id="profile_with_icon_title">
                             <br />
                             <div class="row clearfix">
                                 <div class="col-md-12">
-                                    <label for="emp_name">Employee Name</label>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" id="emp_name" class="form-control" placeholder="Enter Employee name">
+                                            <%--<input type="text" id="emp_name" class="form-control" placeholder="Enter Employee name">--%>
+                                            <b>Employee Name:</b>
+                                            <asp:TextBox ID="TextBoxName" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Company Name"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="emp_company">Department</label>
-                                    <select class="form-control show-tick">
-                                        <option>Mustard</option>
-                                        <option>Ketchup</option>
-                                        <option>Relish</option>
-                                    </select>
+
+                                    <b>Department</b>
+                                    <asp:DropDownList ID="DropDepartment2" runat="server" class="form-control show-tick">
+                                    </asp:DropDownList>
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="emp_company">Company</label>
-                                    <select class="form-control show-tick">
-                                        <option>Mustard</option>
-                                        <option>Ketchup</option>
-                                        <option>Relish</option>
-                                    </select>
+                                    <b>Company</b>
+                                    <asp:DropDownList ID="DropCompany2" runat="server" class="form-control show-tick">
+                                    </asp:DropDownList>
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="emp_des">Designation</label>
+
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" id="emp_des" class="form-control" placeholder="Enter Designation">
+                                            <b>Designation:</b>
+                                            <asp:TextBox ID="TextBoxDesignation2" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Designation"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="emp_contact">Contact Number</label>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" id="emp_contact" class="form-control" placeholder="Enter Contact number">
+                                            <b>Contact:</b>
+                                            <asp:TextBox ID="TextBoxContact2" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Contact Number"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="emp_email_int">Internal Email Address</label>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" id="emp_email_int" class="form-control" placeholder="Enter Internal Mail Address">
+                                           <b>Internal Email Address:</b>
+                                            <asp:TextBox ID="TextBoxIntMail2" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Internal Mail"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="emp_email_ext">External Email Address</label>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" id="emp_email_ext" class="form-control" placeholder="Enter External Mail Address">
+                                           <b>External Email Address:</b>
+                                            <asp:TextBox ID="TextBoxExtMail2" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="External Mail"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="input-group input-group-lg">
-                                        <input type="checkbox" id="remember_me_2" class="filled-in">
-                                        <label for="remember_me_2">Is Active</label>
+                                        <asp:CheckBox ID="CheckBoxActive1" runat="server" class="form-control filled-in" Text="Is Active" />
                                     </div>
                                 </div>
                             </div>
-
-
-
-                            <button type="button" class="btn btn-primary m-t-15 waves-effect">SAVE</button>
-
-
-
+                            <asp:Button ID="Button1" runat="server" Text="SAVE" class="btn btn-primary m-t-15 waves-effect" OnClick="btnSave_Click" />
                         </div>
                     </div>
 
@@ -269,111 +251,6 @@
         </div>
     </div>
 
-    <%--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>
-                                Employee Master
-                            </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
-                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
-                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <h2 class="card-inside-title">Employee Details</h2>
-                            <div class="row clearfix">
-                                <div class="col-md-4">
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">person</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input type="text" class="form-control date" placeholder="Employee Name">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="input-group">
-                                        <div class="form-line">
-                                            <input type="text" class="form-control date" placeholder="Department">
-                                        </div>
-                                        <%--<span class="input-group-addon">
-                                            <i class="material-icons">send</i>
-                                        </span>--%>
-    <%--<%-- </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">business</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input type="text" class="form-control date" placeholder="Designation">
-                                        </div>
-                                        <%--<span class="input-group-addon">
-                                            <i class="material-icons">send</i>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <h2 class="card-inside-title">Employee Contact Details</h2>
-                            <div class="row clearfix">
-                                <div class="col-md-4">
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">contact_phone</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input type="text" class="form-control date" placeholder="Contact No.">
-                                        </div>
-                                       </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">contact_mail</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input type="text" class="form-control date" placeholder="Internal email">
-                                        </div>                                        
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">email</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input type="text" class="form-control date" placeholder="External email">
-                                        </div>                                        
-                                    </div>
-                                </div>                               
-                            </div>                            
-
-                            <h2 class="card-inside-title">Radio &amp; Checkbox</h2>
-                            <div class="row clearfix">
-                                <div class="col-md-6">
-                                    <div class="input-group input-group-lg">                                        
-                                        <input type="checkbox" id="remember_me_2" class="filled-in">
-                                        <label for="remember_me_2">Is Active</label>                                      
-                                    </div>
-                                    <button type="button" class="btn btn-primary m-t-15 waves-effect">ADD</button>                                    
-                                    <button type="button" class="btn btn-primary m-t-15 waves-effect">UPDATE</button>
-                                    <button type="button" class="btn btn-primary m-t-15 waves-effect">DELETE</button>
-                                </div>                                
-                            </div>
-                        </div>
-                    </div>
-                </div>--%>
+    
 </asp:Content>
 
