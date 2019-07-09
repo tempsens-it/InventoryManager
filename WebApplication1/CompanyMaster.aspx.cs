@@ -38,7 +38,7 @@ public partial class CompanyMaster : System.Web.UI.Page
                 data += "</td><td>";
                 data += "<a href='#' data-toggle='modal' data-target='#defaultModal_1'><i class='material-icons'>mode_edit</i></a>";
                 data += "&nbsp; <a href='#' runat='server' onServerClick='deleteCalling(" + compId + ")'><i class='material-icons'>delete</i></a>"; //call the function deleteCalling(compId) and pass the Company ID
-               
+                //data += "&nbsp; <asp:Button ID='btnSubmit1' runat='server' class='btn btn-primary m - t - 15 waves - effect' OnClick='deleteCalling'><i class='material-icons'>delete</i></asp:Button>";
                 data += "</td></tr>";
 
             }
@@ -51,7 +51,8 @@ public partial class CompanyMaster : System.Web.UI.Page
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         Message.Text = "Update";
-        dbcalss.Update("Company", "CompName", "CompId", "Ar4e", 1);
+        dbcalss.Update("Company", "CompName", "CompId", TxtCompany.Text, 1);
+        TxtCompany.Text = "";
 
     }
 
