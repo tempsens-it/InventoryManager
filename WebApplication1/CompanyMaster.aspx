@@ -3,6 +3,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
 
+    <script type="text/javascript">
+function delete_id(compId) {
+             if (confirm('Sure To Remove This Complain ?')) {
+                 window.location.href = 'CompanyMaster.aspx?delete_id=' + compId
+                  }
+         }
+
+    </script>
+
     <div class="modal fade" id="defaultModal_1" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document" style="width: 1300px;">
             

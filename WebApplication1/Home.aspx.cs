@@ -12,7 +12,7 @@ public partial class Home : System.Web.UI.Page
     {
         db db1 = new db();
         db1.MSSQl_conn();
-        db1.insert("Company", "CompName", "AST");
+      //  db1.insert("Company", "CompName", "AST");
     }
     
     public string getSourceData()
