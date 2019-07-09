@@ -32,7 +32,7 @@
                                                 <asp:ListItem>Mustard</asp:ListItem>
                                                 <asp:ListItem>Ketchup</asp:ListItem>
                                                 <asp:ListItem>Relish</asp:ListItem>
-                                                
+
                                             </asp:DropDownList>
                                         </div>
                                     </div>
@@ -55,7 +55,7 @@
         </div>
     </div>
 
-    
+
     <div class="block-header">
         <h2>Department Master </h2>
     </div>
@@ -127,17 +127,17 @@
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="dept_company">Company</label>
-                                    <select class="form-control show-tick">
-                                        <option>Mustard</option>
-                                        <option>Ketchup</option>
-                                        <option>Relish</option>
-                                    </select>
+                                    <b>Company</b>
+                                    <asp:DropDownList ID="DropCompany1" runat="server" class="form-control show-tick">
+                                        <asp:ListItem>Mustard</asp:ListItem>
+                                        <asp:ListItem>Ketchup</asp:ListItem>
+                                        <asp:ListItem>Relish</asp:ListItem>
 
+                                    </asp:DropDownList>
                                 </div>
                             </div>
 
-                            
+
                             <asp:Button ID="Button1" runat="server" Text="SAVE" class="btn btn-primary m-t-15 waves-effect" OnClick="btnSave_Click" />
 
 
@@ -149,6 +149,6 @@
         </div>
     </div>
 
-    
+
 </asp:Content>
 

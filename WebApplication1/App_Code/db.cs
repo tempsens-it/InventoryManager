@@ -53,7 +53,7 @@ public class db
             Cn.Open();
             maxid = SelectMaxId(tableName, columnName);
 
-            cmd.CommandText = "INSERT INTO " + tableName + "(" + columnName + " ," + columnName2 + " ," + columnName3 + " , createDate,UserID) Values (" + maxid + ",'" + value + ",'" + value2 + "', ' " + DateTime.Now + "', 1)";
+            cmd.CommandText = "INSERT INTO " + tableName + "(" + columnName + " ," + columnName2 + " ," + columnName3 + " , createDate,UserID) Values (" + maxid + ",'" + value + "'," + Convert.ToInt16(value2) + ", ' " + DateTime.Now + "', 1)";
             cmd.Connection = Cn;
             cmd.ExecuteNonQuery();
         }
@@ -132,6 +132,8 @@ public class db
         }
         Cn.Close();
     }
+
+    
 
     public int SelectMaxId(string tableName, string columnName)
        

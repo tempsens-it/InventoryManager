@@ -49,6 +49,8 @@ public partial class DepartmentMaster : System.Web.UI.Page
         return data;
     }
 
+   
+
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         dbclass.Update("Department", "DeptName", "CompId",  "DeptId", "Ar4e", 3, 1);
@@ -57,7 +59,7 @@ public partial class DepartmentMaster : System.Web.UI.Page
     protected void btnSave_Click(object sender, EventArgs e)
     {
         
-        dbclass.insert("Department", "DeptId", "DeptName", "CompId" , TextBoxDeptName.Text, "1");
+        dbclass.insert("Department", "DeptId", "DeptName", "CompId" , TextBoxDeptName.Text, DropCompany1.SelectedItem.Value);
 
         TextBoxDeptName.Text = "";
     }
@@ -69,11 +71,20 @@ public partial class DepartmentMaster : System.Web.UI.Page
         SqlDataAdapter adpt = new SqlDataAdapter(com, Cn);
         DataTable dt = new DataTable();
         adpt.Fill(dt);
+
+        //For edit tab
         DropCompany.DataSource = dt;
         DropCompany.DataBind();
         DropCompany.DataTextField = "CompName";
         DropCompany.DataValueField = "CompId";
         DropCompany.DataBind();
+
+        //for add Tab
+        DropCompany1.DataSource = dt;
+        DropCompany1.DataBind();
+        DropCompany1.DataTextField = "CompName";
+        DropCompany1.DataValueField = "CompId";
+        DropCompany1.DataBind();
 
     }
 }
