@@ -44,13 +44,16 @@ public class db
 
 
 
-    public void insert( string tableName,  string columnName,  int columnName2,  string value,  string value2)
+    public void insert( string tableName,  string columnName,  string columnName2, string columnName3, string value, string value2)
     {
+        int maxid = 0;
         try
         {
           //  Cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
             Cn.Open();
-            cmd.CommandText = "INSERT INTO " + tableName + "(" + columnName + " ," + columnName2 + " , createDate,UserID) Values ('" + value + "'," + value + " ' " + DateTime.Now + "', 1)";
+            maxid = SelectMaxId(tableName, columnName);
+
+            cmd.CommandText = "INSERT INTO " + tableName + "(" + columnName + " ," + columnName2 + " ," + columnName3 + " , createDate,UserID) Values (" + maxid + ",'" + value + ",'" + value2 + "', ' " + DateTime.Now + "', 1)";
             cmd.Connection = Cn;
             cmd.ExecuteNonQuery();
         }
@@ -68,6 +71,23 @@ public class db
             Cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
             Cn.Open(); 
             cmd.CommandText = "Update " + tableName + " SET  " + columnName + " = '" + value + "'  where  " + columnName2 + " = " + value2 + "";
+            cmd.Connection = Cn;
+            cmd.ExecuteNonQuery();
+        }
+        catch (Exception ex)
+        {
+            Console.Write(ex.Message);
+        }
+        Cn.Close();
+    }
+
+    public void Update(string tableName, string columnName, string columnName2, string columnName3, string value, int value2, int value3)
+    {
+        try
+        {
+            Cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
+            Cn.Open();
+            cmd.CommandText = "Update " + tableName + " SET  " + columnName + " = '" + value + " '" + columnName2 + " = '" + value2 + " '" + " where  " + columnName3 + " = " + value3 + "";
             cmd.Connection = Cn;
             cmd.ExecuteNonQuery();
         }

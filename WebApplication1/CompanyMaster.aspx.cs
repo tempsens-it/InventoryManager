@@ -10,8 +10,8 @@ public partial class CompanyMaster : System.Web.UI.Page
 {
     db dbcalss = new db();
 
-   
-   
+
+
     protected void Page_Load(object sender, EventArgs e)
     {
         dbcalss.MSSQl_conn();
@@ -24,9 +24,9 @@ public partial class CompanyMaster : System.Web.UI.Page
 
         //data += "<tr><td>" + Company ID +  "</td><td>" + Name + "</td><td>" + Action + "</td></tr>";
 
-        if(sd.HasRows)
+        if (sd.HasRows)
         {
-            while(sd.Read())
+            while (sd.Read())
             {
                 string compId = sd["CompId"].ToString();
                 string compName = sd["CompName"].ToString();
@@ -37,13 +37,12 @@ public partial class CompanyMaster : System.Web.UI.Page
                 data += compName;
                 data += "</td><td>";
                 data += "<a href='#' data-toggle='modal' data-target='#defaultModal_1'><i class='material-icons'>mode_edit</i></a>";
-                data += "&nbsp; <a href='#' data-toggle='modal' data-target='#defaultModal_1'><i class='material-icons'>delete</i></a>";
+                data += "&nbsp; <a href='#' runat='server' onServerClick='deleteCalling(" + compId + ")'><i class='material-icons'>delete</i></a>"; //call the function deleteCalling(compId) and pass the Company ID
+               
                 data += "</td></tr>";
 
             }
         }
-
-        
         return data;
     }
 
@@ -59,10 +58,17 @@ public partial class CompanyMaster : System.Web.UI.Page
     protected void btnSave_Click(object sender, EventArgs e)
     {
         Message.Text = "Save";
-      
+
         dbcalss.insert("Company", "CompId", "CompName", TextBoxCompanyName.Text);
 
         TextBoxCompanyName.Text = "";
+    }
+
+    protected void deleteCalling(int compId)
+    {
+        Message.Text = "Delete";
+        dbcalss.Delete("Company", "CompId", compId.ToString());
+
     }
 
 }
