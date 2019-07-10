@@ -2,6 +2,14 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
+    <script type="text/javascript">
+        function delete_id(empId) {
+            if (confirm('Sure To Remove This Employee ?')) {
+                window.location.href = 'EmployeeMaster.aspx?delete_id=' + empId
+            }
+        }
+    </script>
+
     <div class="modal fade" id="defaultModal_1" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document" style="width: 1300px;">
             <div class="block-header">
@@ -220,7 +228,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <div class="form-line">
-                                           <b>Internal Email Address:</b>
+                                            <b>Internal Email Address:</b>
                                             <asp:TextBox ID="TextBoxIntMail2" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Internal Mail"></asp:TextBox>
                                         </div>
                                     </div>
@@ -229,7 +237,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <div class="form-line">
-                                           <b>External Email Address:</b>
+                                            <b>External Email Address:</b>
                                             <asp:TextBox ID="TextBoxExtMail2" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="External Mail"></asp:TextBox>
                                         </div>
                                     </div>
@@ -251,6 +259,6 @@
         </div>
     </div>
 
-    
+
 </asp:Content>
 

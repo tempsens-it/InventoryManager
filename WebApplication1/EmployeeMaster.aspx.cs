@@ -14,7 +14,11 @@ public partial class EmployeeMaster : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         dbclass.MSSQl_conn();
-        getDataInDropBoxCompany();
+        if (!Page.IsPostBack)
+        {
+            getDataInDropBoxCompany();
+            Delete_data();
+        }
     }
 
     public string getSourceData()
@@ -30,8 +34,8 @@ public partial class EmployeeMaster : System.Web.UI.Page
             {
                 string empId = sd["EmpId"].ToString();
                 string empName = sd["EmpName"].ToString();
-                int deptId = Convert.ToInt16(sd["DeptId"]);
-                int compId = Convert.ToInt16(sd["CompId"]);
+                string deptId = sd["DeptId"].ToString();
+                string compId = sd["CompId"].ToString();
                 bool active = Convert.ToBoolean(sd["IsActive"]);
                 string desig = sd["Desig"].ToString();
                 string mobileNum = sd["MobileNum"].ToString();
@@ -45,9 +49,9 @@ public partial class EmployeeMaster : System.Web.UI.Page
                 data += "</td><td>";
                 data += desig;
                 data += "</td><td>";
-                data += deptId;
-                data += "</td><td>";
-                data += compId;
+                data += returnName(deptId, "Department", "DeptName");
+                 data += "</td><td>";
+                data += returnName(compId, "Company", "CompName");
                 data += "</td><td>";
                 data += mobileNum;
                 data += "</td><td>";
@@ -58,7 +62,7 @@ public partial class EmployeeMaster : System.Web.UI.Page
                 data += active;
                 data += "</td><td>";
                 data += "<a href='#' data-toggle='modal' data-target='#defaultModal_1'><i class='material-icons'>mode_edit</i></a>";
-                data += "&nbsp; <a href='#' data-toggle='modal' data-target='#defaultModal_1'><i class='material-icons'>delete</i></a>";
+                data += "&nbsp; <a href='javascript:delete_id(" + empId + ")'><i class='material-icons'>delete</i></a>";
                 data += "</td></tr>";
             }
         }
@@ -131,5 +135,48 @@ public partial class EmployeeMaster : System.Web.UI.Page
         DropDepartment2.DataTextField = "DeptName";
         DropDepartment2.DataValueField = "DeptId";
         DropDepartment2.DataBind();
+    }
+
+    protected string returnName(string id, string tableName, string colName)
+    {
+        String compName = "";
+
+        try
+        {
+            SqlConnection Cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
+            Cn.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = Cn;
+            cmd.CommandText = "Select " + colName + " from " + tableName + " where CompId =" + id;
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            if (dr.Read())
+            {
+                compName = dr[colName].ToString();
+            }
+            Cn.Close();
+        }
+        catch (Exception ex)
+        {
+            Console.Write(ex.Message);
+        }
+        return compName;
+    }
+
+    protected void Delete_data()
+    {
+        try
+        {
+            string get_id = Request.QueryString["delete_id"];
+            if (get_id != null)
+            {
+                dbclass.Delete("Employee", "EmpId", get_id);
+                Response.Redirect("EmployeeMaster.aspx");
+            }
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
     }
 }

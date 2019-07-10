@@ -2,6 +2,23 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
+    <script type="text/javascript">
+        function delete_id(deptId) {
+            if (confirm('Sure To Remove This Department ?')) {
+                window.location.href = 'DepartmentMaster.aspx?delete_id=' + deptId
+            }
+        }
+
+        function edit_id(deptId)
+        {
+            if (confirm('Sure to update this department? '))
+            {
+                window.location.href = 'DepartmentMaster.aspx?edit_id=' + deptId
+            }
+            
+        }
+    </script>
+
     <div class="modal fade" id="defaultModal_1" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document" style="width: 1300px;">
             <div class="block-header">
