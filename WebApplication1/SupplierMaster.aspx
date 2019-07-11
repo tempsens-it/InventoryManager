@@ -2,6 +2,15 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
+    <script type="text/javascript">
+
+        function delete_id(supCntId) {
+            if (confirm('Sure To Remove This Employee ?')) {
+                window.location.href = 'SupplierMaster.aspx?delete_id=' + supCntId
+            }
+        }
+    </script>
+
     <div class="modal fade" id="defaultModal_1" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document" style="width: 1300px;">
             <div class="block-header">
@@ -37,7 +46,7 @@
                                             <div class="form-group">
                                                 <div class="form-line">
                                                     <b>Supplier Name</b>
-                                                    <asp:TextBox ID="TextBoxSupplierName" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Name"></asp:TextBox>
+                                                    <asp:TextBox ID="tbSupplierName" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Name"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -46,7 +55,7 @@
                                             <div class="form-group">
                                                 <div class="form-line">
                                                     <b>Supplier Address</b>
-                                                    <asp:TextBox ID="TextBoxSupAdd" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Address"></asp:TextBox>
+                                                    <asp:TextBox ID="tbSupAdd" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Address"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -55,11 +64,7 @@
                                             <div class="form-group">
                                                 <div class="form-line">
                                                     <b>State</b>
-                                                    <asp:DropDownList ID="DropDownListState" runat="server" class="form-control show-tick">
-                                                        <asp:ListItem>Mustard</asp:ListItem>
-                                                        <asp:ListItem>Ketchup</asp:ListItem>
-                                                        <asp:ListItem>Relish</asp:ListItem>
-
+                                                    <asp:DropDownList ID="ddlState" runat="server" class="form-control show-tick" AutoPostBack="true" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" AppendDataBoundItems="true">
                                                     </asp:DropDownList>
                                                 </div>
                                             </div>
@@ -69,11 +74,7 @@
                                             <div class="form-group">
                                                 <div class="form-line">
                                                     <b>City</b>
-                                                    <asp:DropDownList ID="DropDownListSupCity" runat="server" class="form-control show-tick">
-                                                        <asp:ListItem>Mustard</asp:ListItem>
-                                                        <asp:ListItem>Ketchup</asp:ListItem>
-                                                        <asp:ListItem>Relish</asp:ListItem>
-
+                                                    <asp:DropDownList ID="ddlSupCity" runat="server" class="form-control show-tick" AppendDataBoundItems="true" AutoPostBack="true">
                                                     </asp:DropDownList>
                                                 </div>
                                             </div>
@@ -83,7 +84,7 @@
                                             <div class="form-group">
                                                 <div class="form-line">
                                                     <b>PinCode</b>
-                                                    <asp:TextBox ID="TextBoxSupPincode" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Pincode">
+                                                    <asp:TextBox ID="tbSupPincode" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Pincode">
                                                     </asp:TextBox>
 
                                                 </div>
@@ -94,7 +95,7 @@
                                             <div class="form-group">
                                                 <div class="form-line">
                                                     <b>Supplier Landline Number</b>
-                                                    <asp:TextBox ID="TextBoxSupLandline" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Landline Number"></asp:TextBox>
+                                                    <asp:TextBox ID="tbSupLandline" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Landline Number"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -103,7 +104,7 @@
                                             <div class="form-group">
                                                 <div class="form-line">
                                                     <b>Supplier Email Address</b>
-                                                    <asp:TextBox ID="TextBoxSupEmail" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Email Address"></asp:TextBox>
+                                                    <asp:TextBox ID="tbSupEmail" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Email Address"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -112,9 +113,7 @@
                                             <div class="form-group">
                                                 <div class="form-line">
                                                     <b>GST Number</b>
-                                                    <asp:TextBox ID="TextBoxGST" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="GST Number">
-                                                    </asp:TextBox>
-
+                                                    <asp:TextBox ID="tbGST" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="GST Number"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -139,7 +138,7 @@
                                             <div class="form-group">
                                                 <div class="form-line">
                                                     <b>Supplier Name</b>
-                                                    <asp:DropDownList ID="DropDownListSupplier" runat="server" class="form-control show-tick">
+                                                    <asp:DropDownList ID="ddlSupplier" runat="server" class="form-control show-tick">
                                                         <asp:ListItem>Mustard</asp:ListItem>
                                                         <asp:ListItem>Ketchup</asp:ListItem>
                                                         <asp:ListItem>Relish</asp:ListItem>
@@ -153,7 +152,7 @@
                                             <div class="form-group">
                                                 <div class="form-line">
                                                     <b>Name:</b>
-                                                    <asp:TextBox ID="TextBoxName" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Person's Name"></asp:TextBox>
+                                                    <asp:TextBox ID="tbName" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Person's Name"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -162,7 +161,7 @@
                                             <div class="form-group">
                                                 <div class="form-line">
                                                     <b>Designation</b>
-                                                    <asp:TextBox ID="TextBoxDesignation" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Designation"></asp:TextBox>
+                                                    <asp:TextBox ID="tbDesignation" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Designation"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -171,7 +170,7 @@
                                             <div class="form-group">
                                                 <div class="form-line">
                                                     <b>Mobile Number</b>
-                                                    <asp:TextBox ID="TextBoxMobNum" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Mobile Number"></asp:TextBox>
+                                                    <asp:TextBox ID="tbMobNum" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Mobile Number"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -180,7 +179,7 @@
                                             <div class="form-group">
                                                 <div class="form-line">
                                                     <b>Email Address</b>
-                                                    <asp:TextBox ID="TextBoxEmail" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Email Address"></asp:TextBox>
+                                                    <asp:TextBox ID="tbEmail" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Email Address"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -190,7 +189,7 @@
                                         <div class="row clearfix">
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <asp:Button ID="Button2" runat="server" Text="UPDATE" class="btn btn-primary m-t-15 waves-effect" OnClick="btnSubmit_Click" />
+                                                    <asp:Button ID="Button2" runat="server" Text="UPDATE" class="btn btn-primary m-t-15 waves-effect" OnClick="btnSubmit2_Click" />
                                                     &ensp;
                                                     <button type="button" class="btn btn-primary m-t-15 waves-effect" data-dismiss="modal">CLOSE</button>
                                                 </div>
@@ -255,11 +254,13 @@
                                                         <th>City</th>
                                                         <th>State</th>
                                                         <th>Pincode</th>
-                                                        <th>Landline No.</th>
+                                                        <th>Landline Number</th>
                                                         <th>Email id</th>
-                                                        <th>Payment Terms</th>
+                                                        <th>GST Number</th>
                                                         <th>Contact Person</th>
                                                         <th>Designation</th>
+                                                        <th>Mobile Number</th>
+                                                        <th>Email id</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -278,19 +279,19 @@
 
                             <div class="row clearfix">
                                 <div class="col-md-12">
-                                    <label for="sup_name">Supplier Name</label>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" id="sup_name" class="form-control" placeholder="Enter Supplier name">
+                                            <b>Supplier Name</b>
+                                            <asp:TextBox ID="tbSupplierName2" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Name"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-md-12">
-                                    <label for="sup_address">Address</label>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" id="sup_address" class="form-control" placeholder="Enter Supplier Address">
+                                            <b>Supplier Address</b>
+                                            <asp:TextBox ID="tbSupAdd2" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Address"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -299,87 +300,63 @@
                                 <%--If dropdown is Required --%>
 
                                 <div class="col-md-6">
-                                    <label for="sup_state">State</label>
-                                    <select class="form-control show-tick">
-                                        <option>Mustard</option>
-                                        <option>Ketchup</option>
-                                        <option>Relish</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label for="sup_city">City</label>
-                                    <select class="form-control show-tick">
-                                        <option>Mustard</option>
-                                        <option>Ketchup</option>
-                                        <option>Relish</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label for="sup_pincode">Pincode</label>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" id="sup_pincode" class="form-control" placeholder="Enter Supplier Pincode">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <%--<div class="col-md-6">
-                                    <label for="sup_mnumber">Mobile Number</label>
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <input type="text" id="sup_mnumber" class="form-control" placeholder="Enter Supplier Mobile number">
-                                        </div>
-                                    </div>
-                                </div>--%>
-
-                                <div class="col-md-6">
-                                    <label for="sup_lnumber">Landline Number</label>
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <input type="text" id="sup_lnumber" class="form-control" placeholder="Enter Supplier Landline number">
+                                            <b>State</b>
+                                            <asp:DropDownList ID="ddlState2" runat="server" class="form-control show-tick" AppendDataBoundItems="true" AutoPostBack="true" OnSelectedIndexChanged="ddlState2_SelectedIndexChanged">
+                                            </asp:DropDownList>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="sup_email">Email address</label>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" id="sup_email" class="form-control" placeholder="Enter Supplier Email address">
+                                            <b>City</b>
+                                            <asp:DropDownList ID="ddlSupCity2" runat="server" class="form-control show-tick" AppendDataBoundItems="true">
+                                            </asp:DropDownList>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="sup_GST">GST Number</label>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" id="sup_GST" class="form-control" placeholder="Enter GST number">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <%--<div class="col-md-6">
-                                    <label for="sup_payment_term">Payment Terms</label>
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <input type="text" id="sup_payment_term" class="form-control" placeholder="Enter Payment Terms">
+                                            <b>PinCode</b>
+                                            <asp:TextBox ID="tbSupPincode2" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Pincode"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="sup_payment_desc">Payment Terms Description</label>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" id="sup_payment_desc" class="form-control" placeholder="Enter Payment terms description">
+                                            <b>Supplier Landline Number</b>
+                                            <asp:TextBox ID="tbSupLandline2" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Landline Number"></asp:TextBox>
                                         </div>
                                     </div>
-                                </div>--%>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>Supplier Email Address</b>
+                                            <asp:TextBox ID="tbSupEmail2" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Email Address"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>GST Number</b>
+                                            <asp:TextBox ID="tbGST2" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="GST Number"></asp:TextBox>
+
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <button type="button" class="btn btn-primary m-t-15 waves-effect">ADD</button>
+                            <asp:Button ID="BtnSave" runat="server" Text="UPDATE" class="btn btn-primary m-t-15 waves-effect" OnClick="btnSave_Click" />
 
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="personAdd_with_icon_title">
@@ -387,55 +364,54 @@
 
                             <div class="row clearfix">
                                 <div class="col-md-6">
-                                    <p>
-                                        <b>Supplier Name</b>
-                                    </p>
-                                    <select class="form-control show-tick">
-                                        <option>Mustard</option>
-                                        <option>Ketchup</option>
-                                        <option>Relish</option>
-                                    </select>
+                                    <b>Supplier Name</b>
+                                    <asp:DropDownList ID="ddlSupplier2" runat="server" class="form-control show-tick">
+                                        <asp:ListItem>Mustard</asp:ListItem>
+                                        <asp:ListItem>Ketchup</asp:ListItem>
+                                        <asp:ListItem>Relish</asp:ListItem>
+
+                                    </asp:DropDownList>
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="sup_emp_name">Name</label>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" id="sup_emp_name" class="form-control" placeholder="Enter name">
+                                            <b>Name:</b>
+                                            <asp:TextBox ID="tbName2" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Person's Name"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="sup_emp_designation">Designation</label>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" id="sup_emp_designation" class="form-control" placeholder="Enter desgination">
+                                            <b>Designation</b>
+                                            <asp:TextBox ID="tbDesignation2" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Designation"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="sup_emp_mnumber">Mobile Number</label>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" id="sup_emp_mnumber" class="form-control" placeholder="Enter mobile number">
+                                            <b>Mobile Number</b>
+                                            <asp:TextBox ID="tbMobNum2" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Mobile Number"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="sup_emp_email">Email address</label>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" id="sup_emp_email" class="form-control" placeholder="Enter Email address">
+                                            <b>Email Address</b>
+                                            <asp:TextBox ID="tbEmail2" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Email Address"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
 
-                            <button type="button" class="btn btn-primary m-t-15 waves-effect">ADD</button>
+                            <asp:Button ID="btnSave2" runat="server" Text="UPDATE" class="btn btn-primary m-t-15 waves-effect" OnClick="btnSave2_Click" />
 
 
                         </div>
@@ -445,68 +421,8 @@
         </div>
     </div>
 
-    <%--Contact Person --%>
-    <%--<div class="row clearfix">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div class="card">
-                <div class="header">
-                    <h2>
-                        Add Supplier Contact Person
-                    </h2>
-                    
-                </div>
-                <div class="body">
-                        <div class="row clearfix">
-                            <div class="col-md-6">
-                                <p>
-                                    <b>Supplier Name</b>
-                                </p>
-                                <select class="form-control show-tick">
-                                    <option>Mustard</option>
-                                    <option>Ketchup</option>
-                                    <option>Relish</option>
-                                </select>
-                            </div> 
 
-                            <div class="col-md-6">
-                                <label for="sup_emp_name">Name</label>
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" id="sup_emp_name" class="form-control" placeholder="Enter name">
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="col-md-6">
-                                <label for="sup_emp_designation">Designation</label>
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" id="sup_emp_designation" class="form-control" placeholder="Enter desgination">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <label for="sup_emp_mnumber">Mobile Number</label>
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" id="sup_emp_mnumber" class="form-control" placeholder="Enter mobile number">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        
-                        <button type="button" class="btn btn-primary m-t-15 waves-effect">ADD</button>
-                        &ensp;
-                        <button type="button" class="btn btn-primary m-t-15 waves-effect">UPDATE</button>
-                        &ensp;
-                        <button type="button" class="btn btn-primary m-t-15 waves-effect">DELETE</button>
-                    
-                </div>
-            </div>
-        </div>
-    </div>--%>
 
     <%--Payment Terms--%>
     <%--<div class="row clearfix">
