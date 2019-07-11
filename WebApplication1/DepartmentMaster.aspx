@@ -11,11 +11,7 @@
 
         function edit_id(deptId)
         {
-            if (confirm('Sure to update this department? '))
-            {
                 window.location.href = 'DepartmentMaster.aspx?edit_id=' + deptId
-            }
-            
         }
     </script>
 

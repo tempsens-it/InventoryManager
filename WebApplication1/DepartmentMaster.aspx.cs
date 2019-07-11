@@ -19,8 +19,18 @@ public partial class DepartmentMaster : System.Web.UI.Page
         {
             getDataInDropBoxCompany();
             Delete_data();
+            //Edit_data();
         }
     }
+
+    //private void Edit_data()
+    //{
+    //    string get_id = Request.QueryString["edit_id"];
+    //    if(get_id != null)
+    //    {
+            
+    //    }
+    //}
 
     protected void Delete_data()
     {
@@ -160,5 +170,7 @@ public partial class DepartmentMaster : System.Web.UI.Page
         }
         return compName;
     }
+
+
 
 }

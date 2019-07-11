@@ -28,17 +28,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <b>Employee Name:</b>
-                                            <asp:TextBox ID="TxtEmployee" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Company Name"></asp:TextBox>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <b>Department</b>
-                                            <asp:DropDownList ID="DropDepartment" runat="server" class="form-control show-tick">
-                                            </asp:DropDownList>
+                                            <asp:TextBox ID="TxtEmployee" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Company Name"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -53,11 +43,21 @@
                                     </div>
                                 </div>
 
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>Department</b>
+                                            <asp:DropDownList ID="DropDepartment" runat="server" class="form-control show-tick">
+                                            </asp:DropDownList>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <div class="form-line">
                                             <b>Designation</b>
-                                            <asp:TextBox ID="TextBoxDesignation" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Designation"></asp:TextBox>
+                                            <asp:TextBox ID="TextBoxDesignation" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Designation"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -66,7 +66,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <b>Contact Number</b>
-                                            <asp:TextBox ID="TextBoxContact" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Contact Number"></asp:TextBox>
+                                            <asp:TextBox ID="TextBoxContact" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Contact Number"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -75,7 +75,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <b>Internal Mail ID</b>
-                                            <asp:TextBox ID="TextBoxIntMail" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Internal Mail ID"></asp:TextBox>
+                                            <asp:TextBox ID="TextBoxIntMail" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Internal Mail ID"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -84,7 +84,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <b>External Mail ID</b>
-                                            <asp:TextBox ID="TextBoxExtMail" runat="server" Style="text-transform: capitalize" class="form-control" required placeholder="Internal Mail ID"></asp:TextBox>
+                                            <asp:TextBox ID="TextBoxExtMail" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Internal Mail ID"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -194,15 +194,14 @@
                                 </div>
 
                                 <div class="col-md-6">
-
-                                    <b>Department</b>
-                                    <asp:DropDownList ID="DropDepartment2" runat="server" class="form-control show-tick">
+                                    <b>Company</b>
+                                    <asp:DropDownList ID="DropCompany2" runat="server" class="form-control show-tick">
                                     </asp:DropDownList>
                                 </div>
 
                                 <div class="col-md-6">
-                                    <b>Company</b>
-                                    <asp:DropDownList ID="DropCompany2" runat="server" class="form-control show-tick">
+                                    <b>Department</b>
+                                    <asp:DropDownList ID="DropDepartment2" runat="server" class="form-control show-tick">
                                     </asp:DropDownList>
                                 </div>
 

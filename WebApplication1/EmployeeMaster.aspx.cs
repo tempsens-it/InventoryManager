@@ -82,10 +82,29 @@ public partial class EmployeeMaster : System.Web.UI.Page
         if (CheckBoxActive1.Checked)
         {
             dbclass.insertEmp(TextBoxName.Text, TextBoxContact2.Text, DropDepartment2.SelectedItem.Value, DropCompany2.SelectedItem.Value, 1, TextBoxDesignation2.Text, TextBoxIntMail2.Text, TextBoxExtMail2.Text);
+
+            TextBoxContact2.Text = "";
+            TextBoxDesignation2.Text = "";
+            TextBoxExtMail2.Text = "";
+            TextBoxIntMail2.Text = "";
+            TextBoxName.Text = "";
+            DropCompany2.ClearSelection();
+            DropDepartment2.ClearSelection();
+            CheckBoxActive1.Checked = false;
+
         }
         else
         {
             dbclass.insertEmp(TextBoxName.Text, TextBoxContact2.Text, DropDepartment2.SelectedItem.Value, DropCompany2.SelectedItem.Value, 0, TextBoxDesignation2.Text, TextBoxIntMail2.Text, TextBoxExtMail2.Text);
+
+            TextBoxContact2.Text = "";
+            TextBoxDesignation2.Text = "";
+            TextBoxExtMail2.Text = "";
+            TextBoxIntMail2.Text = "";
+            TextBoxName.Text = "";
+            DropCompany2.ClearSelection();
+            DropDepartment2.ClearSelection();
+            CheckBoxActive1.Checked = false;
         }
 
         //dbclass.insert("Company", "CompId", "CompName", TextBoxCompanyName.Text);
@@ -103,7 +122,6 @@ public partial class EmployeeMaster : System.Web.UI.Page
         SqlDataAdapter adpt2 = new SqlDataAdapter(com2, Cn);
         DataTable dt = new DataTable();
         adpt.Fill(dt);
-
 
         //For edit tab
         DropCompany.DataSource = dt;
@@ -135,6 +153,16 @@ public partial class EmployeeMaster : System.Web.UI.Page
         DropDepartment2.DataTextField = "DeptName";
         DropDepartment2.DataValueField = "DeptId";
         DropDepartment2.DataBind();
+
+        ListItem liCompany = new ListItem("Select a Company", "-1");
+        DropCompany2.Items.Insert(0, liCompany);
+        DropCompany.Items.Insert(0, liCompany);
+
+        ListItem liDepartment = new ListItem("Select a Department", "-1");
+        DropDepartment.Items.Insert(0, liCompany);
+        DropDepartment2.Items.Insert(0, liCompany);
+
+        
     }
 
     protected string returnName(string id, string tableName, string colName)
