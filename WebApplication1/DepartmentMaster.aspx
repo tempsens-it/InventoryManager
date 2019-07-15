@@ -9,13 +9,23 @@
             }
         }
 
-        function edit_id(deptId)
+        function edit(deptId)
         {
-                window.location.href = 'DepartmentMaster.aspx?edit_id=' + deptId
+            //alert('Hello world!' + deptId);
+            window.location.href = 'DepartmentMaster.aspx?id=' + deptId
+            //alert('Hello world22!' + deptId);
+            //document.getElementById("defaultModal_1").innerHTML = '<object type="text/aspx" data="DepartmentMaster.aspx" ></object>';
+
+            
+            
+            
+            
+           
+
         }
     </script>
 
-    <div class="modal fade" id="defaultModal_1" tabindex="-1" role="dialog">
+    <div class="modal fade" id="defaultModal_1" role="dialog" runat="server">
         <div class="modal-dialog" role="document" style="width: 1300px;">
             <div class="block-header">
             </div>
@@ -29,7 +39,15 @@
                         </div>
                         <div class="body">
                             <div class="row clearfix">
-                                <div class="col-sm-6">
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>Id:</b>
+                                            <asp:TextBox ID="txtId" runat="server" Style="text-transform: capitalize" class="form-control" ReadOnly="true"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5">
                                     <div class="form-group">
                                         <div class="form-line">
                                             <b>Department Name:</b>
@@ -37,7 +55,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-5">
                                     <div class="form-group">
                                         <div class="form-line">
                                             <b>Company</b>

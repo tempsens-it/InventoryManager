@@ -253,12 +253,14 @@ public class db
         return id;
     }
 
-    public void insertSupplier( string supplierName,  string Add,  string City,  string State,  string MobileNo,  string phoneNo,  string email,  int PaymentId,  int Pincode)
+    public void insertSupplier( string supplierName,  string Add,  string City,  string State,  string MobileNo,  string phoneNo,  string email,  int PaymentId,  string Pincode)
     {
+        int maxid = 0;
         try
         {
             Cn.Open();
-            cmd.CommandText = "INSERT INTO [dbo].[Supplier] ( [SupplierName] , [Address] , [City] , [State] , [MobileNo] , [PhoneNo] , [Email] , [PayTermId] , [Pincode] , [CreateDate] Values('" + supplierName + "', '" + Add + "', '" + City + "',  '" + State + "', '" + MobileNo + "', '" + phoneNo + "',  '" + email + "',  " + PaymentId + ",  " + Pincode + ",'" + DateTime.Now + "', 1)";
+            maxid = SelectMaxId("Supplier", "SupplierId");
+            cmd.CommandText = "INSERT INTO [dbo].[Supplier] ( [SupplierId] , [SupplierName] , [Address] , [City] , [State] , [MobileNo] , [PhoneNo] , [Email] , [PayTermId] , [Pincode] , [CreateDate] , [UserId] ) Values ( '" + maxid + "', '" + supplierName + "', '" + Add + "', '" + City + "',  '" + State + "', '" + MobileNo + "', '" + phoneNo + "',  '" + email + "',  " + PaymentId + ",  '" + Pincode + "','" + DateTime.Now + "', 1)";
             cmd.Connection = Cn;
             cmd.ExecuteNonQuery();
         }

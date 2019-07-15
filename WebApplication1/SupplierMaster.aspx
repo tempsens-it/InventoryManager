@@ -64,8 +64,7 @@
                                             <div class="form-group">
                                                 <div class="form-line">
                                                     <b>State</b>
-                                                    <asp:DropDownList ID="ddlState" runat="server" class="form-control show-tick" AutoPostBack="true" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" AppendDataBoundItems="true">
-                                                    </asp:DropDownList>
+                                                    <asp:DropDownList ID="ddlState" runat="server" class="form-control show-tick" AutoPostBack="true" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" AppendDataBoundItems="true"></asp:DropDownList>
                                                 </div>
                                             </div>
                                         </div>
@@ -74,8 +73,7 @@
                                             <div class="form-group">
                                                 <div class="form-line">
                                                     <b>City</b>
-                                                    <asp:DropDownList ID="ddlSupCity" runat="server" class="form-control show-tick" AppendDataBoundItems="true" AutoPostBack="true">
-                                                    </asp:DropDownList>
+                                                    <asp:DropDownList ID="ddlSupCity" runat="server" class="form-control show-tick" ></asp:DropDownList>
                                                 </div>
                                             </div>
                                         </div>
@@ -138,12 +136,7 @@
                                             <div class="form-group">
                                                 <div class="form-line">
                                                     <b>Supplier Name</b>
-                                                    <asp:DropDownList ID="ddlSupplier" runat="server" class="form-control show-tick">
-                                                        <asp:ListItem>Mustard</asp:ListItem>
-                                                        <asp:ListItem>Ketchup</asp:ListItem>
-                                                        <asp:ListItem>Relish</asp:ListItem>
-
-                                                    </asp:DropDownList>
+                                                    <asp:DropDownList ID="ddlSupplier" runat="server" class="form-control show-tick"></asp:DropDownList>
                                                 </div>
                                             </div>
                                         </div>
@@ -303,8 +296,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <b>State</b>
-                                            <asp:DropDownList ID="ddlState2" runat="server" class="form-control show-tick" AppendDataBoundItems="true" AutoPostBack="true" OnSelectedIndexChanged="ddlState2_SelectedIndexChanged">
-                                            </asp:DropDownList>
+                                            <asp:DropDownList ID="ddlState2" runat="server" class="form-control show-tick" AppendDataBoundItems="true" AutoPostBack="true" OnSelectedIndexChanged="ddlState2_SelectedIndexChanged"></asp:DropDownList>
                                         </div>
                                     </div>
                                 </div>
@@ -313,8 +305,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <b>City</b>
-                                            <asp:DropDownList ID="ddlSupCity2" runat="server" class="form-control show-tick" AppendDataBoundItems="true">
-                                            </asp:DropDownList>
+                                            <asp:DropDownList ID="ddlSupCity2" runat="server" class="form-control show-tick" AppendDataBoundItems="true"></asp:DropDownList>
                                         </div>
                                     </div>
                                 </div>
@@ -365,12 +356,7 @@
                             <div class="row clearfix">
                                 <div class="col-md-6">
                                     <b>Supplier Name</b>
-                                    <asp:DropDownList ID="ddlSupplier2" runat="server" class="form-control show-tick">
-                                        <asp:ListItem>Mustard</asp:ListItem>
-                                        <asp:ListItem>Ketchup</asp:ListItem>
-                                        <asp:ListItem>Relish</asp:ListItem>
-
-                                    </asp:DropDownList>
+                                    <asp:DropDownList ID="ddlSupplier2" runat="server" class="form-control show-tick"></asp:DropDownList>
                                 </div>
 
                                 <div class="col-md-6">
@@ -409,11 +395,7 @@
                                     </div>
                                 </div>
                             </div>
-
-
                             <asp:Button ID="btnSave2" runat="server" Text="UPDATE" class="btn btn-primary m-t-15 waves-effect" OnClick="btnSave2_Click" />
-
-
                         </div>
                     </div>
                 </div>
