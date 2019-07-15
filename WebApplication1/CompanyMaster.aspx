@@ -8,6 +8,12 @@ function delete_id(compId) {
              if (confirm('Sure To Remove This Complain ?')) {
                  window.location.href = 'CompanyMaster.aspx?delete_id=' + compId
                   }
+        }
+
+        function Edit_id(compId) {
+             if (confirm('Sure To Update This Complain ?')) {
+                 window.location.href = 'CompanyMaster.aspx?Edit_id=' + compId
+             }
          }
 
     </script>
