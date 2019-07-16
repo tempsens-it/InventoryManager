@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Diagnostics;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
@@ -24,7 +25,9 @@ public partial class DepartmentMaster : System.Web.UI.Page
     }
 
 
-    private void Edit_data()
+
+
+    private string Edit_data()
     {
         string get_id = Request.QueryString["id"];
         if (get_id != null)
@@ -35,9 +38,11 @@ public partial class DepartmentMaster : System.Web.UI.Page
             DropCompany.Items.FindByValue(comp).Selected = true;
             //defaultModal_1.Visible = true;
         }
+
+        return get_id;
     }
 
-    private string getDataById(string tableName, string colName, string idColName,string get_id)
+    private string getDataById(string tableName, string colName, string idColName, string get_id)
     {
         string data = "";
         try
@@ -49,14 +54,14 @@ public partial class DepartmentMaster : System.Web.UI.Page
             cmd.CommandText = "Select " + colName + " from " + tableName + " where " + idColName + " = " + get_id;
             SqlDataReader dr = cmd.ExecuteReader();
 
-            
-            if(dr.Read())
+
+            if (dr.Read())
             {
                 data = dr[colName].ToString();
             }
             Cn.Close();
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             Console.Write(ex.Message);
         }
@@ -105,8 +110,11 @@ public partial class DepartmentMaster : System.Web.UI.Page
                 data += "</td><td>";
                 data += returnName(compId);
                 data += "</td><td>";
-                //data += "<a href='javascript:edit_id(" + deptId + ")' data-toggle='modal' data-target='#defaultModal_1'><i class='material-icons'>mode_edit</i></a>";
-                data += "<button type='button' onclick='edit(" + deptId + ")' style='background: rgba(255, 255, 255, 0); border: none; color: rgb(51,122,183); padding: 2px 2px; text-align: center; text-decoration: none; display: inline-block; font - size: 16px;'><i class='material-icons'>edit</i></button>";
+
+                // data += "<a href='#' data-toggle='modal' data-target='#defaultModal_1'><i class='material-icons'>mode_edit</i></a>";
+                //data += "<a onclick='edit(" + deptId + ")' runat='server' data-toggle='modal' data-target='#defaultModal_1'><i class='material-icons'>edit</i></a>";
+
+                data += "<button type='button' runat='server' id='btnEdit' onclick='edit(" + deptId + ")' style='background: rgba(255, 255, 255, 0); border: none; color: rgb(51,122,183); padding: 2px 2px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px;'><i class='material-icons'>edit</i></button>";
                 data += "&nbsp; <a  href='javascript:delete_id(" + deptId + ")'><i class='material-icons'>delete</i></a>";
                 data += "</td></tr>";
             }
@@ -116,6 +124,8 @@ public partial class DepartmentMaster : System.Web.UI.Page
     }
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
+        Edit_data();
+        //string id = Edit_data();
         if (DropCompany.SelectedItem.Value != "-1")
         {
             try
@@ -123,11 +133,12 @@ public partial class DepartmentMaster : System.Web.UI.Page
                 SqlConnection Con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = Con;
-                
+
                 cmd.CommandText = "Update Department set DeptName = @DeptName, CompId = @CompId where DeptId = @DeptId";
                 cmd.Parameters.AddWithValue("@DeptName", TxtDepartment.Text);
                 cmd.Parameters.AddWithValue("@CompId", DropCompany.SelectedItem.Value);
                 cmd.Parameters.AddWithValue("@DeptId", txtId.Text);
+                //cmd.Parameters.AddWithValue("@DeptId", id);
                 Con.Open();
                 cmd.ExecuteScalar();
 

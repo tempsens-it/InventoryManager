@@ -2,28 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
-    <script type="text/javascript">
-        function delete_id(deptId) {
-            if (confirm('Sure To Remove This Department ?')) {
-                window.location.href = 'DepartmentMaster.aspx?delete_id=' + deptId
-            }
-        }
-
-        function edit(deptId)
-        {
-            //alert('Hello world!' + deptId);
-            window.location.href = 'DepartmentMaster.aspx?id=' + deptId
-            //alert('Hello world22!' + deptId);
-            //document.getElementById("defaultModal_1").innerHTML = '<object type="text/aspx" data="DepartmentMaster.aspx" ></object>';
-
-            
-            
-            
-            
-           
-
-        }
-    </script>
+    
 
     <div class="modal fade" id="defaultModal_1" role="dialog" runat="server">
         <div class="modal-dialog" role="document" style="width: 1300px;">
@@ -172,6 +151,41 @@
         </div>
     </div>
 
+    <script type="text/javascript">
+        function delete_id(deptId) {
+            if (confirm('Sure To Remove This Department ?')) {
+                window.location.href = 'DepartmentMaster.aspx?delete_id=' + deptId
+            }
+        }
+
+        function edit(deptId) {
+            alert(deptId);
+            window.location.href = 'DepartmentMaster.aspx?id=' + deptId
+            openFile();
+
+        }
+
+        function openFile() {
+            alert("In open file section");
+            //var x = document.getElementById("<%--<%= defaultModal_1.ClientID %>--%>");
+            //alert(x);
+            //alert(x.style.display);
+            //if (x.style.display == "none") {
+            //    //alert("5");
+            //    x.style.display = "block";
+            //    //alert(x.style.display);
+            //}
+
+            $(document).ready(function () {
+                $("#btnEdit.ClientID").click(function () {
+                    $("#defaultModal_1.ClientID").modal();
+                    alert("1");
+                });
+            });
+
+            //alert(x.style.display);
+        }
+    </script>
 
 </asp:Content>
 
