@@ -158,7 +158,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <b>Company</b>
-                                    <asp:DropDownList ID="DropCompany1" runat="server" class="form-control show-tick">
+                                    <asp:DropDownList ID="ddlCompany1" runat="server" class="form-control show-tick">
                                     </asp:DropDownList>
                                 </div>
                             </div>

@@ -91,12 +91,12 @@ public partial class DepartmentMaster : System.Web.UI.Page
 
     protected void btnSave_Click(object sender, EventArgs e)
     {
-        if (DropCompany1.SelectedItem.Value != "-1")
+        if (ddlCompany1.SelectedItem.Value != "0")
         {
-            dbclass.insert("Department", "DeptId", "DeptName", "CompId", TextBoxDeptName.Text, DropCompany1.SelectedItem.Value);
+            dbclass.insert("Department", "DeptId", "DeptName", "CompId", TextBoxDeptName.Text, ddlCompany1.SelectedItem.Value);
 
             TextBoxDeptName.Text = "";
-            DropCompany1.ClearSelection();
+            ddlCompany1.ClearSelection();
         }
     }
     
@@ -130,15 +130,27 @@ public partial class DepartmentMaster : System.Web.UI.Page
         try
         {
             SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
-            SqlCommand cmd = new SqlCommand("select CompId,CompName from Company", con);
+            SqlCommand cmd = new SqlCommand("select * from Company", con);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             sda.Fill(dt);
+
+            SqlDataAdapter sda2 = new SqlDataAdapter(cmd);
+            DataTable dt2 = new DataTable();
+            sda.Fill(dt2);
+
             ddlCompany.DataSource = dt;
             ddlCompany.DataTextField = "CompName";
             ddlCompany.DataValueField = "CompId";
             ddlCompany.DataBind();
             ddlCompany.Items.Insert(0, new ListItem("--Select Company--", "0"));
+
+            ddlCompany1.DataSource = dt2;
+            ddlCompany1.DataTextField = "CompName";
+            ddlCompany1.DataValueField = "CompId";
+            ddlCompany1.DataBind();
+            ddlCompany1.Items.Insert(0, new ListItem("--Select Company--", "0"));
+
             con.Close();
         }
         catch (Exception ex)
