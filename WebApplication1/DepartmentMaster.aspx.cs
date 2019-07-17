@@ -19,27 +19,11 @@ public partial class DepartmentMaster : System.Web.UI.Page
         if (!Page.IsPostBack)
         {
             getDataInDropBoxCompany();
+            getDataInDropBoxID();
             Delete_data();
-            Edit_data();
+
+
         }
-    }
-
-
-
-
-    private string Edit_data()
-    {
-        string get_id = Request.QueryString["id"];
-        if (get_id != null)
-        {
-            TxtDepartment.Text = getDataById("Department", "DeptName", "DeptId", get_id);
-            string comp = getDataById("Department", "CompId", "DeptId", get_id);
-            txtId.Text = get_id;
-            DropCompany.Items.FindByValue(comp).Selected = true;
-            //defaultModal_1.Visible = true;
-        }
-
-        return get_id;
     }
 
     private string getDataById(string tableName, string colName, string idColName, string get_id)
@@ -53,19 +37,11 @@ public partial class DepartmentMaster : System.Web.UI.Page
             cmd.Connection = Cn;
             cmd.CommandText = "Select " + colName + " from " + tableName + " where " + idColName + " = " + get_id;
             SqlDataReader dr = cmd.ExecuteReader();
-
-
             if (dr.Read())
-            {
                 data = dr[colName].ToString();
-            }
             Cn.Close();
         }
-        catch (Exception ex)
-        {
-            Console.Write(ex.Message);
-        }
-
+        catch (Exception ex) { Console.Write(ex.Message); }
         return data;
 
 
@@ -114,7 +90,7 @@ public partial class DepartmentMaster : System.Web.UI.Page
                 // data += "<a href='#' data-toggle='modal' data-target='#defaultModal_1'><i class='material-icons'>mode_edit</i></a>";
                 //data += "<a onclick='edit(" + deptId + ")' runat='server' data-toggle='modal' data-target='#defaultModal_1'><i class='material-icons'>edit</i></a>";
 
-                data += "<button type='button' runat='server' id='btnEdit' onclick='edit(" + deptId + ")' style='background: rgba(255, 255, 255, 0); border: none; color: rgb(51,122,183); padding: 2px 2px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px;'><i class='material-icons'>edit</i></button>";
+                data += "<a href='#' data-toggle='modal' data-target='#defaultModal_1'><i class='material-icons'>mode_edit</i></a>";
                 data += "&nbsp; <a  href='javascript:delete_id(" + deptId + ")'><i class='material-icons'>delete</i></a>";
                 data += "</td></tr>";
             }
@@ -124,7 +100,6 @@ public partial class DepartmentMaster : System.Web.UI.Page
     }
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        Edit_data();
         //string id = Edit_data();
         if (DropCompany.SelectedItem.Value != "-1")
         {
@@ -137,7 +112,7 @@ public partial class DepartmentMaster : System.Web.UI.Page
                 cmd.CommandText = "Update Department set DeptName = @DeptName, CompId = @CompId where DeptId = @DeptId";
                 cmd.Parameters.AddWithValue("@DeptName", TxtDepartment.Text);
                 cmd.Parameters.AddWithValue("@CompId", DropCompany.SelectedItem.Value);
-                cmd.Parameters.AddWithValue("@DeptId", txtId.Text);
+                cmd.Parameters.AddWithValue("@DeptId", ddlId.SelectedItem.Value);
                 //cmd.Parameters.AddWithValue("@DeptId", id);
                 Con.Open();
                 cmd.ExecuteScalar();
@@ -148,6 +123,10 @@ public partial class DepartmentMaster : System.Web.UI.Page
             {
                 throw ex;
             }
+        }
+        else
+        {
+
         }
         TxtDepartment.Text = " ";
         DropCompany.ClearSelection();
@@ -191,6 +170,26 @@ public partial class DepartmentMaster : System.Web.UI.Page
         DropCompany.Items.Insert(0, liCompany);
     }
 
+    protected void getDataInDropBoxID()
+    {
+        SqlConnection Cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
+        string com = "select * from Department";
+        SqlDataAdapter adpt = new SqlDataAdapter(com, Cn);
+        DataTable dt = new DataTable();
+        adpt.Fill(dt);
+
+        ddlId.DataSource = dt;
+        ddlId.DataTextField = "DeptId";
+        ddlId.DataValueField = "DeptId";
+        ddlId.DataBind();
+
+
+        ListItem liId = new ListItem("Select an ID", "-1");
+        ddlId.Items.Insert(0, liId);
+
+
+    }
+
     protected string returnName(string compId)
     {
         String compName = "";
@@ -218,5 +217,50 @@ public partial class DepartmentMaster : System.Web.UI.Page
     }
 
 
+    protected void ddlId_SelectedIndexChanged(object sender, EventArgs e)
+    {
 
+        Response.Write("<script>alert('message') </script>");
+        try
+        {
+            SqlConnection Cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
+
+            SqlCommand cmd = new SqlCommand("Select DeptName from Department where DeptId = @id", Cn);
+            cmd.Parameters.AddWithValue("@id", ddlId.SelectedValue);
+            SqlDataAdapter dept = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            dept.Fill(dt);
+
+            SqlCommand cmd2 = new SqlCommand("Select CompId from Department where DeptId = @id", Cn);
+            cmd2.Parameters.AddWithValue("@id", ddlId.SelectedValue);
+            SqlDataAdapter comp = new SqlDataAdapter(cmd2);
+            DataTable dt2 = new DataTable();
+            comp.Fill(dt2);
+            Cn.Open();
+            cmd.ExecuteNonQuery();
+            cmd2.ExecuteNonQuery();
+            TxtDepartment.Text = dt.Rows[0]["DeptName"].ToString();
+            string compId = dt2.Rows[0]["CompId"].ToString();
+
+            SqlCommand cmd3 = new SqlCommand("Select CompName from Company where CompId = @id", Cn);
+            cmd3.Parameters.AddWithValue("@id", compId);
+            SqlDataAdapter compName = new SqlDataAdapter(cmd3);
+            DataTable dt3 = new DataTable();
+            compName.Fill(dt3);
+            cmd3.ExecuteNonQuery();
+            //ddlId.SelectedValue = dt3.Rows[0]["CompName"].ToString();
+            //ddlId.Items.FindByValue(dt3.Rows[0]["CompName"].ToString()).Selected = true;
+            ddlId.DataValueField = compId;
+            ddlId.DataTextField = dt3.Rows[0]["CompName"].ToString();
+            Cn.Close();
+
+            //TxtDepartment.Text = getDataById("Department", "DeptName", "DeptId", get_id);
+            //string comp = getDataById("Department", "CompId", "DeptId", get_id);
+            //DropCompany.Items.FindByValue(comp).Selected = true;
+        }
+        catch (Exception ex)
+        {
+            Console.Write(ex.Message);
+        }
+    }
 }

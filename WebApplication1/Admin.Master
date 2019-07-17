@@ -44,6 +44,7 @@
 
 <body class="theme-red">
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="scriptmanager1" runat="server"></asp:ScriptManager>
         <%--<div class="page-loader-wrapper">
         <div class="loader">
             <div class="preloader">
