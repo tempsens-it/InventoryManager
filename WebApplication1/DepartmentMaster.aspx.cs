@@ -23,12 +23,12 @@ public partial class DepartmentMaster : System.Web.UI.Page
             Delete_data();
             BindCompany();
             BindTicketNo();
-
+            AddCompany();
 
         }
     }
 
-    
+
 
     protected void Delete_data()
     {
@@ -80,26 +80,28 @@ public partial class DepartmentMaster : System.Web.UI.Page
                             data += "</td></tr>";
                         }
                     }
+                }
             }
-        }
-           
+
         }
 
         return data;
     }
-   
+
 
     protected void btnSave_Click(object sender, EventArgs e)
     {
-        if (ddlCompany1.SelectedItem.Value != "0")
+        //AddCompany();
+
+        if (DropCompany1.SelectedItem.Value != "-1")
         {
-            dbclass.insert("Department", "DeptId", "DeptName", "CompId", TextBoxDeptName.Text, ddlCompany1.SelectedItem.Value);
+            dbclass.insert("Department", "DeptId", "DeptName", "CompId", TextBoxDeptName.Text, DropCompany1.SelectedItem.Value);
 
             TextBoxDeptName.Text = "";
-            ddlCompany1.ClearSelection();
+            DropCompany1.ClearSelection();
         }
     }
-    
+
 
     protected void ddlId_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -130,27 +132,37 @@ public partial class DepartmentMaster : System.Web.UI.Page
         try
         {
             SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
-            SqlCommand cmd = new SqlCommand("select * from Company", con);
+            SqlCommand cmd = new SqlCommand("select CompId,CompName from Company", con);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             sda.Fill(dt);
-
-            SqlDataAdapter sda2 = new SqlDataAdapter(cmd);
-            DataTable dt2 = new DataTable();
-            sda.Fill(dt2);
-
             ddlCompany.DataSource = dt;
             ddlCompany.DataTextField = "CompName";
             ddlCompany.DataValueField = "CompId";
             ddlCompany.DataBind();
             ddlCompany.Items.Insert(0, new ListItem("--Select Company--", "0"));
+            con.Close();
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
 
-            ddlCompany1.DataSource = dt2;
-            ddlCompany1.DataTextField = "CompName";
-            ddlCompany1.DataValueField = "CompId";
-            ddlCompany1.DataBind();
-            ddlCompany1.Items.Insert(0, new ListItem("--Select Company--", "0"));
-
+    private void AddCompany()
+    {
+        try
+        {
+            SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
+            SqlCommand cmd = new SqlCommand("select CompId,CompName from Company", con);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            DropCompany1.DataSource = dt;
+            DropCompany1.DataTextField = "CompName";
+            DropCompany1.DataValueField = "CompId";
+            DropCompany1.DataBind();
+            DropCompany1.Items.Insert(0, new ListItem("--Select Company--", "0"));
             con.Close();
         }
         catch (Exception ex)
@@ -206,4 +218,3 @@ public partial class DepartmentMaster : System.Web.UI.Page
     }
 }
 
-    
