@@ -23,13 +23,12 @@
                             <div class="form-group">
                                 <div class="form-line">
                                     <b>Id:</b>
-                                    <%--<asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                         <ContentTemplate>
-                                            <asp:DropDownList ID="ddlId" runat="server" class="form-control show-tick" AutoPostBack="true" OnSelectedIndexChanged="ddlId_SelectedIndexChanged">
-                                            </asp:DropDownList>
+                                            <asp:DropDownList ID="ddlId" runat="server" class="form-control show-tick" AutoPostBack="true" OnSelectedIndexChanged="ddlId_SelectedIndexChanged"></asp:DropDownList>
                                         </ContentTemplate>
-                                    </asp:UpdatePanel>--%>
-                                    <asp:DropDownList ID="ddlId" runat="server" class="form-control show-tick" AutoPostBack="true" OnSelectedIndexChanged="ddlId_SelectedIndexChanged"></asp:DropDownList>
+                                    </asp:UpdatePanel>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -37,15 +36,15 @@
                             <div class="form-group">
                                 <div class="form-line">
                                     <b>Department Name:</b>
-                                    <%--<asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
+                                    <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
                                         <ContentTemplate>
                                             <asp:TextBox ID="TxtDepartment" runat="server" class="form-control" placeholder="Department Name"></asp:TextBox>
                                         </ContentTemplate>
                                         <Triggers>
                                             <asp:AsyncPostBackTrigger ControlID="ddlId" EventName="SelectedIndexChanged" />
                                         </Triggers>
-                                    </asp:UpdatePanel>--%>
-                                    <asp:TextBox ID="TxtDepartment" runat="server" class="form-control" placeholder="Department Name"></asp:TextBox>
+                                    </asp:UpdatePanel>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -53,17 +52,16 @@
                             <div class="form-group">
                                 <div class="form-line">
                                     <b>Company</b>
-                                    <%--<asp:UpdatePanel ID="UpdatePanel3" runat="server" UpdateMode="Conditional">
+                                    <asp:UpdatePanel ID="UpdatePanel3" runat="server" UpdateMode="Conditional">
                                         <ContentTemplate>
-                                            <asp:DropDownList ID="DropCompany" runat="server" class="form-control show-tick">
+                                            <asp:DropDownList ID="ddlCompany" runat="server" class="form-control show-tick" AutoPostBack="true">
                                             </asp:DropDownList>
                                         </ContentTemplate>
                                         <Triggers>
                                             <asp:AsyncPostBackTrigger ControlID="ddlId" EventName="SelectedIndexChanged" />
                                         </Triggers>
-                                    </asp:UpdatePanel>--%>
-                                    <asp:DropDownList ID="DropCompany" runat="server" class="form-control show-tick">
-                                            </asp:DropDownList>
+                                    </asp:UpdatePanel>
+                                   
                                 </div>
                             </div>
                         </div>

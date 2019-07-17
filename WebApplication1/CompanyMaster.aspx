@@ -10,11 +10,17 @@ function delete_id(compId) {
                   }
         }
 
-        function Edit_id(compId) {
-             if (confirm('Sure To Update This Complain ?')) {
-                 window.location.href = 'CompanyMaster.aspx?Edit_id=' + compId
-             }
-         }
+        //function Edit_id(compId) {
+        //     if (confirm('Sure To Update This Complain ?')) {
+        //         window.location.href = 'CompanyMaster.aspx?Edit_id=' + compId
+        //     }
+        // }
+
+        $(document).ready(function () {
+            $("#btnMy").click(function () {
+                $("#defaultModal_1").modal();
+            });
+        });
 
     </script>
 

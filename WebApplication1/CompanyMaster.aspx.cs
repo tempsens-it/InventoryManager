@@ -31,9 +31,6 @@ public partial class CompanyMaster : System.Web.UI.Page
     {
         string data = "";
         SqlDataReader sd = dbcalss.SelectAll("Company");
-
-        //data += "<tr><td>" + Company ID +  "</td><td>" + Name + "</td><td>" + Action + "</td></tr>";
-
         if (sd.HasRows)
         {
             while (sd.Read())
@@ -46,7 +43,8 @@ public partial class CompanyMaster : System.Web.UI.Page
                 data += "</td><td>";
                 data += compName;
                 data += "</td><td>";
-                data += "<a href='javascript:Edit_id(" + compId + ")' data-toggle='modal' data-target='#defaultModal_1'><i class='material-icons'>mode_edit</i></a>";
+                data += "<button type='button' data-dismiss='modal' ><i class='material-icons'>mode_edit</i></button>";
+                //data += "<a href='javascript:Edit_id(" + compId + ")' data-toggle='modal' data-target='#defaultModal_1'><i class='material-icons'>mode_edit</i></a>";
                 data += "&nbsp; <a  href='javascript:delete_id(" + compId + ")'><i class='material-icons' >delete</i></a>";
                 data += "</td></tr>";
                 // data += "&nbsp; <a href='#' runat='server' onServerClick='deleteCalling(" + compId + ")'><i class='material-icons'>delete</i></a>"; //call the function deleteCalling(compId) and pass the Company ID
