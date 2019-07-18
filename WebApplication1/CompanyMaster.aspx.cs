@@ -26,7 +26,7 @@ public partial class CompanyMaster : System.Web.UI.Page
 
         }
     }
-    
+
     public string getSourceData()
     {
         string data = "";
@@ -43,7 +43,6 @@ public partial class CompanyMaster : System.Web.UI.Page
                 data += "</td><td>";
                 data += compName;
                 data += "</td><td>";
-                data += "<a href='#' data-toggle='modal' data-target='#defaultModal_1'><i class='material-icons'>mode_edit</i></a>";
                 data += "&nbsp; <a  href='javascript:delete_id(" + compId + ")'><i class='material-icons' >delete</i></a>";
                 data += "</td></tr>";
             }
@@ -58,22 +57,18 @@ public partial class CompanyMaster : System.Web.UI.Page
         TextBoxCompanyName.Text = " ";
 
     }
-    
+
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         SqlConnection Con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
         try
         {
-
-            
-                SqlCommand cmd = new SqlCommand("Update Company set CompName = @CompName where CompId = @CompId", Con);
-                cmd.Parameters.AddWithValue("@CompName", TxtCompany.Text);
-                cmd.Parameters.AddWithValue("@CompId", ddlId.SelectedItem.Value);
-                Con.Open();
-                cmd.ExecuteScalar();
-                Con.Close();
-            
-
+            SqlCommand cmd = new SqlCommand("Update Company set CompName = @CompName where CompId = @CompId", Con);
+            cmd.Parameters.AddWithValue("@CompName", TxtCompany.Text);
+            cmd.Parameters.AddWithValue("@CompId", ddlId.SelectedItem.Value);
+            Con.Open();
+            cmd.ExecuteScalar();
+            Con.Close();
         }
         catch (Exception ex)
         {
@@ -125,7 +120,7 @@ public partial class CompanyMaster : System.Web.UI.Page
         try
         {
             SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
-            SqlCommand cmd = new SqlCommand("select  CompId from Company", con);
+            SqlCommand cmd = new SqlCommand("select  CompId from Company order by CompId ASC", con);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             sda.Fill(dt);

@@ -8,7 +8,6 @@
                 window.location.href = 'DepartmentMaster.aspx?delete_id=' + deptId
             }
         }
-
     </script>
 
     <div class="modal fade" id="defaultModal_1" tabindex="-1" role="dialog">
@@ -74,13 +73,9 @@
             </div>
         </div>
     </div>
-
-
     <div class="block-header">
         <h2>Department Master </h2>
     </div>
-
-
     <div class="row clearfix">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
@@ -111,11 +106,6 @@
                                 <i class="material-icons">add_box</i> ADD
                             </a>
                         </li>
-                        <%--<li role="presentation">
-                            <a href="#edit_with_icon_title" data-toggle="tab">
-                                <i class="material-icons">mode_edit</i> EDIT
-                            </a>
-                        </li>--%>
                     </ul>
 
                     <!-- Tab panes -->
@@ -164,58 +154,6 @@
                             </div>
                             <asp:Button ID="Button1" runat="server" Text="SAVE" class="btn btn-primary m-t-15 waves-effect" OnClick="btnSave_Click" />
                         </div>
-                        <%--<div role="tabpanel" class="tab-pane fade in active" id="edit_with_icon_title">
-                            <br />
-                            <div class="row clearfix">
-                                <div class="col-sm-2">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <b>Id:</b>
-                                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                                                <ContentTemplate>
-                                                    <asp:DropDownList ID="ddlId" runat="server" class="form-control show-tick" AutoPostBack="true" OnSelectedIndexChanged="ddlId_SelectedIndexChanged">
-                                                    </asp:DropDownList>
-                                                </ContentTemplate>
-                                            </asp:UpdatePanel>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-5">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <b>Department Name:</b>
-                                            <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
-                                                <ContentTemplate>
-                                                    <asp:TextBox ID="TxtDepartment" runat="server" class="form-control" placeholder="Department Name"></asp:TextBox>
-                                                </ContentTemplate>
-                                                <Triggers>
-                                                    <asp:AsyncPostBackTrigger ControlID="ddlId" EventName="SelectedIndexChanged" />
-                                                </Triggers>
-                                            </asp:UpdatePanel>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-5">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <b>Company</b>
-                                            
-                                            <asp:UpdatePanel ID="UpdatePanel3" runat="server" UpdateMode="Conditional">
-                                                <ContentTemplate>
-                                                    <asp:DropDownList ID="DropCompany" runat="server" class="form-control show-tick">
-                                                    </asp:DropDownList>
-                                                </ContentTemplate>
-                                                <Triggers>
-                                                    <asp:AsyncPostBackTrigger ControlID="ddlId" EventName="SelectedIndexChanged" />
-                                                </Triggers>
-                                            </asp:UpdatePanel>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>--%>
                     </div>
                 </div>
             </div>

@@ -14,41 +14,6 @@
 
     <div class="modal fade" id="defaultModal_1" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document" style="width: 1300px;">
-
-            <!-- Basic Validation -->
-            <%--<div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>UPDATE COMPANY</h2>
-
-                        </div>
-                        <div class="body">
-                            <div class="row clearfix">
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <b>Company Name:</b>
-                                            <asp:TextBox ID="TxtCompany" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Company Name" OnClick="Edit"></asp:TextBox>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="row clearfix">
-                                <div class="col-sm-3">
-                                    <div class="form-group">
-                                        <asp:Button ID="btnSubmit" runat="server" Text="UPDATE" class="btn btn-primary m-t-15 waves-effect" OnClick="btnSubmit_Click" />
-                                        &ensp;
-                                        <button type="button" class="btn btn-primary m-t-15 waves-effect" data-dismiss="modal">CLOSE</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>--%>
-
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="defaultModalLabel">UPDATE DEPARTMENT</h4>
@@ -80,7 +45,6 @@
                                             <asp:AsyncPostBackTrigger ControlID="ddlId" EventName="SelectedIndexChanged" />
                                         </Triggers>
                                     </asp:UpdatePanel>
-
                                 </div>
                             </div>
                         </div>
@@ -93,18 +57,25 @@
             </div>
         </div>
     </div>
-
-
     <div class="block-header">
         <h2>Company Master </h2>
     </div>
-
     <div class="row clearfix">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header">
                     <h2>Add Company
                     </h2>
+                    <ul class="header-dropdown m-r--5">
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <i class="material-icons">more_vert</i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                                <li><a href="#" data-toggle="modal" data-target="#defaultModal_1">Edit</a></li>
+                            </ul>
+                        </li>
+                    </ul>
 
                 </div>
                 <div class="body">
@@ -127,7 +98,6 @@
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane fade in active" id="home_with_icon_title">
                             <br />
-
                             <div class="row clearfix">
                                 <div class="tab-content">
                                     <div role="tabpanel" class="tab-pane fade in active" id="home">
@@ -158,31 +128,14 @@
                                     <label for="company_name">Company Name</label>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <%--<input type="text" id="company_name" class="form-control" placeholder="Enter your Company name">--%>
                                             <asp:TextBox ID="TextBoxCompanyName" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Company Name"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <%--<button type="button" class="btn btn-primary m-t-15 waves-effect">SAVE</button>--%>
                             <asp:Button ID="Button1" runat="server" Text="SAVE" class="btn btn-primary m-t-15 waves-effect" OnClick="btnSave_Click" />
                         </div>
-
                     </div>
-
-                    <%--<div class="row clearfix">
-                        <div class="col-md-12">
-                            <label for="company_name">Company Name</label>
-                            <div class="form-group">
-                                <div class="form-line">
-                                    <input type="text" id="company_name" class="form-control" placeholder="Enter your Company name">
-                                </div>
-                            </div>
-                        </div>
-                    </div>    
-                    
-                    <button type="button" class="btn btn-primary m-t-15 waves-effect">ADD</button>--%>
                 </div>
 
             </div>
