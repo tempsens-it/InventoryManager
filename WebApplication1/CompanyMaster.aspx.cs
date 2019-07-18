@@ -60,15 +60,16 @@ public partial class CompanyMaster : System.Web.UI.Page
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        SqlConnection Con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
+       
         try
         {
-            SqlCommand cmd = new SqlCommand("Update Company set CompName = @CompName where CompId = @CompId", Con);
+            
+            SqlCommand cmd = new SqlCommand("Update Company set CompName = @CompName where CompId = @CompId",dbcalss.Cn);
             cmd.Parameters.AddWithValue("@CompName", TxtCompany.Text);
             cmd.Parameters.AddWithValue("@CompId", ddlId.SelectedItem.Value);
-            Con.Open();
+            dbcalss.Cn.Open();
             cmd.ExecuteScalar();
-            Con.Close();
+            dbcalss.Cn.Close();
         }
         catch (Exception ex)
         {
@@ -97,17 +98,17 @@ public partial class CompanyMaster : System.Web.UI.Page
     {
         try
         {
-            SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
-            SqlCommand cmd = new SqlCommand("select CompId, CompName from  Company  where CompId= @Id", con);
+           
+            SqlCommand cmd = new SqlCommand("select CompId, CompName from  Company  where CompId= @Id", dbcalss.Cn);
             cmd.Parameters.AddWithValue("@Id", ddlId.SelectedValue);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             sda.Fill(dt);
-            con.Open();
+            dbcalss.Cn.Open();
             cmd.ExecuteNonQuery();
             ddlId.SelectedValue = dt.Rows[0]["CompId"].ToString();
             TxtCompany.Text = dt.Rows[0]["CompName"].ToString();
-            con.Close();
+            dbcalss.Cn.Close();
         }
         catch (Exception ex)
         {
@@ -119,8 +120,8 @@ public partial class CompanyMaster : System.Web.UI.Page
     {
         try
         {
-            SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
-            SqlCommand cmd = new SqlCommand("select  CompId from Company order by CompId ASC", con);
+           
+            SqlCommand cmd = new SqlCommand("select  CompId from Company order by CompId ASC", dbcalss.Cn);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             sda.Fill(dt);
@@ -128,8 +129,8 @@ public partial class CompanyMaster : System.Web.UI.Page
             ddlId.DataTextField = "CompId";
             ddlId.DataValueField = "CompId";
             ddlId.DataBind();
-            ddlId.Items.Insert(0, new ListItem("--Select Id No.--", "0"));
-            con.Close();
+            ddlId.Items.Insert(0, new ListItem("--Select Id--", "0"));
+            dbcalss.Cn.Close();
         }
         catch (Exception ex)
         {

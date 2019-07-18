@@ -11,7 +11,7 @@
     </script>
 
     <div class="modal fade" id="defaultModal_1" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document" style="width: 1300px;">
+        <div class="modal-dialog" role="document" style="width: 986px;">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="defaultModalLabel">UPDATE DEPARTMENT</h4>
@@ -85,7 +85,7 @@
                     <ul class="header-dropdown m-r--5">
                         <li class="dropdown">
                             <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                <i class="material-icons">more_vert</i>
+                               <i class="material-icons" style="color:blue";>edit</i>
                             </a>
                             <ul class="dropdown-menu pull-right">
                                 <li><a href="#" data-toggle="modal" data-target="#defaultModal_1">Edit</a></li>

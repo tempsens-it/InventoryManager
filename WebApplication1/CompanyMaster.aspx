@@ -13,14 +13,14 @@
     </script>
 
     <div class="modal fade" id="defaultModal_1" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document" style="width: 1300px;">
+        <div class="modal-dialog" role="document" style="width: 700px;">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="defaultModalLabel">UPDATE DEPARTMENT</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row clearfix">
-                        <div class="col-sm-2">
+                        <div class="col-sm-2" style=" width: 153px";>
                             <div class="form-group">
                                 <div class="form-line">
                                     <b>Id:</b>
@@ -33,7 +33,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-10">
+                        <div class="col-sm-10" style=" width:220px";>
                             <div class="form-group">
                                 <div class="form-line">
                                     <b>Company Name:</b>
@@ -50,7 +50,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer"  style="margin-top: -50px";>
                     <asp:Button ID="Button2" runat="server" Text="UPDATE" class="btn btn-primary m-t-15 waves-effect" OnClick="btnSubmit_Click" />
                     <button type="button" class="btn btn-primary m-t-15 waves-effect" data-dismiss="modal">CLOSE</button>
                 </div>
@@ -69,7 +69,7 @@
                     <ul class="header-dropdown m-r--5">
                         <li class="dropdown">
                             <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                <i class="material-icons">more_vert</i>
+                                <i class="material-icons" style="color:blue";>edit</i>
                             </a>
                             <ul class="dropdown-menu pull-right">
                                 <li><a href="#" data-toggle="modal" data-target="#defaultModal_1">Edit</a></li>

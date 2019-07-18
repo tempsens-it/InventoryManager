@@ -103,18 +103,18 @@ public partial class DepartmentMaster : System.Web.UI.Page
     {
         try
         {
-            SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
-            SqlCommand cmd = new SqlCommand("select DeptId ,DeptName, CompId from  Department  where DeptId= @Id", con);
+           // SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
+            SqlCommand cmd = new SqlCommand("select DeptId ,DeptName, CompId from  Department  where DeptId= @Id", dbclass.Cn);
             cmd.Parameters.AddWithValue("@Id", ddlId.SelectedValue);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             sda.Fill(dt);
-            con.Open();
+            dbclass.Cn.Open();
             cmd.ExecuteNonQuery();
             ddlId.SelectedValue = dt.Rows[0]["DeptId"].ToString();
             TxtDepartment.Text = dt.Rows[0]["DeptName"].ToString();
             ddlCompany.SelectedValue = dt.Rows[0]["CompId"].ToString();
-            con.Close();
+            dbclass.Cn.Close();
         }
         catch (Exception ex)
         {
@@ -127,8 +127,8 @@ public partial class DepartmentMaster : System.Web.UI.Page
     {
         try
         {
-            SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
-            SqlCommand cmd = new SqlCommand("select CompId,CompName from Company", con);
+           
+            SqlCommand cmd = new SqlCommand("select CompId,CompName from Company", dbclass.Cn);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             sda.Fill(dt);
@@ -137,7 +137,7 @@ public partial class DepartmentMaster : System.Web.UI.Page
             ddlCompany.DataValueField = "CompId";
             ddlCompany.DataBind();
             ddlCompany.Items.Insert(0, new ListItem("--Select Company--", "0"));
-            con.Close();
+            dbclass.Cn.Close();
         }
         catch (Exception ex)
         {
@@ -149,8 +149,8 @@ public partial class DepartmentMaster : System.Web.UI.Page
     {
         try
         {
-            SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
-            SqlCommand cmd = new SqlCommand("select CompId,CompName from Company", con);
+           
+            SqlCommand cmd = new SqlCommand("select CompId,CompName from Company", dbclass.Cn);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             sda.Fill(dt);
@@ -159,7 +159,7 @@ public partial class DepartmentMaster : System.Web.UI.Page
             DropCompany1.DataValueField = "CompId";
             DropCompany1.DataBind();
             DropCompany1.Items.Insert(0, new ListItem("--Select Company--", "0"));
-            con.Close();
+            dbclass.Cn.Close();
         }
         catch (Exception ex)
         {
@@ -171,8 +171,8 @@ public partial class DepartmentMaster : System.Web.UI.Page
     {
         try
         {
-            SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
-            SqlCommand cmd = new SqlCommand("select  DeptId from Department ", con);
+           
+            SqlCommand cmd = new SqlCommand("select  DeptId from Department ", dbclass.Cn);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             sda.Fill(dt);
@@ -180,8 +180,8 @@ public partial class DepartmentMaster : System.Web.UI.Page
             ddlId.DataTextField = "DeptId";
             ddlId.DataValueField = "DeptId";
             ddlId.DataBind();
-            ddlId.Items.Insert(0, new ListItem("--Select Id No.--", "0"));
-            con.Close();
+            ddlId.Items.Insert(0, new ListItem("--Select Id--", "0"));
+            dbclass.Cn.Close();
         }
         catch (Exception ex)
         {
@@ -193,19 +193,19 @@ public partial class DepartmentMaster : System.Web.UI.Page
 
         try
         {
-            SqlConnection Con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
+           
             SqlCommand cmd = new SqlCommand();
-            cmd.Connection = Con;
+            cmd.Connection = dbclass.Cn;
 
             cmd.CommandText = "Update Department set DeptName = @DeptName, CompId = @CompId where DeptId = @DeptId";
             cmd.Parameters.AddWithValue("@DeptName", TxtDepartment.Text);
             cmd.Parameters.AddWithValue("@CompId", ddlCompany.SelectedItem.Value);
             cmd.Parameters.AddWithValue("@DeptId", ddlId.SelectedItem.Value);
             //cmd.Parameters.AddWithValue("@DeptId", id);
-            Con.Open();
+            dbclass.Cn.Open();
             cmd.ExecuteScalar();
 
-            Con.Close();
+            dbclass.Cn.Close();
         }
         catch (Exception ex)
         {
