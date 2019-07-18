@@ -104,6 +104,7 @@ public class db
     {
         try
         {
+            Cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
             Cn.Open();
             cmd.CommandText = "Delete From " + tableName + " Where  " + columnName + " = '" + value + "'";
             cmd.Connection = Cn;
@@ -254,7 +255,7 @@ public class db
         return id;
     }
 
-    public void insertSupplier( string supplierName,  string Add,  string City,  string State,  string MobileNo,  string phoneNo,  string email,  int PaymentId,  string Pincode)
+    public void insertSupplier( string supplierName,  string Add,  string City,  string State,  string phoneNo,  string email,  int PaymentId,  string Pincode, string GST)
     {
         int maxid = 0;
         String date = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.sss");
@@ -262,7 +263,7 @@ public class db
         {
             Cn.Open();
             maxid = SelectMaxId("Supplier", "SupplierId");
-            cmd.CommandText = "INSERT INTO [dbo].[Supplier] ( [SupplierId] , [SupplierName] , [Address] , [City] , [State] , [MobileNo] , [PhoneNo] , [Email] , [PayTermId] , [Pincode] , [CreateDate] , [UserId] ) Values ( '" + maxid + "', '" + supplierName + "', '" + Add + "', '" + City + "',  '" + State + "', '" + MobileNo + "', '" + phoneNo + "',  '" + email + "',  " + PaymentId + ",  '" + Pincode + "','" + date + "', 1)";
+            cmd.CommandText = "INSERT INTO [dbo].[Supplier] ( [SupplierId] , [SupplierName] , [Address] , [City] , [State] , [PhoneNo] , [Email] , [PayTermId] , [Pincode] , [GSTIN],  [CreateDate] , [UserId] ) Values ( '" + maxid + "', '" + supplierName + "', '" + Add + "', '" + City + "',  '" + State + "', '" + phoneNo + "',  '" + email + "',  " + PaymentId + ",  '" + Pincode + "','" + GST + "','"+ date + "', 1)";
             cmd.Connection = Cn;
             cmd.ExecuteNonQuery();
         }
@@ -280,7 +281,7 @@ public class db
         try
         {
             Cn.Open();
-            cmd.CommandText = " UPDATE [dbo].[Supplier] SET[SupplierName] = '" + supplierName + "' ,[Address] ='" + Add + "' ,[City] ='" + City + "'  ,[State] = '" + State + "' ,[MobileNo] =  ,[PhoneNo] ='" + MobileNo + "'  ,[Email] =  ,[PayTermId] = " + PaymentId + " ,[Pincode] = " + Pincode + " ,[CreateDate] = '" + date + "' ,[UserId] = 1  WHERE SupplierId = " + supplierId + " ";
+            cmd.CommandText = " UPDATE [dbo].[Supplier] SET[SupplierName] = '" + supplierName + "' ,[Address] ='" + Add + "' ,[City] ='" + City + "'  ,[State] = '" + State + "' ,[PhoneNo] ='" + phoneNo + "'  ,[Email] = '" + email +"' ,[PayTermId] = " + PaymentId + " ,[Pincode] = " + Pincode + " ,[CreateDate] = '" + date + "' ,[UserId] = 1  WHERE SupplierId = " + supplierId + " ";
             cmd.Connection = Cn;
             cmd.ExecuteNonQuery();
         }
@@ -314,7 +315,7 @@ public class db
     }
 
 
-    public void insertSupplierContact( string supplierId,  string SuprCntName,  string Degn,  string State,  string MobileNo,  string phoneNo,  string email,  int PaymentId,  int Pincode)
+    public void insertSupplierContact( string supplierId,  string SuprCntName,  string Degn,  string MobileNo, string email)
     {
         int maxid = 0;
         String date = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.sss");
@@ -322,7 +323,7 @@ public class db
         {
             Cn.Open();
             maxid = SelectMaxId("SupplierCnt", "SupplierCntId");
-            cmd.CommandText = "INSERT INTO [dbo].[SupplierCnt] ([SupplierCntId] ,[SupplierId] ,[SuprCntName] ,[Degn] ,[MobileNo] ,[Email] ,[UserId] ,[CreateDate] ) VALUES( '" + maxid + "', '" + supplierId + ", '" + SuprCntName + "', '" + Degn + "',   '" + MobileNo + "',   '" + email + "',   1 ,'" + date + "',)";
+            cmd.CommandText = "INSERT INTO [dbo].[SupplierCnt] ([SupplierCntId] ,[SupplierId] ,[SuprCntName] ,[Degn] ,[MobileNo] ,[Email] ,[UserId] ,[CreateDate] ) VALUES( '" + maxid + "', '" + supplierId + "', '" + SuprCntName + "', '" + Degn + "',   '" + MobileNo + "', '" + email + "',   1 , '" + date + "')";
             cmd.Connection = Cn;
             cmd.ExecuteNonQuery();
         }
@@ -334,13 +335,13 @@ public class db
 
     }
 
-    public void UpdateSupplierContact( string supplierCntName,  string Degn,  string MobileNo,  string email,  int SupplierCntId)
+    public void UpdateSupplierContact( string supplierCntName,  string Degn,  string MobileNo,  string email,  string SupplierCntId)
     {
         String date = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.sss");
         try
         {
             Cn.Open();
-            cmd.CommandText = "  UPDATE [dbo].[SupplierCnt] SET [SuprCntName]  = '" + supplierCntName + "' ,[Degn] ='" + Degn + "' ,[MobileNo] = '" + MobileNo + "' ,[Email] = '" + email + "' ,[CreateDate] = '" + date + "' ,[UserId] = 1  WHERE SupplierCntId = " + SupplierCntId + " ";
+            cmd.CommandText = "  UPDATE [dbo].[SupplierCnt] SET [SuprCntName]  = '" + supplierCntName + "' ,[Degn] ='" + Degn + "' ,[MobileNo] = '" + MobileNo + "' ,[Email] = '" + email + "' ,[CreateDate] = '" + date + "' ,[UserId] = 1  WHERE SupplierCntId = " + Convert.ToInt32(SupplierCntId) + " ";
             cmd.Connection = Cn;
             cmd.ExecuteNonQuery();
         }
