@@ -84,16 +84,15 @@
                     </h2>
                     <ul class="header-dropdown m-r--5">
                         <li class="dropdown">
-                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 <i class="material-icons">more_vert</i>
                             </a>
                             <ul class="dropdown-menu pull-right">
-                                <li><a href="#" data-toggle="modal" data-target="#defaultModal_1" class=" waves-effect waves-block">Edit</a></li>
+                                <li><a href="#" data-toggle="modal" data-target="#defaultModal_1">Edit</a></li>
                             </ul>
                         </li>
                     </ul>
                 </div>
-
                 <div class="body">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
@@ -135,7 +134,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div role="tabpanel" class="tab-pane fade" id="profile_with_icon_title">
                             <br />
                             <div class="row clearfix">
