@@ -18,11 +18,9 @@ public partial class DepartmentMaster : System.Web.UI.Page
 
         if (!Page.IsPostBack)
         {
-            // getDataInDropBoxCompany();
-            // getDataInDropBoxID();
             Delete_data();
             BindCompany();
-            BindTicketNo();
+            BindID();
             AddCompany();
 
         }
@@ -75,7 +73,7 @@ public partial class DepartmentMaster : System.Web.UI.Page
                             data += "</td><td>";
                             data += compId;
                             data += "</td><td>";
-                            data += "<a href='#' data-toggle='modal' data-target='#defaultModal_1'><i class='material-icons'>mode_edit</i></a>";
+                            //data += "<a href='#' data-toggle='modal' data-target='#defaultModal_1'><i class='material-icons'>mode_edit</i></a>";
                             data += "&nbsp; <a  href='javascript:delete_id(" + deptId + ")'><i class='material-icons'>delete</i></a>";
                             data += "</td></tr>";
                         }
@@ -91,14 +89,12 @@ public partial class DepartmentMaster : System.Web.UI.Page
 
     protected void btnSave_Click(object sender, EventArgs e)
     {
-        //AddCompany();
-
-        if (DropCompany1.SelectedItem.Value != "-1")
+        if (DropCompany1.SelectedItem.Value != "0")
         {
             dbclass.insert("Department", "DeptId", "DeptName", "CompId", TextBoxDeptName.Text, DropCompany1.SelectedItem.Value);
 
-            TextBoxDeptName.Text = "";
-            DropCompany1.ClearSelection();
+            TextBoxDeptName.Text = " ";
+            DropCompany1.SelectedIndex = 0;
         }
     }
 
@@ -171,7 +167,7 @@ public partial class DepartmentMaster : System.Web.UI.Page
         }
     }
 
-    private void BindTicketNo()
+    private void BindID()
     {
         try
         {

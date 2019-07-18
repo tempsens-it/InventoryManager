@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
+using System.Data;
 
 public partial class CompanyMaster : System.Web.UI.Page
 {
@@ -19,14 +20,13 @@ public partial class CompanyMaster : System.Web.UI.Page
         if (!Page.IsPostBack)
         {
             Delete_data();
-            
+            BindID();
+
 
 
         }
     }
-
-
-
+    
     public string getSourceData()
     {
         string data = "";
@@ -43,56 +43,51 @@ public partial class CompanyMaster : System.Web.UI.Page
                 data += "</td><td>";
                 data += compName;
                 data += "</td><td>";
-                data += "<button type='button' data-dismiss='modal' ><i class='material-icons'>mode_edit</i></button>";
-                //data += "<a href='javascript:Edit_id(" + compId + ")' data-toggle='modal' data-target='#defaultModal_1'><i class='material-icons'>mode_edit</i></a>";
+                data += "<a href='#' data-toggle='modal' data-target='#defaultModal_1'><i class='material-icons'>mode_edit</i></a>";
                 data += "&nbsp; <a  href='javascript:delete_id(" + compId + ")'><i class='material-icons' >delete</i></a>";
                 data += "</td></tr>";
-                // data += "&nbsp; <a href='#' runat='server' onServerClick='deleteCalling(" + compId + ")'><i class='material-icons'>delete</i></a>"; //call the function deleteCalling(compId) and pass the Company ID
             }
         }
         return data;
     }
 
-
-
-    //protected void btnSubmit_Click(object sender, EventArgs e)
-    //{
-    //    Message.Text = "Update";
-    //    dbcalss.Update("Company", "CompName", "CompId", "Ar4e", 1);
-
-    //}
-
     protected void btnSave_Click(object sender, EventArgs e)
     {
-        Message.Text = "Save";
-
         dbcalss.insert("Company", "CompId", "CompName", TextBoxCompanyName.Text);
 
-        TextBoxCompanyName.Text = "";
+        TextBoxCompanyName.Text = " ";
+
     }
-
-
-
+    
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        updatedata();
-    }
+        SqlConnection Con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
+        try
+        {
 
+            
+                SqlCommand cmd = new SqlCommand("Update Company set CompName = @CompName where CompId = @CompId", Con);
+                cmd.Parameters.AddWithValue("@CompName", TxtCompany.Text);
+                cmd.Parameters.AddWithValue("@CompId", ddlId.SelectedItem.Value);
+                Con.Open();
+                cmd.ExecuteScalar();
+                Con.Close();
+            
+
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
 
     public void Delete_data()
     {
         try
         {
-            //SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
             string get_id = Request.QueryString["delete_id"];
             if (get_id != null)
             {
-                //SqlCommand cmd = new SqlCommand("Delete from Company where CompId = @compId", Cn);
-                //cmd.Parameters.AddWithValue("@compId", get_id);
-                //con.Open();
-                //cmd.ExecuteNonQuery();
-                //con.Close();
-                // Response.Redirect("Dashboard_User.aspx");
                 dbcalss.Delete("Company", "CompId", get_id);
                 Response.Redirect("CompanyMaster.aspx");
             }
@@ -103,30 +98,48 @@ public partial class CompanyMaster : System.Web.UI.Page
         }
     }
 
-    public void updatedata()
-
+    protected void ddlId_SelectedIndexChanged(object sender, EventArgs e)
     {
-        SqlConnection Con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
         try
         {
-
-            string get_id = Request.QueryString["Edit_id"];
-            if (get_id != null)
-            {
-                SqlCommand cmd = new SqlCommand("Update Company set CompName = @CompName where CompId = " + get_id + ",", Con);
-                cmd.Parameters.AddWithValue("@CompName", TxtCompany.Text);
-                //cmd.Parameters.AddWithValue("@CompId", Session["CompId"]);
-                Con.Open();
-                cmd.ExecuteScalar();
-                Con.Close();
-            }
-
+            SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
+            SqlCommand cmd = new SqlCommand("select CompId, CompName from  Company  where CompId= @Id", con);
+            cmd.Parameters.AddWithValue("@Id", ddlId.SelectedValue);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            ddlId.SelectedValue = dt.Rows[0]["CompId"].ToString();
+            TxtCompany.Text = dt.Rows[0]["CompName"].ToString();
+            con.Close();
         }
         catch (Exception ex)
         {
             throw ex;
         }
+    }
 
+    private void BindID()
+    {
+        try
+        {
+            SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
+            SqlCommand cmd = new SqlCommand("select  CompId from Company", con);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            ddlId.DataSource = dt;
+            ddlId.DataTextField = "CompId";
+            ddlId.DataValueField = "CompId";
+            ddlId.DataBind();
+            ddlId.Items.Insert(0, new ListItem("--Select Id No.--", "0"));
+            con.Close();
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
     }
 
 

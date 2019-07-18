@@ -4,31 +4,19 @@
 
 
     <script type="text/javascript">
-function delete_id(compId) {
-             if (confirm('Sure To Remove This Complain ?')) {
-                 window.location.href = 'CompanyMaster.aspx?delete_id=' + compId
-                  }
+        function delete_id(compId) {
+            if (confirm('Sure To Remove This Complain ?')) {
+                window.location.href = 'CompanyMaster.aspx?delete_id=' + compId
+            }
         }
-
-        //function Edit_id(compId) {
-        //     if (confirm('Sure To Update This Complain ?')) {
-        //         window.location.href = 'CompanyMaster.aspx?Edit_id=' + compId
-        //     }
-        // }
-
-        $(document).ready(function () {
-            $("#btnMy").click(function () {
-                $("#defaultModal_1").modal();
-            });
-        });
 
     </script>
 
     <div class="modal fade" id="defaultModal_1" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document" style="width: 1300px;">
-            
+
             <!-- Basic Validation -->
-            <div class="row clearfix">
+            <%--<div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
@@ -58,6 +46,49 @@ function delete_id(compId) {
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>--%>
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="defaultModalLabel">UPDATE DEPARTMENT</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row clearfix">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <b>Id:</b>
+                                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                        <ContentTemplate>
+                                            <asp:DropDownList ID="ddlId" runat="server" class="form-control show-tick" AutoPostBack="true" OnSelectedIndexChanged="ddlId_SelectedIndexChanged"></asp:DropDownList>
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-10">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <b>Company Name:</b>
+                                    <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
+                                        <ContentTemplate>
+                                            <asp:TextBox ID="TxtCompany" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Company Name" OnClick="Edit"></asp:TextBox>
+                                        </ContentTemplate>
+                                        <Triggers>
+                                            <asp:AsyncPostBackTrigger ControlID="ddlId" EventName="SelectedIndexChanged" />
+                                        </Triggers>
+                                    </asp:UpdatePanel>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <asp:Button ID="Button2" runat="server" Text="UPDATE" class="btn btn-primary m-t-15 waves-effect" OnClick="btnSubmit_Click" />
+                    <button type="button" class="btn btn-primary m-t-15 waves-effect" data-dismiss="modal">CLOSE</button>
                 </div>
             </div>
         </div>
