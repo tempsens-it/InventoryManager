@@ -128,7 +128,7 @@ public partial class CompanyMaster : System.Web.UI.Page
             ddlId.DataTextField = "CompId";
             ddlId.DataValueField = "CompId";
             ddlId.DataBind();
-            ddlId.Items.Insert(0, new ListItem("--Select Id No.--", "0"));
+            ddlId.Items.Insert(0, new ListItem("--Select Id--", "0"));
             con.Close();
         }
         catch (Exception ex)

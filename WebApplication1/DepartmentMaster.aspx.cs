@@ -180,7 +180,7 @@ public partial class DepartmentMaster : System.Web.UI.Page
             ddlId.DataTextField = "DeptId";
             ddlId.DataValueField = "DeptId";
             ddlId.DataBind();
-            ddlId.Items.Insert(0, new ListItem("--Select Id No.--", "0"));
+            ddlId.Items.Insert(0, new ListItem("--Select Id--", "0"));
             con.Close();
         }
         catch (Exception ex)
