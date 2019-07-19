@@ -43,8 +43,6 @@ public class db
 
     }
 
-
-
     public void insert( string tableName,  string columnName,  string columnName2, string columnName3, string value, string value2)
     {
         int maxid = 0;
@@ -142,7 +140,7 @@ public class db
         int maxid = 0;
         try
         {
-//Cn.Open();
+Cn.Open();
             DataTable dt = new DataTable();
             cmd.Connection = Cn;
             cmd.CommandText = "Select Max(" + columnName + ") From " + tableName ;
@@ -356,10 +354,12 @@ public class db
     public void insertPartMaster( string partname,  string Desc,  int CatId)
     {
         String date = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.sss");
+        int maxId = 0;
         try
         {
-            Cn.Open();
-            cmd.CommandText = "INSERT INTO [dbo].[PartMaster] ([PartName] ,[CatId] ,[Description] ,[CreateDate] ) VALUES ('" + partname + "'," + CatId + ",'" + Desc + "', ' " + date + "', 1)";
+            maxId = SelectMaxId("PartMaster", "PartId");
+            
+            cmd.CommandText = "INSERT INTO [dbo].[PartMaster] ([PartId] ,[PartName] ,[CatId] ,[Description] ,[CreateDate], [UserId] ) VALUES (" + maxId +" ,' " + partname + "'," + CatId + ",'" + Desc + "', ' " + date + "', 1)";
             cmd.Connection = Cn;
             cmd.ExecuteNonQuery();
         }
