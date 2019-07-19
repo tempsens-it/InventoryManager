@@ -167,6 +167,7 @@ public partial class SupplierMaster : System.Web.UI.Page
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         dbclass.UpdateSupplier(tbSupplierName.Text, tbSupAdd.Text, ddlSupCity.SelectedItem.Text, ddlState.SelectedItem.Text, "1", tbSupLandline.Text, tbSupEmail.Text, 1, Convert.ToInt32(tbSupPincode.Text), Convert.ToInt32(ddlIdSupplier.SelectedItem.Value));
+        
     }
 
     protected void btnSubmit2_Click(object sender, EventArgs e)
@@ -178,14 +179,14 @@ public partial class SupplierMaster : System.Web.UI.Page
     {
         dbclass.insertSupplier(tbSupplierName2.Text, tbSupAdd2.Text, ddlSupCity2.SelectedItem.Text, ddlState2.SelectedItem.Text, tbSupLandline2.Text, tbSupEmail2.Text, 1, tbSupPincode2.Text, tbGST2.Text);
 
-        tbSupplierName2.Text = " ";
-        tbSupAdd2.Text = " ";
+        tbSupplierName2.Text = null;
+        tbSupAdd2.Text = null;
         ddlSupCity2.SelectedIndex = 0;
         ddlState2.SelectedIndex = 0;
-        tbSupPincode2.Text = " ";
-        tbSupLandline2.Text = " ";
-        tbSupEmail2.Text = " ";
-        tbGST2.Text = " ";
+        tbSupPincode2.Text = null;
+        tbSupLandline2.Text = null;
+        tbSupEmail2.Text = null;
+        tbGST2.Text = null;
     }
 
     protected void btnSave2_Click(object sender, EventArgs e)
@@ -194,10 +195,10 @@ public partial class SupplierMaster : System.Web.UI.Page
         dbclass.insertSupplierContact(ddlSupplier2.SelectedItem.Value, tbName2.Text, tbDesignation2.Text, tbMobNum2.Text, tbEmail2.Text);
 
         ddlSupplier2.SelectedIndex = 0;
-        tbName2.Text = " ";
-        tbDesignation2.Text = " ";
-        tbMobNum2.Text = " ";
-        tbEmail2.Text = " ";
+        tbName2.Text = null;
+        tbDesignation2.Text = null;
+        tbMobNum2.Text = null;
+        tbEmail2.Text = null;
 
     }
 

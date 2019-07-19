@@ -16,15 +16,41 @@ public partial class EmployeeMaster : System.Web.UI.Page
         dbclass.MSSQl_conn();
         if (!Page.IsPostBack)
         {
-            getDataInDropBoxCompany();
+            BindId();
+            BindCompany();
             Delete_data();
+            
+        }
+    }
+
+    private void BindId()
+    {
+        try
+        {
+
+            SqlCommand cmd = new SqlCommand("select EmpId from Employee order by EmpId ASC", dbclass.Cn);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            ddlId.DataSource = dt;
+            ddlId.DataTextField = "EmpId";
+            ddlId.DataValueField = "EmpId";
+            ddlId.DataBind();
+            ddlId.Items.Insert(0, new ListItem("--Select Id No.--", "0"));
+            dbclass.Cn.Close();
+        }
+        catch (Exception ex)
+        {
+            throw ex;
         }
     }
 
     public string getSourceData()
     {
         string data = "";
-        SqlDataReader sd = dbclass.SelectAll("Employee");
+        SqlCommand cmd = new SqlCommand("select E.EmpId, E.EmpName, C.CompName, D.DeptName, E.Desig, E.MobileNum, E.Email_Int, E.Email_Ext, E.IsActive  from Employee E,  Company C, Department D  where C.CompId = E.CompId and D.DeptId = E.DeptId and C.CompId = D.CompId;", dbclass.Cn);
+        dbclass.Cn.Open();
+        SqlDataReader sd = cmd.ExecuteReader();
 
         //data += "<tr><td>" + Company ID +  "</td><td>" + Name + "</td><td>" + Action + "</td></tr>";
 
@@ -32,37 +58,26 @@ public partial class EmployeeMaster : System.Web.UI.Page
         {
             while (sd.Read())
             {
-                string empId = sd["EmpId"].ToString();
-                string empName = sd["EmpName"].ToString();
-                string deptId = sd["DeptId"].ToString();
-                string compId = sd["CompId"].ToString();
-                bool active = Convert.ToBoolean(sd["IsActive"]);
-                string desig = sd["Desig"].ToString();
-                string mobileNum = sd["MobileNum"].ToString();
-                string intEmail = sd["Email_Int"].ToString();
-                string extEmail = sd["Email_Ext"].ToString();
-
                 data += "<tr><td>";
-                data += empId;
+                data += sd["EmpId"].ToString();
                 data += "</td><td>";
-                data += empName;
+                data += sd["EmpName"].ToString();
                 data += "</td><td>";
-                data += desig;
+                data += sd["Desig"].ToString();
                 data += "</td><td>";
-                data += returnName(deptId, "Department", "DeptName");
-                 data += "</td><td>";
-                data += returnName(compId, "Company", "CompName");
+                data += sd["DeptName"].ToString();
                 data += "</td><td>";
-                data += mobileNum;
+                data += sd["CompName"].ToString();
                 data += "</td><td>";
-                data += intEmail;
+                data += sd["MobileNum"].ToString();
                 data += "</td><td>";
-                data += extEmail;
+                data += sd["Email_Int"].ToString();
                 data += "</td><td>";
-                data += active;
+                data += sd["Email_Ext"].ToString();
                 data += "</td><td>";
-                data += "<a href='#' data-toggle='modal' data-target='#defaultModal_1'><i class='material-icons'>mode_edit</i></a>";
-                data += "&nbsp; <a href='javascript:delete_id(" + empId + ")'><i class='material-icons'>delete</i></a>";
+                data += Convert.ToBoolean(sd["IsActive"]);
+                data += "</td><td>";
+                data += "&nbsp; <a href='javascript:delete_id(" + sd["EmpId"].ToString() + ")'><i class='material-icons'>delete</i></a>";
                 data += "</td></tr>";
             }
         }
@@ -72,123 +87,78 @@ public partial class EmployeeMaster : System.Web.UI.Page
 
 
 
-    protected void btnSubmit_Click(object sender, EventArgs e)
+    protected void btnUpdate_Click(object sender, EventArgs e)
     {
-        //dbclass.Update("Company", "CompName", "CompId", TxtCompany.Text, 1);
+        if(cbIsActive.Checked)
+        {
+            dbclass.UpdateEmp(tbEmpName.Text, tbContact.Text, Convert.ToInt32(ddlDepartment.SelectedItem.Value), Convert.ToInt32(ddlCompany.SelectedItem.Value), 1, tbDesig.Text, tbIntMail.Text, tbExtMail.Text, Convert.ToInt32(ddlId.SelectedItem.Value));
+        }
+        else
+        {
+            dbclass.UpdateEmp(tbEmpName.Text, tbContact.Text, Convert.ToInt32(ddlDepartment.SelectedItem.Value), Convert.ToInt32(ddlCompany.SelectedItem.Value), 0, tbDesig.Text, tbIntMail.Text, tbExtMail.Text, Convert.ToInt32(ddlId.SelectedItem.Value));
+        }
+        
     }
 
     protected void btnSave_Click(object sender, EventArgs e)
     {
-        if (CheckBoxActive1.Checked)
+        if (cbIsActive2.Checked)
         {
-            dbclass.insertEmp(TextBoxName.Text, TextBoxContact2.Text, DropDepartment2.SelectedItem.Value, DropCompany2.SelectedItem.Value, 1, TextBoxDesignation2.Text, TextBoxIntMail2.Text, TextBoxExtMail2.Text);
+            dbclass.insertEmp(tbEmpName2.Text, tbContact2.Text, ddlDepartment2.SelectedItem.Value, ddlCompany2.SelectedItem.Value, 1, tbDesig2.Text, tbIntMail2.Text, tbExtMail2.Text);
 
-            TextBoxContact2.Text = "";
-            TextBoxDesignation2.Text = "";
-            TextBoxExtMail2.Text = "";
-            TextBoxIntMail2.Text = "";
-            TextBoxName.Text = "";
-            DropCompany2.ClearSelection();
-            DropDepartment2.ClearSelection();
-            CheckBoxActive1.Checked = false;
+            tbContact2.Text = null;
+            tbDesig2.Text = null;
+            tbExtMail2.Text = null;
+            tbIntMail2.Text = null;
+            tbEmpName.Text = null;
+            ddlCompany2.SelectedIndex = 0;
+            ddlDepartment2.SelectedIndex = 0;
+            cbIsActive2.Checked = false;
 
         }
         else
         {
-            dbclass.insertEmp(TextBoxName.Text, TextBoxContact2.Text, DropDepartment2.SelectedItem.Value, DropCompany2.SelectedItem.Value, 0, TextBoxDesignation2.Text, TextBoxIntMail2.Text, TextBoxExtMail2.Text);
+            dbclass.insertEmp(tbEmpName2.Text, tbContact2.Text, ddlDepartment2.SelectedItem.Value, ddlCompany2.SelectedItem.Value, 0, tbDesig2.Text, tbIntMail2.Text, tbExtMail2.Text);
 
-            TextBoxContact2.Text = "";
-            TextBoxDesignation2.Text = "";
-            TextBoxExtMail2.Text = "";
-            TextBoxIntMail2.Text = "";
-            TextBoxName.Text = "";
-            DropCompany2.ClearSelection();
-            DropDepartment2.ClearSelection();
-            CheckBoxActive1.Checked = false;
+            tbContact2.Text = null;
+            tbDesig2.Text = null;
+            tbExtMail2.Text = null;
+            tbIntMail2.Text = null;
+            tbEmpName.Text = null;
+            ddlCompany2.SelectedIndex = 0;
+            ddlDepartment2.SelectedIndex = 0;
+            cbIsActive2.Checked = false;
+            tbEmpName2.Text = null;
         }
-
-        //dbclass.insert("Company", "CompId", "CompName", TextBoxCompanyName.Text);
-        //dbclass.insertEmp(TextBoxName.Text, TextBoxContact2.Text, DropDepartment2.SelectedItem.Value, DropCompany2.SelectedItem.Value, Convert.ToBoolean(CheckBoxActive1), TextBoxDesignation2.Text, TextBoxIntMail2.Text, TextBoxExtMail2.Text);
-
+        
 
     }
 
-    protected void getDataInDropBoxCompany()
+    protected void BindCompany()
     {
         SqlConnection Cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
         string com = "select * from Company";
-        string com2 = "select * from Department";
         SqlDataAdapter adpt = new SqlDataAdapter(com, Cn);
-        SqlDataAdapter adpt2 = new SqlDataAdapter(com2, Cn);
         DataTable dt = new DataTable();
         adpt.Fill(dt);
 
         //For edit tab
-        DropCompany.DataSource = dt;
-        DropCompany.DataBind();
-        DropCompany.DataTextField = "CompName";
-        DropCompany.DataValueField = "CompId";
-        DropCompany.DataBind();
+        ddlCompany.DataSource = dt;
+        ddlCompany.DataBind();
+        ddlCompany.DataTextField = "CompName";
+        ddlCompany.DataValueField = "CompId";
+        ddlCompany.DataBind();
 
         //for add Tab
-        DropCompany2.DataSource = dt;
-        DropCompany2.DataBind();
-        DropCompany2.DataTextField = "CompName";
-        DropCompany2.DataValueField = "CompId";
-        DropCompany2.DataBind();
-
-        DataTable dt2 = new DataTable();
-        adpt2.Fill(dt2);
-
-        //For edit tab
-        DropDepartment.DataSource = dt2;
-        DropDepartment.DataBind();
-        DropDepartment.DataTextField = "DeptName";
-        DropDepartment.DataValueField = "DeptId";
-        DropDepartment.DataBind();
-
-        //for add Tab
-        DropDepartment2.DataSource = dt2;
-        DropDepartment2.DataBind();
-        DropDepartment2.DataTextField = "DeptName";
-        DropDepartment2.DataValueField = "DeptId";
-        DropDepartment2.DataBind();
-
-        ListItem liCompany = new ListItem("Select a Company", "-1");
-        DropCompany2.Items.Insert(0, liCompany);
-        DropCompany.Items.Insert(0, liCompany);
-
-        ListItem liDepartment = new ListItem("Select a Department", "-1");
-        DropDepartment.Items.Insert(0, liCompany);
-        DropDepartment2.Items.Insert(0, liCompany);
-
+        ddlCompany2.DataSource = dt;
+        ddlCompany2.DataBind();
+        ddlCompany2.DataTextField = "CompName";
+        ddlCompany2.DataValueField = "CompId";
+        ddlCompany2.DataBind();
         
-    }
+        ddlCompany2.Items.Insert(0, new ListItem("Select a Company", "0"));
+        ddlCompany.Items.Insert(0, new ListItem("Select a Company", "0"));
 
-    protected string returnName(string id, string tableName, string colName)
-    {
-        String compName = "";
-
-        try
-        {
-            SqlConnection Cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
-            Cn.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = Cn;
-            cmd.CommandText = "Select " + colName + " from " + tableName + " where CompId =" + id;
-            SqlDataReader dr = cmd.ExecuteReader();
-
-            if (dr.Read())
-            {
-                compName = dr[colName].ToString();
-            }
-            Cn.Close();
-        }
-        catch (Exception ex)
-        {
-            Console.Write(ex.Message);
-        }
-        return compName;
     }
 
     protected void Delete_data()
@@ -201,6 +171,107 @@ public partial class EmployeeMaster : System.Web.UI.Page
                 dbclass.Delete("Employee", "EmpId", get_id);
                 Response.Redirect("EmployeeMaster.aspx");
             }
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+
+    protected void ddlId_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            SqlCommand cmd = new SqlCommand("select EmpId, EmpName, CompId, DeptId, Desig, MobileNum, Email_Int, Email_Ext, IsActive from Employee where EmpId= @Id", dbclass.Cn);
+            cmd.Parameters.AddWithValue("@Id", ddlId.SelectedValue);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            dbclass.Cn.Open();
+            cmd.ExecuteNonQuery();
+            ddlId.SelectedValue = dt.Rows[0]["EmpId"].ToString();
+            tbEmpName.Text = dt.Rows[0]["EmpName"].ToString();
+            string compId = dt.Rows[0]["CompId"].ToString();
+            ddlCompany.SelectedValue = compId;
+            
+            tbDesig.Text = dt.Rows[0]["Desig"].ToString();
+            tbContact.Text = dt.Rows[0]["MobileNum"].ToString();
+            tbExtMail.Text = dt.Rows[0]["Email_Ext"].ToString();
+            tbIntMail.Text = dt.Rows[0]["Email_Int"].ToString();
+            cbIsActive.Checked = Convert.ToBoolean(dt.Rows[0]["IsActive"].ToString());
+
+            string deptId = dt.Rows[0]["DeptId"].ToString();
+            SqlCommand cmd2 = new SqlCommand("select DeptId, DeptName from Department where CompId = @id", dbclass.Cn);
+            cmd2.Parameters.AddWithValue("@id", compId);
+            SqlDataAdapter sd = new SqlDataAdapter(cmd2);
+            DataTable dt2 = new DataTable();
+            sd.Fill(dt2);
+
+            ddlDepartment.DataSource = dt2;
+            ddlDepartment.DataTextField = "DeptName";
+            ddlDepartment.DataValueField = "DeptId";
+            ddlDepartment.DataBind();
+
+            ddlDepartment.Items.Insert(0, new ListItem("Select Department", "0"));
+            ddlDepartment.SelectedValue = deptId;
+
+            dbclass.Cn.Close();
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+
+    protected void ddlCompany_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            SqlCommand cmd = new SqlCommand("select DeptId, DeptName from Department where CompId = @id", dbclass.Cn);
+            cmd.Parameters.AddWithValue("@id", ddlCompany.SelectedValue);
+            dbclass.Cn.Open();
+            SqlDataAdapter sd = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sd.Fill(dt);
+
+            ddlDepartment.DataSource = dt;
+            ddlDepartment.DataTextField = "DeptName";
+            ddlDepartment.DataValueField = "DeptId";
+            ddlDepartment.DataBind();
+
+            ddlDepartment.Items.Insert(0, new ListItem("Select Department", "0"));
+
+            dbclass.Cn.Close();
+        }
+        catch(Exception ex)
+        {
+            throw ex;
+        }
+    }
+
+    protected void ddlCompany2_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            SqlCommand cmd = new SqlCommand("select DeptId, DeptName from Department where CompId = @id", dbclass.Cn);
+            cmd.Parameters.AddWithValue("@id", ddlCompany2.SelectedValue);
+            dbclass.Cn.Open();
+            SqlDataAdapter sd = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sd.Fill(dt);
+
+            ddlDepartment2.DataSource = dt;
+            ddlDepartment2.DataTextField = "DeptName";
+            ddlDepartment2.DataValueField = "DeptId";
+            ddlDepartment2.DataBind();
+
+
+            //ListItem liDepartment = new ListItem("Select a Department", "0");
+            //ddlDepartment.Items.Insert(0, liCompany);
+
+            ddlDepartment2.Items.Insert(0, new ListItem("Select Department", "0"));
+
+            dbclass.Cn.Close();
         }
         catch (Exception ex)
         {
