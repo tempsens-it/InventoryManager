@@ -13,182 +13,276 @@
 
     <div class="modal fade" id="defaultModal_1" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document" style="width: 1300px;">
-            <div class="block-header">
-            </div>
-            <!-- Basic Validation -->
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>UPDATE SUPPLIER</h2>
 
-                        </div>
-                        <div class="body">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="defaultModalLabel">UPDATE</h4>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#edit_with_icon_title_supplier" data-toggle="tab">
+                                <i class="material-icons">edit</i> UPDATE SUPPLIER
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#edit_with_icon_title_supplier_person" data-toggle="tab">
+                                <i class="material-icons">edit</i> UPDATE SUPPLIER PERSON
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="edit_with_icon_title_supplier">
+                            <br />
+                            <div class="row clearfix">
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>Id:</b>
+                                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                                <ContentTemplate>
+                                                    <asp:DropDownList ID="ddlIdSupplier" runat="server" class="form-control show-tick" AutoPostBack="true" OnSelectedIndexChanged="ddlIdSupplier_SelectedIndexChanged"></asp:DropDownList>
+                                                </ContentTemplate>
+                                            </asp:UpdatePanel>
 
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active">
-                                    <a href="#edit_with_icon_title_supplier" data-toggle="tab">
-                                        <i class="material-icons">edit</i> UPDATE SUPPLIER
-                                    </a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="#edit_with_icon_title_supplier_person" data-toggle="tab">
-                                        <i class="material-icons">edit</i> UPDATE SUPPLIER PERSON
-                                    </a>
-                                </li>
-                            </ul>
-
-                            <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane fade in active" id="edit_with_icon_title_supplier">
-                                    <br />
-                                    <div class="row clearfix">
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <b>Supplier Name</b>
-                                                    <asp:TextBox ID="tbSupplierName" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Name"></asp:TextBox>
-                                                </div>
-                                            </div>
                                         </div>
-
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <b>Supplier Address</b>
-                                                    <asp:TextBox ID="tbSupAdd" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Address"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <b>State</b>
-                                                    <asp:DropDownList ID="ddlState" runat="server" class="form-control show-tick" AutoPostBack="true" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" AppendDataBoundItems="true"></asp:DropDownList>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <b>City</b>
-                                                    <asp:DropDownList ID="ddlSupCity" runat="server" class="form-control show-tick" ></asp:DropDownList>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <b>PinCode</b>
-                                                    <asp:TextBox ID="tbSupPincode" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Pincode">
-                                                    </asp:TextBox>
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <b>Supplier Landline Number</b>
-                                                    <asp:TextBox ID="tbSupLandline" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Landline Number"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <b>Supplier Email Address</b>
-                                                    <asp:TextBox ID="tbSupEmail" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Email Address"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <b>GST Number</b>
-                                                    <asp:TextBox ID="tbGST" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="GST Number"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row clearfix">
-                                            <div class="col-sm-3">
-                                                <div class="form-group">
-                                                    <asp:Button ID="Button1" runat="server" Text="UPDATE" class="btn btn-primary m-t-15 waves-effect" OnClick="btnSubmit_Click" />
-                                                    &ensp;
-                                                    <button type="button" class="btn btn-primary m-t-15 waves-effect" data-dismiss="modal">CLOSE</button>
-                                                </div>
-                                            </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-10">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>Supplier Name</b>
+                                            <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
+                                                <ContentTemplate>
+                                                    <asp:TextBox ID="tbSupplierName" runat="server" class="form-control" placeholder="Name"></asp:TextBox>
+                                                </ContentTemplate>
+                                                <Triggers>
+                                                    <asp:AsyncPostBackTrigger ControlID="ddlIdSupplier" EventName="SelectedIndexChanged" />
+                                                </Triggers>
+                                            </asp:UpdatePanel>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div role="tabpanel" class="tab-pane fade" id="edit_with_icon_title_supplier_person">
-                                    <br />
-
-                                    <div class="row clearfix">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <b>Supplier Name</b>
-                                                    <asp:DropDownList ID="ddlSupplier" runat="server" class="form-control show-tick"></asp:DropDownList>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <b>Name:</b>
-                                                    <asp:TextBox ID="tbName" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Person's Name"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <b>Designation</b>
-                                                    <asp:TextBox ID="tbDesignation" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Designation"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <b>Mobile Number</b>
-                                                    <asp:TextBox ID="tbMobNum" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Mobile Number"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <b>Email Address</b>
-                                                    <asp:TextBox ID="tbEmail" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Email Address"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6"></div>
-
-                                        <div class="row clearfix">
-                                            <div class="col-sm-3">
-                                                <div class="form-group">
-                                                    <asp:Button ID="Button2" runat="server" Text="UPDATE" class="btn btn-primary m-t-15 waves-effect" OnClick="btnSubmit2_Click" />
-                                                    &ensp;
-                                                    <button type="button" class="btn btn-primary m-t-15 waves-effect" data-dismiss="modal">CLOSE</button>
-                                                </div>
-                                            </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>Supplier Address</b>
+                                            <asp:UpdatePanel ID="UpdatePanel3" runat="server" UpdateMode="Conditional">
+                                                <ContentTemplate>
+                                                    <asp:TextBox ID="tbSupAdd" runat="server" class="form-control" placeholder="Address"></asp:TextBox>
+                                                </ContentTemplate>
+                                                <Triggers>
+                                                    <asp:AsyncPostBackTrigger ControlID="ddlIdSupplier" EventName="SelectedIndexChanged" />
+                                                </Triggers>
+                                            </asp:UpdatePanel>
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>State</b>
+                                            <asp:UpdatePanel ID="UpdatePanel13" runat="server" UpdateMode="Conditional">
+                                                <ContentTemplate>
+                                                    <asp:DropDownList ID="ddlState" runat="server" class="form-control show-tick" AutoPostBack="true" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" AppendDataBoundItems="true"></asp:DropDownList>
+                                                </ContentTemplate>
+                                                <Triggers>
+                                                    <asp:AsyncPostBackTrigger ControlID="ddlIdSupplier" EventName="SelectedIndexChanged" />
+                                                </Triggers>
+                                            </asp:UpdatePanel>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>City</b>
+                                            <asp:UpdatePanel ID="UpdatePanel14" runat="server" UpdateMode="Conditional">
+                                                <ContentTemplate>
+                                                    <asp:DropDownList ID="ddlSupCity" runat="server" class="form-control show-tick"></asp:DropDownList>
+                                                </ContentTemplate>
+                                                <Triggers>
+                                                    <asp:AsyncPostBackTrigger ControlID="ddlState" EventName="SelectedIndexChanged" />
+                                                    <asp:AsyncPostBackTrigger ControlID="ddlIdSupplier" EventName="SelectedIndexChanged" />
+                                                </Triggers>
+                                            </asp:UpdatePanel>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>PinCode</b>
+                                            <asp:UpdatePanel ID="UpdatePanel4" runat="server" UpdateMode="Conditional">
+                                                <ContentTemplate>
+                                                    <asp:TextBox ID="tbSupPincode" runat="server" class="form-control" placeholder="Pincode"></asp:TextBox>
+                                                </ContentTemplate>
+                                                <Triggers>
+                                                    <asp:AsyncPostBackTrigger ControlID="ddlIdSupplier" EventName="SelectedIndexChanged" />
+                                                </Triggers>
+                                            </asp:UpdatePanel>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>Supplier Landline Number</b>
+                                            <asp:UpdatePanel ID="UpdatePanel5" runat="server" UpdateMode="Conditional">
+                                                <ContentTemplate>
+                                                    <asp:TextBox ID="tbSupLandline" runat="server" class="form-control" placeholder="Landline Number"></asp:TextBox>
+                                                </ContentTemplate>
+                                                <Triggers>
+                                                    <asp:AsyncPostBackTrigger ControlID="ddlIdSupplier" EventName="SelectedIndexChanged" />
+                                                </Triggers>
+                                            </asp:UpdatePanel>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>Supplier Email Address</b>
+                                            <asp:UpdatePanel ID="UpdatePanel6" runat="server" UpdateMode="Conditional">
+                                                <ContentTemplate>
+                                                    <asp:TextBox ID="tbSupEmail" runat="server" class="form-control" placeholder="Email Address"></asp:TextBox>
+                                                </ContentTemplate>
+                                                <Triggers>
+                                                    <asp:AsyncPostBackTrigger ControlID="ddlIdSupplier" EventName="SelectedIndexChanged" />
+                                                </Triggers>
+                                            </asp:UpdatePanel>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>GST Number</b>
+                                            <asp:UpdatePanel ID="UpdatePanel7" runat="server" UpdateMode="Conditional">
+                                                <ContentTemplate>
+                                                    <asp:TextBox ID="tbGST" runat="server" class="form-control" placeholder="GST Number"></asp:TextBox>
+                                                </ContentTemplate>
+                                                <Triggers>
+                                                    <asp:AsyncPostBackTrigger ControlID="ddlIdSupplier" EventName="SelectedIndexChanged" />
+                                                </Triggers>
+                                            </asp:UpdatePanel>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <asp:Button ID="Button2" runat="server" Text="UPDATE" class="btn btn-primary m-t-15 waves-effect" OnClick="btnSubmit_Click" />
+                                    <button type="button" class="btn btn-primary m-t-15 waves-effect" data-dismiss="modal">CLOSE</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div role="tabpanel" class="tab-pane fade" id="edit_with_icon_title_supplier_person">
+                            <br />
+                            <div class="row clearfix">
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>Id:</b>
+                                            <asp:UpdatePanel ID="UpdatePanel8" runat="server">
+                                                <ContentTemplate>
+                                                    <asp:DropDownList ID="ddlIdSupplierCnt" runat="server" class="form-control show-tick" AutoPostBack="true" OnSelectedIndexChanged="ddlIdSupplierCnt_SelectedIndexChanged"></asp:DropDownList>
+                                                </ContentTemplate>
+                                            </asp:UpdatePanel>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>Supplier Name</b>
+                                            <asp:UpdatePanel ID="UpdatePanel15" runat="server" UpdateMode="Conditional">
+                                                <ContentTemplate>
+                                                    <asp:TextBox ID="tbSupplier" runat="server" class="form-control" placeholder="Supplier's Name"></asp:TextBox>
+                                                </ContentTemplate>
+                                                <Triggers>
+                                                    <asp:AsyncPostBackTrigger ControlID="ddlIdSupplierCnt" EventName="SelectedIndexChanged" />
+                                                </Triggers>
+                                            </asp:UpdatePanel>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>Name:</b>
+                                            <asp:UpdatePanel ID="UpdatePanel9" runat="server" UpdateMode="Conditional">
+                                                <ContentTemplate>
+                                                    <asp:TextBox ID="tbName" runat="server" class="form-control" placeholder="Person's Name"></asp:TextBox>
+                                                </ContentTemplate>
+                                                <Triggers>
+                                                    <asp:AsyncPostBackTrigger ControlID="ddlIdSupplierCnt" EventName="SelectedIndexChanged" />
+                                                </Triggers>
+                                            </asp:UpdatePanel>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>Designation</b>
+                                            <asp:UpdatePanel ID="UpdatePanel10" runat="server" UpdateMode="Conditional">
+                                                <ContentTemplate>
+                                                    <asp:TextBox ID="tbDesignation" runat="server" class="form-control" placeholder="Designation"></asp:TextBox>
+                                                </ContentTemplate>
+                                                <Triggers>
+                                                    <asp:AsyncPostBackTrigger ControlID="ddlIdSupplierCnt" EventName="SelectedIndexChanged" />
+                                                </Triggers>
+                                            </asp:UpdatePanel>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>Mobile Number</b>
+                                            <asp:UpdatePanel ID="UpdatePanel11" runat="server" UpdateMode="Conditional">
+                                                <ContentTemplate>
+                                                    <asp:TextBox ID="tbMobNum" runat="server" class="form-control" placeholder="Mobile Number"></asp:TextBox>
+                                                </ContentTemplate>
+                                                <Triggers>
+                                                    <asp:AsyncPostBackTrigger ControlID="ddlIdSupplierCnt" EventName="SelectedIndexChanged" />
+                                                </Triggers>
+                                            </asp:UpdatePanel>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <b>Email Address</b>
+                                            <asp:UpdatePanel ID="UpdatePanel12" runat="server" UpdateMode="Conditional">
+                                                <ContentTemplate>
+                                                    <asp:TextBox ID="tbEmail" runat="server" class="form-control" placeholder="Email Address"></asp:TextBox>
+                                                </ContentTemplate>
+                                                <Triggers>
+                                                    <asp:AsyncPostBackTrigger ControlID="ddlIdSupplierCnt" EventName="SelectedIndexChanged" />
+                                                </Triggers>
+                                            </asp:UpdatePanel>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <asp:Button ID="Button1" runat="server" Text="UPDATE" class="btn btn-primary m-t-15 waves-effect" OnClick="btnSubmit_Click" />
+                                    <button type="button" class="btn btn-primary m-t-15 waves-effect" data-dismiss="modal">CLOSE</button>
                                 </div>
                             </div>
                         </div>
@@ -208,7 +302,16 @@
                 <div class="header">
                     <h2>Supplier
                     </h2>
-
+                    <ul class="header-dropdown m-r--5">
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <i class="material-icons">more_vert</i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                                <li><a href="#" data-toggle="modal" data-target="#defaultModal_1">Edit</a></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
                 <div class="body">
                     <!-- Nav tabs -->
@@ -296,7 +399,11 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <b>State</b>
-                                            <asp:DropDownList ID="ddlState2" runat="server" class="form-control show-tick" AppendDataBoundItems="true" AutoPostBack="true" OnSelectedIndexChanged="ddlState2_SelectedIndexChanged"></asp:DropDownList>
+                                            <asp:UpdatePanel ID="UpdatePanel16" runat="server">
+                                                <ContentTemplate>
+                                                    <asp:DropDownList ID="ddlState2" runat="server" class="form-control show-tick" AppendDataBoundItems="true" AutoPostBack="true" OnSelectedIndexChanged="ddlState2_SelectedIndexChanged"></asp:DropDownList>
+                                                </ContentTemplate>
+                                            </asp:UpdatePanel>
                                         </div>
                                     </div>
                                 </div>
@@ -305,7 +412,14 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <b>City</b>
-                                            <asp:DropDownList ID="ddlSupCity2" runat="server" class="form-control show-tick" AppendDataBoundItems="true"></asp:DropDownList>
+                                            <asp:UpdatePanel ID="UpdatePanel17" runat="server" UpdateMode="Conditional">
+                                                <ContentTemplate>
+                                                    <asp:DropDownList ID="ddlSupCity2" runat="server" class="form-control show-tick" AppendDataBoundItems="true"></asp:DropDownList>
+                                                </ContentTemplate>
+                                                <Triggers>
+                                                    <asp:AsyncPostBackTrigger ControlID="ddlState2" EventName="SelectedIndexChanged" />
+                                                </Triggers>
+                                            </asp:UpdatePanel>
                                         </div>
                                     </div>
                                 </div>
@@ -332,7 +446,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <b>Supplier Email Address</b>
-                                            <asp:TextBox ID="tbSupEmail2" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Email Address"></asp:TextBox>
+                                            <asp:TextBox ID="tbSupEmail2" runat="server" class="form-control" placeholder="Email Address"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -341,7 +455,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <b>GST Number</b>
-                                            <asp:TextBox ID="tbGST2" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="GST Number"></asp:TextBox>
+                                            <asp:TextBox ID="tbGST2" runat="server" class="form-control" placeholder="GST Number"></asp:TextBox>
 
                                         </div>
                                     </div>
@@ -363,7 +477,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <b>Name:</b>
-                                            <asp:TextBox ID="tbName2" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Person's Name"></asp:TextBox>
+                                            <asp:TextBox ID="tbName2" runat="server" class="form-control" placeholder="Person's Name"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -372,7 +486,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <b>Designation</b>
-                                            <asp:TextBox ID="tbDesignation2" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Designation"></asp:TextBox>
+                                            <asp:TextBox ID="tbDesignation2" runat="server" class="form-control" placeholder="Designation"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -381,7 +495,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <b>Mobile Number</b>
-                                            <asp:TextBox ID="tbMobNum2" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Mobile Number"></asp:TextBox>
+                                            <asp:TextBox ID="tbMobNum2" runat="server" class="form-control" placeholder="Mobile Number"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -390,7 +504,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <b>Email Address</b>
-                                            <asp:TextBox ID="tbEmail2" runat="server" Style="text-transform: capitalize" class="form-control" placeholder="Email Address"></asp:TextBox>
+                                            <asp:TextBox ID="tbEmail2" runat="server" class="form-control" placeholder="Email Address"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
