@@ -2,6 +2,15 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
+    <script type="text/javascript">
+
+        function delete_id(PartConfigId) {
+            if (confirm('Sure To Remove This  ?')) {
+                window.location.href = 'ConfigurationalMaster.aspx?delete_id=' + PartConfigId
+            }
+        }
+    </script>
+
     <div class="modal fade" id="defaultModal_1" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document" style="width: 1300px;">
             <div class="block-header">
@@ -20,11 +29,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <b>Part Name</b>
-                                            <asp:DropDownList ID="DropDownListPartName" runat="server" class="form-control show-tick">
-                                                <asp:ListItem>Mustard</asp:ListItem>
-                                                <asp:ListItem>Ketchup</asp:ListItem>
-                                                <asp:ListItem>Relish</asp:ListItem>
-                                                
+                                            <asp:DropDownList ID="ddlPartName" runat="server" class="form-control show-tick">
                                             </asp:DropDownList>
                                         </div>
                                     </div>
@@ -34,11 +39,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <b>Specification 1</b>
-                                            <asp:DropDownList ID="DropDownListSpecs1" runat="server" class="form-control show-tick">
-                                                <asp:ListItem>Intel i3</asp:ListItem>
-                                                <asp:ListItem>AMD Ryzen</asp:ListItem>
-                                                <asp:ListItem>Intel i5</asp:ListItem>
-                                                
+                                            <asp:DropDownList ID="ddlSpecs1" runat="server" class="form-control show-tick">
                                             </asp:DropDownList>
                                         </div>
                                     </div>
@@ -48,11 +49,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <b>Specification 2</b>
-                                            <asp:DropDownList ID="DropDownListSpecs2" runat="server" class="form-control show-tick">
-                                                <asp:ListItem>DDR4 4GB</asp:ListItem>
-                                                <asp:ListItem>DDR3 4GB</asp:ListItem>
-                                                <asp:ListItem>DDR4 8GB</asp:ListItem>
-                                                
+                                            <asp:DropDownList ID="ddlSpecs2" runat="server" class="form-control show-tick">
                                             </asp:DropDownList>
                                         </div>
                                     </div>
@@ -62,11 +59,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <b>Specification 3</b>
-                                            <asp:DropDownList ID="DropDownListSpecs3" runat="server" class="form-control show-tick">
-                                                <asp:ListItem>1</asp:ListItem>
-                                                <asp:ListItem>500</asp:ListItem>
-                                                <asp:ListItem>300</asp:ListItem>
-                                                
+                                            <asp:DropDownList ID="ddlSpecs3" runat="server" class="form-control show-tick">
                                             </asp:DropDownList>
                                         </div>
                                     </div>
@@ -137,7 +130,7 @@
                                             <table id="table_1" class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                                 <thead>
                                                     <tr>
-                                                        <th>Brand ID</th>
+                                                        <th>Part Config ID</th>
                                                         <th>Part Name</th>
                                                         <th>Specification 1</th>
                                                         <th>Specification 2</th>
@@ -158,65 +151,54 @@
                         <div role="tabpanel" class="tab-pane fade" id="profile_with_icon_title">
                             <br />
                             <div class="row clearfix">
-                                
-
                                 <div class="col-md-6">
-                                    <label for="config_partName">Part Name</label>
-                                    <select class="form-control show-tick">
-                                        <option>Mustard</option>
-                                        <option>Ketchup</option>
-                                        <option>Relish</option>
-                                    </select>
+                                  
+                                     <div class="form-group">
+                                        <div class="form-line">
+                                          <label for="config_specs1">Part Name</label>  
+                                      <asp:DropDownList ID="ddlPart" runat="server" class="form-control show-tick"></asp:DropDownList>
                                 </div>
+                                         </div>
+                                    </div>
 
                                 <div class="col-md-6">
                                     <label for="config_specs1">Specification 1</label>
-                                    <select class="form-control show-tick">
-                                        <option>Intel i3</option>
-                                        <option>AMD Ryzen</option>
-                                        <option>Intel i5</option>
-                                    </select>
+                                    <asp:DropDownList ID="ddlSpec1" runat="server" class="form-control show-tick"></asp:DropDownList>
                                 </div>
-
+                                 </div>
+                            <div class="row clearfix">
                                 <div class="col-md-6">
                                     <label for="config_specs2">Specification 2</label>
-                                    <select class="form-control show-tick">
-                                        <option>DDR4 4GB</option>
-                                        <option>DDR3 4GB</option>
-                                        <option>DDR4 8GB</option>
-                                    </select>
+                                    <asp:DropDownList ID="ddlSpec2" runat="server" class="form-control show-tick"></asp:DropDownList>
                                 </div>
 
                                 <div class="col-md-6">
                                     <label for="config_specs3">Specification 3</label>
-                                    <select class="form-control show-tick">
-                                        <option>1</option>
-                                        <option>500</option>
-                                        <option>300</option>
-                                    </select>
+                                    <asp:DropDownList ID="ddlSpec3" runat="server" class="form-control show-tick"></asp:DropDownList>
                                 </div>
-
-                                <div class="col-md-12">
+                                </div>
+                            <div class="row clearfix">
+                                <div class="col-md-6">
                                     <label for="config_descript">Description</label>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" id="config_descript" class="form-control" placeholder="Description">
+                                            <asp:TextBox ID="txtDesc2" runat="server" class="form-control" placeholder="Description"></asp:TextBox>
                                         </div>
+                                       
                                     </div>
                                 </div>
-                            </div>
-
-                            <button type="button" class="btn btn-primary m-t-15 waves-effect">SAVE</button>
                         </div>
-
-                    </div>
-
+                             <asp:Button ID="BtnSave" runat="server" Text="SAVE" class="btn btn-primary m-t-15 waves-effect" OnClick="btnSave_Click"  />
+                       
+               
                     
                 </div>
 
             </div>
         </div>
     </div>
+            </div>
+        </div>
 
 
 </asp:Content>

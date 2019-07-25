@@ -145,6 +145,7 @@ public class db
             cmd.Connection = Cn;
             cmd.CommandText = "Select Max(" + columnName + ") From " + tableName;
             maxid = Convert.ToInt16(cmd.ExecuteScalar().ToString());
+          //  int newid = (maxid + 1);
 
         }
         catch (Exception ex)
@@ -376,6 +377,7 @@ public class db
         String date = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.sss");
         try
         {
+            
             Cn.Open();
             cmd.CommandText = "UPDATE [dbo].[PartMaster] SET[PartName] = '" + partname + "' ,[CatId]  =" + CatId + " ,[Description] = '" + Desc + "' ,[CreateDate] = '" + date + "' ,[UserId] = 1  WHERE partID = " + partId + " ";
             cmd.Connection = Cn;
@@ -391,16 +393,25 @@ public class db
     public void insertPartConfig(int partId, string Spec1, string Spec2, string Spec3, string Desc)
     {
         String date = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.sss");
+        int maxId1 = 0;
+        Cn.Open();
+        string s = "select max(PartConfigId) from PartConfig";
+        cmd = new SqlCommand(s, Cn);
+        maxId1 = Convert.ToInt16(cmd.ExecuteScalar().ToString());
+        int newid = (maxId1 + 1);
+
         try
         {
-            Cn.Open();
-            cmd.CommandText = " INSERT INTO[dbo].[PartConfig] ([PartId] ,[Spec1] ,[Spec2] ,[Spec3] ,[Description] ,[CreateDate] ,[UserId]) VALUES (" + partId + ",'" + Spec1 + "','" + Spec2 + "','" + Spec3 + "','" + Desc + "', ' " + date + "', 1)";
+            //maxId = SelectMaxId("PartConfig", "PartConfigId");
+           // Cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["IT_Inventory"].ConnectionString);
+           
+            cmd.CommandText = " INSERT INTO[dbo].[PartConfig] ([PartConfigId],[PartId] ,[Spec1] ,[Spec2] ,[Spec3] ,[Description] ,[CreateDate] ,[UserId]) VALUES ( '"+ newid + "','" + partId + "','" + Spec1 + "','" + Spec2 + "','" + Spec3 + "','" + Desc + "', ' " + date + "', 1)";
             cmd.Connection = Cn;
             cmd.ExecuteNonQuery();
         }
         catch (Exception ex)
         {
-            Console.Write(ex.Message);
+            throw ex;
         }
         Cn.Close();
     }

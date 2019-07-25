@@ -5,7 +5,7 @@
     <script type="text/javascript">
 
         function delete_id(partId) {
-            if (confirm('Sure To Remove This Employee ?')) {
+            if (confirm('Sure To Remove This ?')) {
                 window.location.href = 'PartMaster.aspx?delete_id=' + partId
             }
         }
