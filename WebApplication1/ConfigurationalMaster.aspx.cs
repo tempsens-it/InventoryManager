@@ -16,10 +16,12 @@ public partial class ConfigurationalMaster : System.Web.UI.Page
         if (!IsPostBack)
         {
             Delete_data();
-            BindSpec1();
-            BindSpec2();
-            BindSpec3();
+           // BindSpec1();
+           // BindSpec2();
+            //BindSpec3();
             BindPartName();
+            BindId();
+            
         }
 
     }
@@ -41,6 +43,8 @@ public partial class ConfigurationalMaster : System.Web.UI.Page
         }
     }
 
+   
+
     private void BindPartName()
     {
         try
@@ -55,6 +59,36 @@ public partial class ConfigurationalMaster : System.Web.UI.Page
             ddlPart.DataValueField = "PartId";
             ddlPart.DataBind();
             ddlPart.Items.Insert(0, new ListItem("--Select PartName--", "0"));
+
+            ddlPartName.DataSource = dt;
+            ddlPartName.DataTextField = "partname";
+            ddlPartName.DataValueField = "PartId";
+            ddlPartName.DataBind();
+            ddlPartName.Items.Insert(0, new ListItem("--Select PartName--", "0"));
+
+
+            dbclass.Cn.Close();
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+
+    private void BindId()
+    {
+        try
+        {
+
+            SqlCommand cmd = new SqlCommand("select PartConfigId from PartConfig order by PartConfigId ASC", dbclass.Cn);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            ddlId.DataSource = dt;
+            ddlId.DataTextField = "PartConfigId";
+            ddlId.DataValueField = "PartConfigId";
+            ddlId.DataBind();
+            ddlId.Items.Insert(0, new ListItem("--Select Id No.--", "0"));
             dbclass.Cn.Close();
         }
         catch (Exception ex)
@@ -79,6 +113,7 @@ public partial class ConfigurationalMaster : System.Web.UI.Page
                 string spec2 = sd["Spec2"].ToString();
                 string spec3 = sd["Spec3"].ToString();
                 string desc = sd["Description"].ToString();
+               
 
                 data += "<tr><td>";
                 data += partConfigId;
@@ -94,6 +129,7 @@ public partial class ConfigurationalMaster : System.Web.UI.Page
                 data += desc;
                 data += "</td><td>";
                 data += "&nbsp; <a href='javascript:delete_id(" + partConfigId + ")'><i class='material-icons'>delete</i></a>";
+               
                 data += "</td></tr>";
 
             }
@@ -108,88 +144,153 @@ public partial class ConfigurationalMaster : System.Web.UI.Page
     
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
+        try
+        {
+            //String date = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.sss");
+            //SqlCommand cmd = new SqlCommand("UPDATE [dbo].[PartConfig] SET[PartId] = " + ddlPart.SelectedItem.Value + " ,[Spec1]  ='" + ddlSpec1.SelectedItem.Value + "' ,[Spec2]  ='" + ddlSpec2.SelectedItem.Value + "' ,[Spec3]  ='" + ddlSpec3.SelectedItem.Value + "' ,[Description] = '" + txtDesc2.Text + "' ,[CreateDate] = '" + date + "' ,[UserId] = 1  WHERE PartConfigId = " + ddlId + " ",dbclass.Cn);
+
+            //cmd.ExecuteNonQuery();
+
+             dbclass.UpdatePartConfig(Convert.ToInt32(ddlPartName.SelectedItem.Value), TxtDesc.Text, ddlSpecs1.Text, ddlSpecs2.Text, ddlSpecs3.Text, Convert.ToInt32(ddlId.SelectedItem.Value));
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
 
     }
 
+    protected void ddlId_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            SqlCommand cmd = new SqlCommand("select * from PartConfig where PartConfigId= @Id", dbclass.Cn);
+            cmd.Parameters.AddWithValue("@Id", ddlId.SelectedValue);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            dbclass.Cn.Open();
+            cmd.ExecuteNonQuery();
+            ddlId.SelectedValue = dt.Rows[0]["PartConfigId"].ToString();
+            string partname = dt.Rows[0]["PartId"].ToString();
+            ddlPartName.SelectedValue = partname;
+
+            //ddlPartName.SelectedValue = dt.Rows[0]["PartId"].ToString();
+            ddlSpecs1.Text = dt.Rows[0]["Spec1"].ToString();
+            ddlSpecs2.Text = dt.Rows[0]["Spec2"].ToString();
+            ddlSpecs3.Text = dt.Rows[0]["Spec3"].ToString();
+            TxtDesc.Text = dt.Rows[0]["Description"].ToString();
+            
+            dbclass.Cn.Close();
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+
+
+
+
+
     protected void btnSave_Click(object sender, EventArgs e)
     {
-        //dbclass.insertPartConfig("PartId", "Spec1", "Spec2", "Spec3","Description", ddlPart.SelectedItem.Value, ddlSpec1.SelectedItem.Value, ddlSpec2.SelectedItem.Value, ddlSpec3.SelectedItem.Value,txtDesc2.Text);
-        dbclass.insertPartConfig(ddlPart.SelectedIndex,ddlSpec1.SelectedItem.Value,ddlSpec2.SelectedItem.Value,ddlSpec3.SelectedItem.Value,txtDesc2.Text);
+
+        //dbclass.insertPartConfig(ddlPart.SelectedIndex,ddlSpec1.SelectedItem.Value,ddlSpec2.SelectedItem.Value,ddlSpec3.SelectedItem.Value,txtDesc2.Text);
+        dbclass.insertPartConfig(ddlPart.SelectedIndex, ddlSpec1.Text, ddlSpec2.Text, ddlSpec3.Text, txtDesc2.Text);
 
         ddlPart.SelectedIndex = 0;
         txtDesc2.Text = null;
-        ddlSpec1.SelectedIndex = 0;
-        ddlSpec2.SelectedIndex = 0;
-        ddlSpec3.SelectedIndex = 0;
+        ddlSpec1.Text = null;
+        ddlSpec2.Text = null;
+        ddlSpec3.Text = null;
         
 
     }
 
-    private void BindSpec1()
-    {
-        try
-        {
+    //private void BindSpec1()
+    //{
+    //    try
+    //    {
 
-            SqlCommand cmd = new SqlCommand("select spec1 from PartConfig order by spec1 ASC", dbclass.Cn);
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            ddlSpec1.DataSource = dt;
-            ddlSpec1.DataTextField = "spec1";
-            ddlSpec1.DataValueField = "spec1";
-            ddlSpec1.DataBind();
-            ddlSpec1.Items.Insert(0, new ListItem("--Select Id No.--", "0"));
-            dbclass.Cn.Close();
-        }
-        catch (Exception ex)
-        {
-            throw ex;
-        }
-    }
+    //        SqlCommand cmd = new SqlCommand("select spec1 from PartConfig order by spec1 ASC", dbclass.Cn);
+    //        SqlDataAdapter sda = new SqlDataAdapter(cmd);
+    //        DataTable dt = new DataTable();
+    //        sda.Fill(dt);
+    //        //ddlSpec1.DataSource = dt;
+    //        //ddlSpec1.DataTextField = "spec1";
+    //        //ddlSpec1.DataValueField = "spec1";
+    //        //ddlSpec1.DataBind();
+    //        //ddlSpec1.Items.Insert(0, new ListItem("--Select Spec1--", "0"));
 
-    private void BindSpec2()
-    {
-        try
-        {
+    //        ddlSpecs1.DataSource = dt;
+    //        ddlSpecs1.DataTextField = "spec1";
+    //        ddlSpecs1.DataValueField = "spec1";
+    //        ddlSpecs1.DataBind();
+    //        ddlSpecs1.Items.Insert(0, new ListItem("--Select Spec1--", "0"));
+    //        dbclass.Cn.Close();
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        throw ex;
+    //    }
+    //}
 
-            SqlCommand cmd = new SqlCommand("select spec2 from PartConfig order by spec2 ASC", dbclass.Cn);
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            ddlSpec2.DataSource = dt;
-            ddlSpec2.DataTextField = "spec2";
-            ddlSpec2.DataValueField = "spec2";
-            ddlSpec2.DataBind();
-            ddlSpec2.Items.Insert(0, new ListItem("--Select Id No.--", "0"));
-            dbclass.Cn.Close();
-        }
-        catch (Exception ex)
-        {
-            throw ex;
-        }
-    }
+    //private void BindSpec2()
+    //{
+    //    try
+    //    {
 
-    private void BindSpec3()
-    {
-        try
-        {
+    //        SqlCommand cmd = new SqlCommand("select spec2 from PartConfig order by spec2 ASC", dbclass.Cn);
+    //        SqlDataAdapter sda = new SqlDataAdapter(cmd);
+    //        DataTable dt = new DataTable();
+    //        sda.Fill(dt);
+    //        //ddlSpec2.DataSource = dt;
+    //        //ddlSpec2.DataTextField = "spec2";
+    //        //ddlSpec2.DataValueField = "spec2";
+    //        //ddlSpec2.DataBind();
+    //        //ddlSpec2.Items.Insert(0, new ListItem("--Select Id No.--", "0"));
 
-            SqlCommand cmd = new SqlCommand("select spec3 from PartConfig order by spec3 ASC", dbclass.Cn);
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            ddlSpec3.DataSource = dt;
-            ddlSpec3.DataTextField = "spec3";
-            ddlSpec3.DataValueField = "spec3";
-            ddlSpec3.DataBind();
-            ddlSpec3.Items.Insert(0, new ListItem("--Select Id No.--", "0"));
-            dbclass.Cn.Close();
-        }
-        catch (Exception ex)
-        {
-            throw ex;
-        }
-    }
+    //        ddlSpecs2.DataSource = dt;
+    //        ddlSpecs2.DataTextField = "spec2";
+    //        ddlSpecs2.DataValueField = "spec2";
+    //        ddlSpecs2.DataBind();
+    //        ddlSpecs2.Items.Insert(0, new ListItem("--Select Spec2--", "0"));
+    //        dbclass.Cn.Close();
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        throw ex;
+    //    }
+    //}
+
+    //private void BindSpec3()
+    //{
+    //    try
+    //    {
+
+    //        SqlCommand cmd = new SqlCommand("select spec3 from PartConfig order by spec3 ASC", dbclass.Cn);
+    //        SqlDataAdapter sda = new SqlDataAdapter(cmd);
+    //        DataTable dt = new DataTable();
+    //        sda.Fill(dt);
+    //        //ddlSpec3.DataSource = dt;
+    //        //ddlSpec3.DataTextField = "spec3";
+    //        //ddlSpec3.DataValueField = "spec3";
+    //        //ddlSpec3.DataBind();
+    //        //ddlSpec3.Items.Insert(0, new ListItem("--Select Id No.--", "0"));
+
+    //        ddlSpecs3.DataSource = dt;
+    //        ddlSpecs3.DataTextField = "spec3";
+    //        ddlSpecs3.DataValueField = "spec3";
+    //        ddlSpecs3.DataBind();
+    //        ddlSpecs3.Items.Insert(0, new ListItem("--Select Spec3--", "0"));
+    //        dbclass.Cn.Close();
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        throw ex;
+    //    }
+    //}
 
     
 

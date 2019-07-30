@@ -416,7 +416,7 @@ public class db
         Cn.Close();
     }
 
-    public void UpdatePartConfig(string partid, string Desc, string Spec1, string Spec2, string Spec3, int PartConfigId)
+    public void UpdatePartConfig(int partid, string Desc, string Spec1, string Spec2, string Spec3, int PartConfigId)
     {
         String date = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.sss");
         try
